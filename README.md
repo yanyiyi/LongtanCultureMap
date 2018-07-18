@@ -1,3 +1,3 @@
 # GoogleMapApi
-*https://depolk.github.io/GoogleMapApi/
-*doge.yzu.us
+- https://depolk.github.io/GoogleMapApi/
+- doge.yzu.us
