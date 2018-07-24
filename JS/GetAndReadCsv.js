@@ -61,6 +61,7 @@ function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, I) {
 } //end CsvToArray 將csv資料傳入陣列中
 
 var markerArray =[];
+var markerArrayInnerContent =[];
 var INum = 0;
 var marker;
 var InfoBoxContent;
@@ -121,8 +122,7 @@ function GetItemsFromGeoData() {
                  infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
                 IsMarkerOpen = true;
                 this.setAnimation(null);
-                console.log("IsMarkerOpen:"+IsMarkerOpen);
-                
+                console.log("IsMarkerOpen:"+IsMarkerOpen);      
             }
         }); //end marker.addListener 點擊事件
         
@@ -130,15 +130,29 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         });// end Click
+        markerArrayInnerContent.push([items[7],items[4],items[6]]);// items[7] title , items[4] text , items[6] img 將此INum的參數暫存至陣列之中
+        
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
+        markerArrayClickAdd(INum);//將當前是排序的數字INum帶入點擊事件涵式中新增事件
         google.maps.event.addListener(marker,"click",function(){});
         MarkerSelect(marker, GeoData[INum][5]); //讀取GeoData[INum][5] 亦即試算表中的type 進涵式判斷
     } // end for
     
-//console.log(markerArray.length);
 
 } // end GetItemsFromGeoData 將資料從陣列拿出後並加上marker
 
+
+function markerArrayClickAdd (NowNum){
+    console.log(markerArrayInnerContent);
+    markerArray[NowNum].addListener('click',function(){
+        document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
+        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][2];
+        //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
+        
+    }); //end markerArray.addListener
+
+} // end markerArrayClickAdd
 
 var ClickValue = 0;
 var RedDia;

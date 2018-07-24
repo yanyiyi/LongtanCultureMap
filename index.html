@@ -9,9 +9,8 @@
         html,
         body,
         #map-canvas {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+            height:100% ;
+            width: 800px;
         }
 
         #map-iconTip img {
@@ -192,6 +191,34 @@
             
         }
         /*Infowindow css end*/
+        /*InfoContent start*/
+        #InfoContent{
+            position: absolute;
+            height: 100%;
+            width: 770px;
+            background-color: bisque;
+            margin-left: 800px;
+            text-align: center;
+        }
+        #ContentImg{
+            width: 500px;
+            height: 500px;
+        }
+        #ContentTitle{
+            font-family: 微軟正黑體;
+            font-size: 50px;
+        }
+        #ContentText{
+            font-family: 微軟正黑體;
+            font-size: 20px;
+            overflow: scroll; /*當字體超出限定範圍時，所採用的方法*/
+            height: 190px;
+            width: 740px;
+            text-align: left;
+            margin: 30px;
+            margin-bottom: 0px;
+        }
+        /*InfoContent end*/
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -508,6 +535,7 @@
     </div>
 -->
 
+    
 
     <div id="menu">
         <p id="Red_Diamond"></p>
@@ -521,6 +549,14 @@
 
     </div>
 
+   <div id="InfoContent">
+       
+       <div id="ContentTitle">我是標題</div>
+       <img id="ContentImg" src="TestIcon/noneImg.png">
+       <div id="ContentText">我是內文</div>
+       
+   </div>
+   
     <div id="map-canvas"></div>
 
     <!--    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBputq9w31cD2XzhNGVPdzL0x9xGz8xkiM&q=桃園文化局" allowfullscreen></iframe>-->
