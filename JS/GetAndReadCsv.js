@@ -9,6 +9,7 @@ $(document).ready(function () {
         var aType = [];
         var aImg = [];
         var aInfoTitle = [];
+        var aInfoContent = [];
         var dataAmount = 0;
 
         //console.log("w");
@@ -26,11 +27,13 @@ $(document).ready(function () {
                     aTextdata[i] = dataLog.feed.entry[i].gsx$textdata.$t;
                     aType[i] = dataLog.feed.entry[i].gsx$type.$t; 
                     aImg[i] = dataLog.feed.entry[i].gsx$infoimage.$t;
-                    aInfoTitle[i] = dataLog.feed.entry[i].gsx$infotitle.$t; // 以上依照指定進行抓試算表裡面的資料
-                    $('#TextOutput').append("<br>" + aLatitude[i] + "," + aLongtitude[i] + "," + aTitle[i] + "," + aIcon[i] + "," + aTextdata[i] + "," +aType[i]+","+aImg[i]+","+aInfoTitle[i]);
+                    aInfoTitle[i] = dataLog.feed.entry[i].gsx$infotitle.$t;
+                    aInfoContent[i] = dataLog.feed.entry[i].gsx$infocontent.$t;
+                    // 以上依照指定進行抓試算表裡面的資料
+                    $('#TextOutput').append("<br>" + aLatitude[i] + "," + aLongtitude[i] + "," + aTitle[i] + "," + aIcon[i] + "," + aTextdata[i] + "," +aType[i]+","+aImg[i]+","+aInfoTitle[i]+","+aInfoContent[i]);
                     
                     
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i],aType[i],aImg[i],aInfoTitle[i], i); // 抓取資料到CsvToArray函數中
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i],aType[i],aImg[i],aInfoTitle[i],aInfoContent[i], i); // 抓取資料到CsvToArray函數中
 
                 } //end for
                 console.log(GeoData);
@@ -48,7 +51,7 @@ var items;
 var a = -1;
 
 
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, I) { 
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT,InfoC, I) { 
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
@@ -58,6 +61,7 @@ function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, I) {
     GeoData[I][5] = Typ;//此座標分類
     GeoData[I][6] = Img;//此座標infoimage
     GeoData[I][7] = InfoT;//此座標的Title
+    GeoData[I][8] = InfoC;//此座標的InfoContent
 } //end CsvToArray 將csv資料傳入陣列中
 
 var markerArray =[];
@@ -130,7 +134,7 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         });// end Click
-        markerArrayInnerContent.push([items[7],items[4],items[6]]);// items[7] title , items[4] text , items[6] img 將此INum的參數暫存至陣列之中
+        markerArrayInnerContent.push([items[7],items[8],items[6]]);// items[7] title items[8] Contenttext , items[6] img 將此INum的參數暫存至陣列之中
         
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum);//將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -147,6 +151,8 @@ function markerArrayClickAdd (NowNum){
     markerArray[NowNum].addListener('click',function(){
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g,"<br>");
+        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g,"\xa0");
         document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][2];
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
         

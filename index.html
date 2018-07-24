@@ -9,10 +9,13 @@
         html,
         body,
         #map-canvas {
-            height:100% ;
-            width: 800px;
+            height: 775px;
+            width: 1100px;
+            margin-left: 0;
         }
-
+        body{
+            background-color: rgba(128, 64, 0, 0.6);
+        }
         #map-iconTip img {
             z-index: 1;
             height: 30px;
@@ -194,26 +197,28 @@
         /*InfoContent start*/
         #InfoContent{
             position: absolute;
-            height: 100%;
-            width: 770px;
+            height: 775px;
+            width: 500px;
             background-color: bisque;
-            margin-left: 800px;
+            margin-left: 1100px;
             text-align: center;
         }
         #ContentImg{
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 300px;
         }
         #ContentTitle{
             font-family: 微軟正黑體;
             font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
         #ContentText{
             font-family: 微軟正黑體;
             font-size: 20px;
             overflow: scroll; /*當字體超出限定範圍時，所採用的方法*/
-            height: 190px;
-            width: 740px;
+            height: 355px;
+            width: 470px;
             text-align: left;
             margin: 30px;
             margin-bottom: 0px;
@@ -551,9 +556,9 @@
 
    <div id="InfoContent">
        
-       <div id="ContentTitle">我是標題</div>
-       <img id="ContentImg" src="TestIcon/noneImg.png">
-       <div id="ContentText">我是內文</div>
+       <div id="ContentTitle">點選想查詢的座標點</div>
+       <img id="ContentImg" src="./TestIcon/noneImg.png">
+       <div id="ContentText">這裡將會出現相關介紹</div>
        
    </div>
    
