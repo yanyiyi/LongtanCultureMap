@@ -13,8 +13,8 @@ $(document).ready(function () {
         var aInfoContent2 = [];
         var aInfoContent3 = [];
         var aContentTitle1 = [];
-        var aContentTitle2 =[];
-        var aContentTitle3 =[];
+        var aContentTitle2 = [];
+        var aContentTitle3 = [];
         var dataAmount = 0;
 
         //console.log("w");
@@ -41,7 +41,7 @@ $(document).ready(function () {
                     aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aContentTitle1[i], aContentTitle2[i],aContentTitle3[i],i); // 抓取資料到CsvToArray函數中
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], i); // 抓取資料到CsvToArray函數中
 
                 } //end for
                 console.log(GeoData);
@@ -59,7 +59,7 @@ var items;
 var a = -1;
 
 
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3,ConTit1,ConTit2,ConTit3, I) {
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3, ConTit1, ConTit2, ConTit3, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
@@ -146,7 +146,7 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         }); // end Click
-        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11],items[12],items[13],items[6]]); // items[7] title items[8] items[9] items[10] Contenttext ,items[11,12,13] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[6]]); // items[7] title items[8] items[9] items[10] Contenttext ,items[11,12,13] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -167,40 +167,43 @@ function markerArrayClickAdd(NowNum) {
         document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
         document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][7];
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
-        
+
         if (markerArrayInnerContent[NowNum][1] != null) {
             document.getElementById("InfoSelect1").innerHTML = markerArrayInnerContent[NowNum][4];
             document.getElementById("InfoSelect1").addEventListener('click', function () {
-            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
-        });
-        } 
-        else {
+                setTimeout(function () {
+                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+                }, 650);
+            });
+        } else {
             document.getElementById("ContentText").innerHTML = null;
         }
-        
+
         if (markerArrayInnerContent[NowNum][2] != null) {
             document.getElementById("InfoSelect2").innerHTML = markerArrayInnerContent[NowNum][5];
-        document.getElementById("InfoSelect2").addEventListener('click', function () {
-            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
-            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
-        });
-        } 
-        else {
+            document.getElementById("InfoSelect2").addEventListener('click', function () {
+                setTimeout(function () {
+                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+                }, 650);
+            });
+        } else {
             document.getElementById("ContentText").innerHTML = null;
         }
         if (markerArrayInnerContent[NowNum][3] != null) {
-                document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
+            document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
             document.getElementById("InfoSelect3").addEventListener('click', function () {
-                document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
-                document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-                document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+                setTimeout(function () {
+                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+                }, 650);
             });
 
-        } 
-        else {
+        } else {
             document.getElementById("ContentText").innerHTML = null;
         }
         //加入點擊詳細內容中的標題可以切換文章的功能
