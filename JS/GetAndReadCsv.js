@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $(function ReachSheet() {
 
+
         var aLatitude = [];
         var aLongtitude = [];
         var aTitle = [];
@@ -92,6 +93,7 @@ function InfoBoxContentInput() {
     items[4] = items[4].replace(/\s/g, "\xa0"); //將CSV中的空個符號\s換成no-break space \xa0 讓空格也可在infowindow中正常顯示
 
 
+
     InfoBoxContent = "<div id='InfoWindow'>" + "<img id='MapImage' src='" + items[6] + "'>" + "<h1 id='InfoTitle'>" + items[7] + "</h1>" + "<div id='InfoText'>" + items[4] + "</div>" + "</div>";
     //以上可以將想要的資訊依照格式置入後呈現在網頁中的infobox
 }
@@ -159,53 +161,78 @@ function GetItemsFromGeoData() {
 
 
 function markerArrayClickAdd(NowNum) {
+    var InfoSelectNum;
+    var InfoCheck;
+    var maxNum = 3;
     //console.log(markerArrayInnerContent);
     markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+        TextReplace(document.getElementById("ContentText"));
         document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][7];
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
-        if (markerArrayInnerContent[NowNum][1] != null) {
-            document.getElementById("InfoSelect1").innerHTML = markerArrayInnerContent[NowNum][4];
-            document.getElementById("InfoSelect1").addEventListener('click', function () {
-                setTimeout(function () {
-                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
-                }, 650);
-            });
-        } else {
-            document.getElementById("ContentText").innerHTML = null;
+
+        for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
+            document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
         }
 
-        if (markerArrayInnerContent[NowNum][2] != null) {
-            document.getElementById("InfoSelect2").innerHTML = markerArrayInnerContent[NowNum][5];
-            document.getElementById("InfoSelect2").addEventListener('click', function () {
+        for (var d = 1; d <= maxNum; d++) {
+            document.getElementById("InfoSelect" + d).addEventListener('click', function () {
                 setTimeout(function () {
-                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
-                }, 650);
-            });
-        } else {
-            document.getElementById("ContentText").innerHTML = null;
-        }
-        if (markerArrayInnerContent[NowNum][3] != null) {
-            document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
-            document.getElementById("InfoSelect3").addEventListener('click', function () {
-                setTimeout(function () {
-                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
-                    document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
-                }, 650);
-            });
+                    InfoCheck = d; // 必須找到如何偵測當前點擊的物件!!!
+                    for (var x = 1; x <= maxNum; x++) {
+                        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck];
+                        TextReplace(document.getElementById("ContentText"));
+                    }
+                }, 650); //end Timeout
+            }); //end click
+        } // end for
 
-        } else {
-            document.getElementById("ContentText").innerHTML = null;
-        }
+
+
+
+
+
+
+        /*  if (markerArrayInnerContent[NowNum][1] != null) {
+              document.getElementById("InfoSelect1").innerHTML = markerArrayInnerContent[NowNum][4];
+              document.getElementById("InfoSelect1").addEventListener('click', function () {
+                  setTimeout(function () {
+                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+                      TextReplace(document.getElementById("ContentText"));
+                      
+                  }, 650);
+              });
+          } else {
+              document.getElementById("ContentText").innerHTML = null;
+          }
+
+          if (markerArrayInnerContent[NowNum][2] != null) {
+              document.getElementById("InfoSelect2").innerHTML = markerArrayInnerContent[NowNum][5];
+              document.getElementById("InfoSelect2").addEventListener('click', function () {
+                  setTimeout(function () {
+                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
+                      TextReplace(document.getElementById("ContentText"));
+                  }, 650);
+              });
+          } else {
+              document.getElementById("ContentText").innerHTML = null;
+          }
+          if (markerArrayInnerContent[NowNum][3] != null) {
+              document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
+              document.getElementById("InfoSelect3").addEventListener('click', function () {
+                  setTimeout(function () {
+                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
+                      TextReplace(document.getElementById("ContentText"));
+                  }, 650);
+              });
+
+          } else {
+              document.getElementById("ContentText").innerHTML = null;
+          }*/
+
+
         //加入點擊詳細內容中的標題可以切換文章的功能
 
     }); //end markerArray.addListener
@@ -456,6 +483,12 @@ function MarkerSelect(TheMarker, TypeName) {
 
 
 } // end MarkerSelect 用來判斷甚麼座標分類該顯示
+
+function TextReplace(Content) {
+    Content.innerHTML = Content.innerHTML.replace(/\n|↵/g, "<br>");
+    Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0");
+    return Content;
+} // end TextReplace
 
 function MarkerReset() {
 

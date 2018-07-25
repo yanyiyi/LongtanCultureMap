@@ -159,9 +159,12 @@
             height: 370px;
             width: 50px;
             margin-top: -366px;
+            cursor: pointer;
             
         }
-
+        #menuBtn:hover{
+            opacity: 0.9;
+        }
         #menu p img {
             padding-top: -10px;
             height: 30px;
@@ -214,6 +217,7 @@
             font-size: 45px;
             margin-top: 10px;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         #ContentText{
             position: static;
@@ -226,6 +230,7 @@
             margin: 30px;
             margin-bottom: 0px;
             word-wrap: break-word;
+            background-color: rgba(128, 64, 0, 0.4);
         }
         #ContentBtn{
             position: absolute;
@@ -235,7 +240,14 @@
             text-align: left;
             z-index: 2;
             right:500px;
+            cursor: pointer;
             
+        }
+        #ContentBtn:hover{
+            opacity: 0.9;
+        }
+        #ContentText::-webkit-scrollbar{
+            display: none;
         }
         /*InfoContent end*/
         /*ContentSelect start*/
@@ -243,12 +255,14 @@
         #ContentSelect{
             text-align: left;
             margin-left: 10px;
+            margin-top: 10px;
             font-family: 微軟正黑體;
         }
         
         #ContentSelect a{
             margin-left: 15px;
-            
+            border-bottom: solid;
+            border-bottom-width: 2px;
         }
         #ContentSelect a:hover{
             cursor: pointer;
@@ -547,7 +561,7 @@
     
     <script>
         $(document).ready(function (){
-            var IsInfoContentOpen = false;
+            var IsInfoContentOpen = true;
             $('#ContentBtn').click(function() {
                 //console.log("menuClick");
                 if (IsInfoContentOpen) {
@@ -632,7 +646,7 @@
        <div id="ContentTitle">點選想查詢的座標點</div>
        <img id="ContentImg" src="./TestIcon/noneImg.png">
        <div id="ContentText">這裡將會出現相關介紹</div>
-       <div id="ContentSelect"><a id="InfoSelect1">這裡將會出現文章標題</a><a id="InfoSelect2"></a><a id="InfoSelect3"></a></div>
+       <div id="ContentSelect"><a id="InfoSelect1" value="1">這裡將會出現文章標題</a><a id="InfoSelect2" value="2"></a><a id="InfoSelect3" value="3"></a></div>
        
    </div>
    
