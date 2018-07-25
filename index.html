@@ -203,6 +203,7 @@
             background-color: bisque;
             margin-left: 1100px;
             text-align: center;
+            right: 0;
         }
         #ContentImg{
             width: 400px;
@@ -210,7 +211,7 @@
         }
         #ContentTitle{
             font-family: 微軟正黑體;
-            font-size: 50px;
+            font-size: 45px;
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -218,8 +219,8 @@
             position: static;
             font-family: 微軟正黑體;
             font-size: 20px;
-            overflow: scroll; /*當字體超出限定範圍時，所採用的方法*/
-            height: 350px;
+            overflow-y: scroll; /*當字體超出限定範圍時，所採用的方法*/
+            height: 250px;
             width: 450px;
             text-align: left;
             margin: 30px;
@@ -234,8 +235,23 @@
             text-align: left;
             z-index: 2;
             margin-left: -300px;
+            
         }
         /*InfoContent end*/
+        /*ContentSelect start*/
+        
+        #ContentSelect{
+            text-align: left;
+            margin-left: 10px;
+        }
+        
+        #ContentSelect a{
+            margin-left: 15px;
+            
+        }
+        
+        /*ContentSelect end*/
+        
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -574,8 +590,6 @@
     </div>
 -->
 
-    
-
     <div id="menu">
         <p id="Red_Diamond"></p>
         <p id="YBGR_Group"></p>
@@ -589,10 +603,11 @@
     </div>
 
    <div id="InfoContent">
-       <img id="ContentBtn" src="./TestIcon/menuBtn.png">
+       <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
        <div id="ContentTitle">點選想查詢的座標點</div>
        <img id="ContentImg" src="./TestIcon/noneImg.png">
        <div id="ContentText">這裡將會出現相關介紹</div>
+       <div id="ContentSelect"><a id="InfoSelect1">這裡將會出現文章標題</a><a id="InfoSelect2"></a><a id="InfoSelect3"></a></div>
        
    </div>
    

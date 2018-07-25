@@ -10,6 +10,11 @@ $(document).ready(function () {
         var aImg = [];
         var aInfoTitle = [];
         var aInfoContent = [];
+        var aInfoContent2 = [];
+        var aInfoContent3 = [];
+        var aContentTitle1 = [];
+        var aContentTitle2 =[];
+        var aContentTitle3 =[];
         var dataAmount = 0;
 
         //console.log("w");
@@ -25,19 +30,22 @@ $(document).ready(function () {
                     aTitle[i] = dataLog.feed.entry[i].gsx$tit.$t;
                     aIcon[i] = dataLog.feed.entry[i].gsx$ico.$t;
                     aTextdata[i] = dataLog.feed.entry[i].gsx$textdata.$t;
-                    aType[i] = dataLog.feed.entry[i].gsx$type.$t; 
+                    aType[i] = dataLog.feed.entry[i].gsx$type.$t;
                     aImg[i] = dataLog.feed.entry[i].gsx$infoimage.$t;
                     aInfoTitle[i] = dataLog.feed.entry[i].gsx$infotitle.$t;
                     aInfoContent[i] = dataLog.feed.entry[i].gsx$infocontent.$t;
+                    aInfoContent2[i] = dataLog.feed.entry[i].gsx$infocontent2.$t;
+                    aInfoContent3[i] = dataLog.feed.entry[i].gsx$infocontent3.$t;
+                    aContentTitle1[i] = dataLog.feed.entry[i].gsx$contenttitle1.$t;
+                    aContentTitle2[i] = dataLog.feed.entry[i].gsx$contenttitle2.$t;
+                    aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
                     // 以上依照指定進行抓試算表裡面的資料
-                    $('#TextOutput').append("<br>" + aLatitude[i] + "," + aLongtitude[i] + "," + aTitle[i] + "," + aIcon[i] + "," + aTextdata[i] + "," +aType[i]+","+aImg[i]+","+aInfoTitle[i]+","+aInfoContent[i]);
-                    
-                    
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i],aType[i],aImg[i],aInfoTitle[i],aInfoContent[i], i); // 抓取資料到CsvToArray函數中
+
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aContentTitle1[i], aContentTitle2[i],aContentTitle3[i],i); // 抓取資料到CsvToArray函數中
 
                 } //end for
                 console.log(GeoData);
-                GetItemsFromGeoData();//這裡進行第一次打點
+                GetItemsFromGeoData(); //這裡進行第一次打點
             } //end function data
         ); //end get JSON
     }); //end function
@@ -51,36 +59,40 @@ var items;
 var a = -1;
 
 
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT,InfoC, I) { 
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3,ConTit1,ConTit2,ConTit3, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
-    GeoData[I][2] = Tit;//滑鼠移上顯示字樣
-    GeoData[I][3] = Ico;//座標Icon
-    GeoData[I][4] = Tex;//info內文
-    GeoData[I][5] = Typ;//此座標分類
-    GeoData[I][6] = Img;//此座標infoimage
-    GeoData[I][7] = InfoT;//此座標的Title
-    GeoData[I][8] = InfoC;//此座標的InfoContent
+    GeoData[I][2] = Tit; //滑鼠移上顯示字樣
+    GeoData[I][3] = Ico; //座標Icon
+    GeoData[I][4] = Tex; //info內文
+    GeoData[I][5] = Typ; //此座標分類
+    GeoData[I][6] = Img; //此座標infoimage
+    GeoData[I][7] = InfoT; //此座標的Title
+    GeoData[I][8] = InfoC; //此座標的InfoContent
+    GeoData[I][9] = InfoC2;
+    GeoData[I][10] = InfoC3;
+    GeoData[I][11] = ConTit1;
+    GeoData[I][12] = ConTit2;
+    GeoData[I][13] = ConTit3;
 } //end CsvToArray 將csv資料傳入陣列中
 
-var markerArray =[];
-var markerArrayInnerContent =[];
+var markerArray = [];
+var markerArrayInnerContent = [];
 var INum = 0;
 var marker;
 var InfoBoxContent;
 
-function InfoBoxContentInput(){
-    
-    if(items[6] == "")
-        {
-            items[6] = "./TestIcon/noneImg.png";//判斷若沒有圖片來源則放上暫無圖片的示意圖
-        }
-    items[4] = items[4].replace(/\n|↵/g,"<br>"); //將CSV中的換行符號轉換成<br>讓其在infobox中也換行
-    items[4] = items[4].replace(/\s/g,"\xa0");//將CSV中的空個符號\s換成no-break space \xa0 讓空格也可在infowindow中正常顯示
-    
-   
-    InfoBoxContent = "<div id='InfoWindow'>"+"<img id='MapImage' src='"+items[6]+"'>" + "<h1 id='InfoTitle'>"+items[7]+"</h1>"+"<div id='InfoText'>"+items[4]+"</div>"+"</div>";
+function InfoBoxContentInput() {
+
+    if (items[6] == "") {
+        items[6] = "./TestIcon/noneImg.png"; //判斷若沒有圖片來源則放上暫無圖片的示意圖
+    }
+    items[4] = items[4].replace(/\n|↵/g, "<br>"); //將CSV中的換行符號轉換成<br>讓其在infobox中也換行
+    items[4] = items[4].replace(/\s/g, "\xa0"); //將CSV中的空個符號\s換成no-break space \xa0 讓空格也可在infowindow中正常顯示
+
+
+    InfoBoxContent = "<div id='InfoWindow'>" + "<img id='MapImage' src='" + items[6] + "'>" + "<h1 id='InfoTitle'>" + items[7] + "</h1>" + "<div id='InfoText'>" + items[4] + "</div>" + "</div>";
     //以上可以將想要的資訊依照格式置入後呈現在網頁中的infobox
 }
 
@@ -91,10 +103,10 @@ function GetItemsFromGeoData() {
         items = GeoData[INum]; //利用一個變數去取得一個陣列，可以將其二維中拉出一維
         //console.log(items);
         var infoWindow = new google.maps.InfoWindow({}); //end infoWindow 新增InfoWindow 到地圖上
-        
-            InfoBoxContentInput();//將讀取到的資料置入InfoBoxContent中，而後使用
-        
-         marker = new google.maps.Marker({
+
+        InfoBoxContentInput(); //將讀取到的資料置入InfoBoxContent中，而後使用
+
+        marker = new google.maps.Marker({
             position: {
                 lat: items[0], //items[0] 相當於 GeoData[INum][0]
                 lng: items[1]
@@ -109,7 +121,7 @@ function GetItemsFromGeoData() {
             data: InfoBoxContent, //將文字加入跳出資訊窗 <img src='TestIcon/icon.jpg'>
         }); // end marker
 
-        
+
         var IsMarkerOpen;
         marker.addListener('click', function () {
             if (this.getAnimation() == null) {
@@ -123,40 +135,78 @@ function GetItemsFromGeoData() {
                     infoWindow.close(map,this);
                     IsMarkerOpen = false;
                 }*/ // 此方法打開為重複點座標會一開一關
-                 infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
+                infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
                 IsMarkerOpen = true;
                 this.setAnimation(null);
-                console.log("IsMarkerOpen:"+IsMarkerOpen);      
+                console.log("IsMarkerOpen:" + IsMarkerOpen);
             }
         }); //end marker.addListener 點擊事件
-        
-        $('#menu').click(function(){
+
+        $('#menu').click(function () {
             infoWindow.close();
             IsMarkerOpen = false;
-        });// end Click
-        markerArrayInnerContent.push([items[7],items[8],items[6]]);// items[7] title items[8] Contenttext , items[6] img 將此INum的參數暫存至陣列之中
-        
+        }); // end Click
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11],items[12],items[13],items[6]]); // items[7] title items[8] items[9] items[10] Contenttext ,items[11,12,13] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
+
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
-        markerArrayClickAdd(INum);//將當前是排序的數字INum帶入點擊事件涵式中新增事件
-        google.maps.event.addListener(marker,"click",function(){});
+        markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
+        google.maps.event.addListener(marker, "click", function () {});
         MarkerSelect(marker, GeoData[INum][5]); //讀取GeoData[INum][5] 亦即試算表中的type 進涵式判斷
     } // end for
-    
+
 
 } // end GetItemsFromGeoData 將資料從陣列拿出後並加上marker
 
 
-function markerArrayClickAdd (NowNum){
-    console.log(markerArrayInnerContent);
-    markerArray[NowNum].addListener('click',function(){
+function markerArrayClickAdd(NowNum) {
+    //console.log(markerArrayInnerContent);
+    markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g,"<br>");
-        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g,"\xa0");
-        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][2];
+        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+        document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][7];
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
         
+        if (markerArrayInnerContent[NowNum][1] != null) {
+            document.getElementById("InfoSelect1").innerHTML = markerArrayInnerContent[NowNum][4];
+            document.getElementById("InfoSelect1").addEventListener('click', function () {
+            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+        });
+        } 
+        else {
+            document.getElementById("ContentText").innerHTML = null;
+        }
+        
+        if (markerArrayInnerContent[NowNum][2] != null) {
+            document.getElementById("InfoSelect2").innerHTML = markerArrayInnerContent[NowNum][5];
+        document.getElementById("InfoSelect2").addEventListener('click', function () {
+            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
+            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+            document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+        });
+        } 
+        else {
+            document.getElementById("ContentText").innerHTML = null;
+        }
+        if (markerArrayInnerContent[NowNum][3] != null) {
+                document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
+            document.getElementById("InfoSelect3").addEventListener('click', function () {
+                document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
+                document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\n|↵/g, "<br>");
+                document.getElementById("ContentText").innerHTML = document.getElementById("ContentText").innerHTML.replace(/\s/g, "\xa0");
+            });
+
+        } 
+        else {
+            document.getElementById("ContentText").innerHTML = null;
+        }
+        //加入點擊詳細內容中的標題可以切換文章的功能
+
     }); //end markerArray.addListener
+
 
 } // end markerArrayClickAdd
 
@@ -191,7 +241,7 @@ onload = function () {
     var YGDia_img;
     var RedBulb_img2;
     var Test_img;
-    
+
     RedDia_img = document.createElement("img");
     RedDia_img.src = "TestIcon/RedDiamond.png";
     document.getElementById("Red_Diamond").appendChild(RedDia_img);
@@ -200,13 +250,13 @@ onload = function () {
     RedDia.checked = true; //預設其是被勾選狀態
     RedDia.addEventListener('click', function () {
         ValueCheck(RedDia.checked);
-      }); //end RedDia click 給予checkbox 點擊事件，每次有被點擊呼叫ValueCheck()涵式
+    }); //end RedDia click 給予checkbox 點擊事件，每次有被點擊呼叫ValueCheck()涵式
     document.getElementById("Red_Diamond").appendChild(RedDia); //將動態生成物件加入至指定區域
     RedDiaSpan = document.createElement("span");
-    RedDiaSpan.setAttribute("class","checkmark");
+    RedDiaSpan.setAttribute("class", "checkmark");
     document.getElementById("Red_Diamond").appendChild(RedDiaSpan);
-    document.getElementById("Red_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"鍾延豪文學地景")
-    
+    document.getElementById("Red_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "鍾延豪文學地景")
+
     YellowCir_img = document.createElement("img");
     YellowCir_img.src = "TestIcon/YellowCircle.png";
     document.getElementById("YBGR_Group").appendChild(YellowCir_img);
@@ -218,21 +268,21 @@ onload = function () {
     document.getElementById("YBGR_Group").appendChild(GreenCir_img);
     RedBulb_img = document.createElement("img");
     RedBulb_img.src = "TestIcon/RedBulb.png";
-    document.getElementById("YBGR_Group").appendChild(RedBulb_img);   
+    document.getElementById("YBGR_Group").appendChild(RedBulb_img);
     YBGR = document.createElement("input");
     YBGR.type = "checkbox";
     YBGR.checked = true;
-    YBGR.addEventListener('click',function(){
+    YBGR.addEventListener('click', function () {
         ValueCheck(YBGR.checked);
-    });//end YBGR Click
+    }); //end YBGR Click
     document.getElementById("YBGR_Group").appendChild(YBGR);
     YBGRSpan = document.createElement("span");
-    YBGRSpan.setAttribute("class","checkmark");
+    YBGRSpan.setAttribute("class", "checkmark");
     document.getElementById("YBGR_Group").appendChild(YBGRSpan);
-    document.getElementById("YBGR_Group").append('\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'+"鍾肇政文學地景");
+    document.getElementById("YBGR_Group").append('\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + "鍾肇政文學地景");
     // \xa0 NO-BREAK SPACE
-    
-    
+
+
     /*Rest_img = document.createElement("img");
     Rest_img.src = "TestIcon/Restaurant.png";
     document.getElementById("map-iconTip").appendChild(Rest_img);
@@ -242,101 +292,101 @@ onload = function () {
     Rest.addEventListener('click',function(){
         ValueCheck(Rest.checked);
     }); // just test*/
-    
-    
+
+
     Rest_img = document.createElement("img");
     Rest_img.src = "TestIcon/Restaurant.png";
     document.getElementById("Restaurant").appendChild(Rest_img);
     Rest = document.createElement("input");
     Rest.type = "checkbox";
     Rest.checked = true;
-    Rest.addEventListener('click',function(){
+    Rest.addEventListener('click', function () {
         ValueCheck(Rest.checked);
-    });// end Rest Click
+    }); // end Rest Click
     document.getElementById("Restaurant").appendChild(Rest);
     RestSpan = document.createElement("span");
-    RestSpan.setAttribute("class","checkmark");
+    RestSpan.setAttribute("class", "checkmark");
     document.getElementById("Restaurant").appendChild(RestSpan);
-    document.getElementById("Restaurant").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"鍾肇政愛吃的餐館");
-    
-    
+    document.getElementById("Restaurant").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "鍾肇政愛吃的餐館");
+
+
     YellowBulb_img = document.createElement("img");
     YellowBulb_img.src = "TestIcon/YellowBulb.png";
     document.getElementById("Yellow_Bulb").appendChild(YellowBulb_img);
     YBulb = document.createElement("input");
     YBulb.type = "checkbox";
     YBulb.checked = true;
-    YBulb.addEventListener('click',function(){
+    YBulb.addEventListener('click', function () {
         ValueCheck(YBulb.checked);
-    });// end Rest Click
+    }); // end Rest Click
     document.getElementById("Yellow_Bulb").appendChild(YBulb);
     YBulbSpan = document.createElement("span");
-    YBulbSpan.setAttribute("class","checkmark");
+    YBulbSpan.setAttribute("class", "checkmark");
     document.getElementById("Yellow_Bulb").appendChild(YBulbSpan);
-    document.getElementById("Yellow_Bulb").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"鍾肇政居住地");
-    
-    
-    
+    document.getElementById("Yellow_Bulb").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "鍾肇政居住地");
+
+
+
     YGBulb_img = document.createElement("img");
     YGBulb_img.src = "TestIcon/YellowGreenBulb.png";
     document.getElementById("YG_Buld").appendChild(YGBulb_img);
     YGBulb = document.createElement("input");
     YGBulb.type = "checkbox";
     YGBulb.checked = true;
-    YGBulb.addEventListener('click',function(){
+    YGBulb.addEventListener('click', function () {
         ValueCheck(YGBulb.checked);
-    });//end YGBlub Click
+    }); //end YGBlub Click
     document.getElementById("YG_Buld").appendChild(YGBulb);
     YGBulbSpan = document.createElement("span");
-    YGBulbSpan.setAttribute("class","checkmark");
+    YGBulbSpan.setAttribute("class", "checkmark");
     document.getElementById("YG_Buld").appendChild(YGBulbSpan);
-    document.getElementById("YG_Buld").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"文學館舍及藝文空間");
-    
+    document.getElementById("YG_Buld").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "文學館舍及藝文空間");
+
     RedBulb_img2 = document.createElement("img");
     RedBulb_img2.src = "TestIcon/RedBulb.png";
     document.getElementById("Red_Buld").appendChild(RedBulb_img2);
     RedBulb = document.createElement("input");
     RedBulb.type = "checkbox";
     RedBulb.checked = true;
-    RedBulb.addEventListener('click',function(){
+    RedBulb.addEventListener('click', function () {
         ValueCheck(RedBulb.checked);
-    });//end RedBulb click
+    }); //end RedBulb click
     document.getElementById("Red_Buld").appendChild(RedBulb);
     RedBulbSpan = document.createElement("span");
-    RedBulbSpan.setAttribute("class","checkmark");
+    RedBulbSpan.setAttribute("class", "checkmark");
     document.getElementById("Red_Buld").appendChild(RedBulbSpan);
-    document.getElementById("Red_Buld").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"全臺文學館舍");
-    
+    document.getElementById("Red_Buld").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "全臺文學館舍");
+
     YGDia_img = document.createElement("img");
     YGDia_img.src = "TestIcon/YellowGreenDiamond.png";
     document.getElementById("YG_Diamond").appendChild(YGDia_img);
     YGDia = document.createElement("input");
     YGDia.type = "checkbox";
     YGDia.checked = true;
-    YGDia.addEventListener('click',function(){
+    YGDia.addEventListener('click', function () {
         ValueCheck(YGDia.checked);
-    });//end YGDia Click
+    }); //end YGDia Click
     document.getElementById("YG_Diamond").appendChild(YGDia);
     YGDiaSpan = document.createElement("span");
-    YGDiaSpan.setAttribute("class","checkmark");
+    YGDiaSpan.setAttribute("class", "checkmark");
     document.getElementById("YG_Diamond").appendChild(YGDiaSpan);
-    document.getElementById("YG_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"+"馮輝岳及向鴻全文學地景");
-    
-  // this area is for test  
-   /* Test_img = document.createElement("img");
-    Test_img.src = "TestIcon/RedDiamond.png";
-    document.getElementById("myTest").appendChild(Test_img);
-    Test = document.createElement("input");
-    Test.type = "checkbox";
-    Test.checked = true; 
-    document.getElementById("myTest").appendChild(Test);
-    
-    TestSpan = document.createElement("span");
-    TestSpan.setAttribute("class","checkmark");
-    document.getElementById("myTest").appendChild(TestSpan);*/
-    
- //this area is for test
-    
+    document.getElementById("YG_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "馮輝岳及向鴻全文學地景");
+
+    // this area is for test  
+    /* Test_img = document.createElement("img");
+     Test_img.src = "TestIcon/RedDiamond.png";
+     document.getElementById("myTest").appendChild(Test_img);
+     Test = document.createElement("input");
+     Test.type = "checkbox";
+     Test.checked = true; 
+     document.getElementById("myTest").appendChild(Test);
+     
+     TestSpan = document.createElement("span");
+     TestSpan.setAttribute("class","checkmark");
+     document.getElementById("myTest").appendChild(TestSpan);*/
+
+    //this area is for test
+
 } //end onload 動態分類區塊生成用 
 
 function ValueCheck(RedDiaValue) {
@@ -347,32 +397,32 @@ function ValueCheck(RedDiaValue) {
 
 
 function MarkerSelect(TheMarker, TypeName) {
-   /* if (IconName == "TestIcon/RedDiamond.png" && RedDia.checked) {
-        
-        TheMarker.setVisible(true);
-        
-    }
-    else if(IconName == "TestIcon/Restaurant.png" && Rest.checked){
-        TheMarker.setVisible(true);
-    }
-    else if(IconName == "TestIcon/YellowCircle.png" && YBGR.checked || IconName == "TestIcon/BlueCircle.png" && YBGR.checked || IconName == "TestIcon/GreenCircle.png" && YBGR.checked|| IconName == "TestIcon/RedBulb.png" && YBGR.checked){
-        TheMarker.setVisible(true);
-    }
-    else if(IconName == "TestIcon/YellowBulb.png" && YBulb.checked){
-        TheMarker.setVisible(true);
-    }
-    else if(IconName == "TestIcon/YellowGreenBulb.png" && YGBulb.checked){
-        TheMarker.setVisible(true);
-    }
-    else if(IconName == "TestIcon/RedBulb.png" && RedBulb.checked){
-        TheMarker.setVisible(true);
-    }
-    else if(IconName =="TestIcon/YellowGreenDiamond.png" && YGDia.checked){
-        TheMarker.setVisible(true);
-    }
-    else{
-        TheMarker.setVisible(false);
-    }*/ //利用圖檔路徑判斷此座標的分類
+    /* if (IconName == "TestIcon/RedDiamond.png" && RedDia.checked) {
+         
+         TheMarker.setVisible(true);
+         
+     }
+     else if(IconName == "TestIcon/Restaurant.png" && Rest.checked){
+         TheMarker.setVisible(true);
+     }
+     else if(IconName == "TestIcon/YellowCircle.png" && YBGR.checked || IconName == "TestIcon/BlueCircle.png" && YBGR.checked || IconName == "TestIcon/GreenCircle.png" && YBGR.checked|| IconName == "TestIcon/RedBulb.png" && YBGR.checked){
+         TheMarker.setVisible(true);
+     }
+     else if(IconName == "TestIcon/YellowBulb.png" && YBulb.checked){
+         TheMarker.setVisible(true);
+     }
+     else if(IconName == "TestIcon/YellowGreenBulb.png" && YGBulb.checked){
+         TheMarker.setVisible(true);
+     }
+     else if(IconName == "TestIcon/RedBulb.png" && RedBulb.checked){
+         TheMarker.setVisible(true);
+     }
+     else if(IconName =="TestIcon/YellowGreenDiamond.png" && YGDia.checked){
+         TheMarker.setVisible(true);
+     }
+     else{
+         TheMarker.setVisible(false);
+     }*/ //利用圖檔路徑判斷此座標的分類
     /*
         1 鍾延豪文學地景
         2345 鍾肇政文學地景
@@ -385,37 +435,30 @@ function MarkerSelect(TheMarker, TypeName) {
     */
     if (TypeName == "1" && RedDia.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName == "6" && Rest.checked){
+    } else if (TypeName == "6" && Rest.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName == "2" && YBGR.checked || TypeName == "3" && YBGR.checked || TypeName == "4" && YBGR.checked|| TypeName == "5" && YBGR.checked){
+    } else if (TypeName == "2" && YBGR.checked || TypeName == "3" && YBGR.checked || TypeName == "4" && YBGR.checked || TypeName == "5" && YBGR.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName == "7" && YBulb.checked){
+    } else if (TypeName == "7" && YBulb.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName == "8" && YGBulb.checked){
+    } else if (TypeName == "8" && YGBulb.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName == "5" && RedBulb.checked){
+    } else if (TypeName == "5" && RedBulb.checked) {
         TheMarker.setVisible(true);
-    }
-    else if(TypeName =="9" && YGDia.checked){
+    } else if (TypeName == "9" && YGDia.checked) {
         TheMarker.setVisible(true);
-    }
-    else{
+    } else {
         TheMarker.setVisible(false);
     } //利用多一欄的編號資料來判斷此座標分類
-   
+
 
 } // end MarkerSelect 用來判斷甚麼座標分類該顯示
 
-function MarkerReset(){
+function MarkerReset() {
 
-    for(var MRC=0; MRC < markerArray.length; MRC++){
+    for (var MRC = 0; MRC < markerArray.length; MRC++) {
         markerArray[MRC].setMap(null);
     }
     markerArray.length = 0;
-    
-}// end MarkerReset 
+
+} // end MarkerReset
