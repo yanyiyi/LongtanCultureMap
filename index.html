@@ -228,7 +228,7 @@
             width: 450px;
             text-align: left;
             margin: 30px;
-            margin-bottom: 0px;
+            margin-top: 0px;
             word-wrap: break-word;
             background-color: rgba(128, 64, 0, 0.4);
         }
@@ -251,20 +251,31 @@
         }
         /*InfoContent end*/
         /*ContentSelect start*/
-        
+        #ContentSelect::-webkit-scrollbar{
+            display: none;
+        }
         #ContentSelect{
             text-align: left;
-            margin-left: 10px;
-            margin-top: 10px;
+            margin-left: -10px;
+            margin-bottom: 10px;
             font-family: 微軟正黑體;
+            height: 100px;
+            width: 450px;
+            overflow-y: scroll;
+            /*background-color: gray;*/
         }
         
-        #ContentSelect a{
-            margin-left: 15px;
-            border-bottom: solid;
-            border-bottom-width: 2px;
+        #ContentSelect li{
+           /* border-bottom: solid;
+            border-bottom-width: 2px;*/
+            list-style: none;
+            background-color: rgba(128, 64, 0, 0.4);
         }
-        #ContentSelect a:hover{
+        #ConttentSelect li img{
+            width: 10px;
+            height: 10px;
+        }
+        #ContentSelect li:hover{
             cursor: pointer;
             background-color: rgba(128, 64, 0, 0.6);
             color: white;
@@ -596,7 +607,21 @@
              $('#InfoSelect3').click(function() {
                $('#ContentText').animate({height:"0px"},"slow");
                 $('#ContentText').animate({height:"250px"},"slow");
-                });//end InfoContentBtnClick 加入詳細內容的動畫
+                });
+            $('#InfoSelect4').click(function() {
+               $('#ContentText').animate({height:"0px"},"slow");
+                $('#ContentText').animate({height:"250px"},"slow");
+                });
+            $('#InfoSelect5').click(function() {
+               $('#ContentText').animate({height:"0px"},"slow");
+                $('#ContentText').animate({height:"250px"},"slow");
+                });
+            $('#InfoSelect6').click(function() {
+               $('#ContentText').animate({height:"0px"},"slow");
+                $('#ContentText').animate({height:"250px"},"slow");
+                });
+            
+            //end InfoContentBtnClick 加入詳細內容的動畫
         }); // end ready
     </script>
 
@@ -645,8 +670,16 @@
        <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
        <div id="ContentTitle">點選想查詢的座標點</div>
        <img id="ContentImg" src="./TestIcon/noneImg.png">
+       <ul id="ContentSelect">
+           <li id="InfoSelect1" value="1">這裡將會出現文章標題</li>
+           <li id="InfoSelect2" value="2">範例1</li>
+           <li id="InfoSelect3" value="3">範例2</li>
+           <li id="InfoSelect4" value="4">範例3</li>
+           <li id="InfoSelect5" value="5">範例4</li>
+           <li id="InfoSelect6" value="6">範例5</li>
+       </ul>
        <div id="ContentText">這裡將會出現相關介紹</div>
-       <div id="ContentSelect"><a id="InfoSelect1" value="1">這裡將會出現文章標題</a><a id="InfoSelect2" value="2"></a><a id="InfoSelect3" value="3"></a></div>
+       
        
    </div>
    

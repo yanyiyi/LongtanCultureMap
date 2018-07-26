@@ -1,6 +1,12 @@
 $(document).ready(function () {
     $(function ReachSheet() {
 
+        //onload thing start
+        
+        
+        
+        //onload thing end
+        
 
         var aLatitude = [];
         var aLongtitude = [];
@@ -10,12 +16,20 @@ $(document).ready(function () {
         var aType = [];
         var aImg = [];
         var aInfoTitle = [];
-        var aInfoContent = [];
-        var aInfoContent2 = [];
-        var aInfoContent3 = [];
-        var aContentTitle1 = [];
-        var aContentTitle2 = [];
-        var aContentTitle3 = [];
+        var aInfoContent = [],
+            aInfoContent2 = [],
+            aInfoContent3 = [],
+            aInfoContent4 = [],
+            aInfoContent5 = [],
+            aInfoContent6 = [];
+        var aContentTitle1 = [],
+            aContentTitle2 = [],
+            aContentTitle3 = [],
+            aContentTitle4 = [],
+            aContentTitle5 = [],
+            aContentTitle6 = [];
+        
+        
         var dataAmount = 0;
 
         //console.log("w");
@@ -37,12 +51,18 @@ $(document).ready(function () {
                     aInfoContent[i] = dataLog.feed.entry[i].gsx$infocontent.$t;
                     aInfoContent2[i] = dataLog.feed.entry[i].gsx$infocontent2.$t;
                     aInfoContent3[i] = dataLog.feed.entry[i].gsx$infocontent3.$t;
+                    aInfoContent4[i] = dataLog.feed.entry[i].gsx$infocontent4.$t;
+                    aInfoContent5[i] = dataLog.feed.entry[i].gsx$infocontent5.$t;
+                    aInfoContent6[i] = dataLog.feed.entry[i].gsx$infocontent6.$t;
                     aContentTitle1[i] = dataLog.feed.entry[i].gsx$contenttitle1.$t;
                     aContentTitle2[i] = dataLog.feed.entry[i].gsx$contenttitle2.$t;
                     aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
+                    aContentTitle4[i] = dataLog.feed.entry[i].gsx$contenttitle4.$t;
+                    aContentTitle5[i] = dataLog.feed.entry[i].gsx$contenttitle5.$t;
+                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t;
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], i); // 抓取資料到CsvToArray函數中
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aInfoContent4[i],aInfoContent5[i],aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i],aContentTitle4[i],aContentTitle5[i],aContentTitle6[i], i); // 抓取資料到CsvToArray函數中
 
                 } //end for
                 console.log(GeoData);
@@ -60,7 +80,7 @@ var items;
 var a = -1;
 
 
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3, ConTit1, ConTit2, ConTit3, I) {
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3,InfoC4,InfoC5,InfoC6, ConTit1, ConTit2, ConTit3,ConTit4,ConTit5,ConTit6, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
@@ -73,9 +93,15 @@ function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, In
     GeoData[I][8] = InfoC; //此座標的InfoContent
     GeoData[I][9] = InfoC2;
     GeoData[I][10] = InfoC3;
-    GeoData[I][11] = ConTit1;
-    GeoData[I][12] = ConTit2;
-    GeoData[I][13] = ConTit3;
+    GeoData[I][11] = InfoC4;
+    GeoData[I][12] = InfoC5;
+    GeoData[I][13] = InfoC6;
+    GeoData[I][14] = ConTit1;
+    GeoData[I][15] = ConTit2;
+    GeoData[I][16] = ConTit3;
+    GeoData[I][17] = ConTit4;
+    GeoData[I][18] = ConTit5;
+    GeoData[I][19] = ConTit6;
 } //end CsvToArray 將csv資料傳入陣列中
 
 var markerArray = [];
@@ -148,7 +174,7 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         }); // end Click
-        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[6]]); // items[7] title items[8] items[9] items[10] Contenttext ,items[11,12,13] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13],items[14],items[15],items[16],items[17],items[18],items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -162,14 +188,14 @@ function GetItemsFromGeoData() {
 
 function markerArrayClickAdd(NowNum) {
     var InfoSelectNum;
-    var InfoCheck;
-    var maxNum = 3;
+    var InfoCheck = 0;
+    var maxNum = 6;
     //console.log(markerArrayInnerContent);
     markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
         TextReplace(document.getElementById("ContentText"));
-        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][7];
+        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13];
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
 
@@ -179,13 +205,12 @@ function markerArrayClickAdd(NowNum) {
 
         for (var d = 1; d <= maxNum; d++) {
             document.getElementById("InfoSelect" + d).addEventListener('click', function () {
-                setTimeout(function () {
-                    InfoCheck = d; // 必須找到如何偵測當前點擊的物件!!!
-                    for (var x = 1; x <= maxNum; x++) {
-                        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck];
-                        TextReplace(document.getElementById("ContentText"));
-                    }
-                }, 650); //end Timeout
+                InfoCheck = this.id.replace("InfoSelect","");//將當前被點擊的物件id的非數字字串移除，取得其id編號
+                setTimeout(function(){
+                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck];//帶入涵式即可修改對應的內文
+                    TextReplace(document.getElementById("ContentText"));//最後再用TextReplace整理一次內文
+                },650);//end Timeout
+                console.log(InfoCheck);
             }); //end click
         } // end for
 
@@ -488,7 +513,7 @@ function TextReplace(Content) {
     Content.innerHTML = Content.innerHTML.replace(/\n|↵/g, "<br>");
     Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0");
     return Content;
-} // end TextReplace
+} // end TextReplace 整理字串用
 
 function MarkerReset() {
 
@@ -497,4 +522,4 @@ function MarkerReset() {
     }
     markerArray.length = 0;
 
-} // end MarkerReset
+} // end MarkerReset 將marker存入array後 利用for將其清空
