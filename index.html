@@ -2,9 +2,9 @@
 <html>
 
 <head>
-   
-   <title>龍潭文學地景及藝文資源</title>
-   
+
+    <title>龍潭文學地景及藝文資源</title>
+
     <style type="text/css">
         html,
         body,
@@ -13,10 +13,12 @@
             width: 1100px;
             margin-left: 0;
         }
-        body{
+
+        body {
             background-color: rgba(128, 64, 0, 0.6);
             overflow: hidden;
         }
+
         #map-iconTip img {
             z-index: 1;
             height: 30px;
@@ -160,33 +162,40 @@
             width: 50px;
             margin-top: -366px;
             cursor: pointer;
-            
+
         }
-        #menuBtn:hover{
+
+        #menuBtn:hover {
             opacity: 0.9;
         }
+
         #menu p img {
             padding-top: -10px;
             height: 30px;
         }
-        #menu p{
+
+        #menu p {
             font-family: 微軟正黑體;
             font-weight: 900;
         }
+
         /*Infowindow css start*/
-        #MapImage{
+
+        #MapImage {
             width: 300px;
             margin-left: 20px;
             margin-top: 20px;
         }
-        #InfoTitle{
+
+        #InfoTitle {
             font-family: 微軟正黑體;
             width: 300px;
             color: black;
             margin-left: 20px;
-            
+
         }
-        #InfoText{
+
+        #InfoText {
             font-family: 微軟正黑體;
             font-weight: 900;
             width: 300px;
@@ -194,12 +203,14 @@
             margin-left: 20px;
             margin-bottom: 20px;
         }
-        #InfoWindow{
-            
-        }
+
+        #InfoWindow {}
+
         /*Infowindow css end*/
+
         /*InfoContent start*/
-        #InfoContent{
+
+        #InfoContent {
             position: absolute;
             height: 775px;
             width: 500px;
@@ -208,22 +219,26 @@
             text-align: center;
             right: 0;
         }
-        #ContentImg{
+
+        #ContentImg {
             width: 400px;
             height: 300px;
         }
-        #ContentTitle{
+
+        #ContentTitle {
             font-family: 微軟正黑體;
             font-size: 45px;
             margin-top: 10px;
             margin-bottom: 10px;
             font-weight: 700;
         }
-        #ContentText{
+
+        #ContentText {
             position: static;
             font-family: 微軟正黑體;
             font-size: 20px;
-            overflow-y: scroll; /*當字體超出限定範圍時，所採用的方法*/
+            overflow-y: scroll;
+            /*當字體超出限定範圍時，所採用的方法*/
             height: 250px;
             width: 450px;
             text-align: left;
@@ -232,29 +247,36 @@
             word-wrap: break-word;
             background-color: rgba(128, 64, 0, 0.4);
         }
-        #ContentBtn{
+
+        #ContentBtn {
             position: absolute;
             margin-top: 50px;
             height: 370px;
             width: 50px;
             text-align: left;
             z-index: 2;
-            right:500px;
+            right: 500px;
             cursor: pointer;
-            
+
         }
-        #ContentBtn:hover{
+
+        #ContentBtn:hover {
             opacity: 0.9;
         }
-        #ContentText::-webkit-scrollbar{
+
+        #ContentText::-webkit-scrollbar {
             display: none;
         }
+
         /*InfoContent end*/
+
         /*ContentSelect start*/
-        #ContentSelect::-webkit-scrollbar{
+
+        #ContentSelect::-webkit-scrollbar {
             display: none;
         }
-        #ContentSelect{
+
+        #ContentSelect {
             text-align: left;
             margin-left: -10px;
             margin-bottom: 10px;
@@ -264,25 +286,26 @@
             overflow-y: scroll;
             /*background-color: gray;*/
         }
-        
-        #ContentSelect li{
-           /* border-bottom: solid;
+
+        #ContentSelect li {
+            /* border-bottom: solid;
             border-bottom-width: 2px;*/
             list-style: none;
             background-color: rgba(128, 64, 0, 0.4);
         }
-        #ConttentSelect li img{
+
+        #ConttentSelect li img {
             width: 10px;
             height: 10px;
         }
-        #ContentSelect li:hover{
+
+        #ContentSelect li:hover {
             cursor: pointer;
             background-color: rgba(128, 64, 0, 0.6);
             color: white;
         }
-        
+
         /*ContentSelect end*/
-        
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -292,6 +315,7 @@
 
     <script type="text/javascript">
         var map;
+
         function initialize() {
 
             map = new google.maps.Map(document.getElementById("map-canvas"), {
@@ -300,7 +324,7 @@
                         lng: 121.2117869
                     },
                     zoom: 17,
-                styles: [{
+                    styles: [{
                             "elementType": "geometry",
                             "stylers": [{
                                 "color": "#ebe3cd"
@@ -551,7 +575,10 @@
     </script>
 
     <script>
-        $(document).ready(function (){
+        $(document).ready(function() {
+
+            var IsAni = false;
+
             var IsMenuOpen = false;
             $('#menuBtn').click(function() {
                 //console.log("menuClick");
@@ -567,11 +594,8 @@
                     IsMenuOpen = true;
                 }
             }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
-        }); // end ready
-    </script>
-    
-    <script>
-        $(document).ready(function (){
+
+
             var IsInfoContentOpen = true;
             $('#ContentBtn').click(function() {
                 //console.log("menuClick");
@@ -580,50 +604,125 @@
                         right: "-500px"
                     }, 500);
                     IsInfoContentOpen = false;
-                    $('#map-canvas').animate({width:"1600px"},{duration:500,queue:false});//直接使用動畫來改變寬度
+                    $('#map-canvas').animate({
+                        width: "1600px"
+                    }, {
+                        duration: 500,
+                        queue: false
+                    }); //直接使用動畫來改變寬度
                 } else {
                     $('#InfoContent').animate({
                         right: "0px"
                     }, 500);
                     IsInfoContentOpen = true;
-                    $('#map-canvas').animate({width:"1100px"},{duration:500,queue:false});
+                    $('#map-canvas').animate({
+                        width: "1100px"
+                    }, {
+                        duration: 500,
+                        queue: false
+                    });
                 }
             }); //end InfoContentBtnClick 加入詳細內容的動畫
-        }); // end ready
-    </script>
-    
-    <script>
-        $(document).ready(function (){
-            
+
+
             $('#InfoSelect1').click(function() {
-               $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
+                if (!IsAni) {
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
             });
-                
-             $('#InfoSelect2').click(function() {
-              $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
-                });
-             $('#InfoSelect3').click(function() {
-               $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
-                });
+
+            $('#InfoSelect2').click(function() {
+                if (!IsAni) {
+
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
+            });
+            $('#InfoSelect3').click(function() {
+                if (!IsAni) {
+
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
+            });
             $('#InfoSelect4').click(function() {
-               $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
-                });
+                if (!IsAni) {
+
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
+            });
             $('#InfoSelect5').click(function() {
-               $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
-                });
+                if (!IsAni) {
+
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
+            });
             $('#InfoSelect6').click(function() {
-               $('#ContentText').animate({height:"0px"},"slow");
-                $('#ContentText').animate({height:"250px"},"slow");
-                });
-            
-            //end InfoContentBtnClick 加入詳細內容的動畫
+                if (!IsAni) {
+
+                    $('#ContentText').animate({
+                        height: "0px"
+                    }, "slow");
+                    $('#ContentText').animate({
+                        height: "250px"
+                    }, "slow");
+                    IsAni = true;
+                    setTimeout(function() {
+                        IsAni = false;
+                    }, 650);
+                }
+            });
+
+            //end InfoSelectClick 加入詳細內容的動畫
+
+
         }); // end ready
     </script>
+
+
 
     <script src="./JS/GetAndReadCsv.js"></script>
 
@@ -633,7 +732,7 @@
 
 <body onselectstart="return false">
 
-<!--
+    <!--
     <div id="map-iconTip">
         <p><img src="./TestIcon/RedDiamond.png" alt="">鍾延豪文學地景</p>
 
@@ -666,23 +765,23 @@
 
     </div>
 
-   <div id="InfoContent">
-       <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
-       <div id="ContentTitle">點選想查詢的座標點</div>
-       <img id="ContentImg" src="./TestIcon/noneImg.png">
-       <ul id="ContentSelect">
-           <li id="InfoSelect1" value="1">這裡將會出現文章標題</li>
-           <li id="InfoSelect2" value="2">範例1</li>
-           <li id="InfoSelect3" value="3">範例2</li>
-           <li id="InfoSelect4" value="4">範例3</li>
-           <li id="InfoSelect5" value="5">範例4</li>
-           <li id="InfoSelect6" value="6">範例5</li>
-       </ul>
-       <div id="ContentText">這裡將會出現相關介紹</div>
-       
-       
-   </div>
-   
+    <div id="InfoContent">
+        <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
+        <div id="ContentTitle">點選想查詢的座標點</div>
+        <img id="ContentImg" src="./TestIcon/noneImg.png">
+        <ul id="ContentSelect">
+            <li id="InfoSelect1" value="1">這裡將會出現文章標題</li>
+            <li id="InfoSelect2" value="2">範例1</li>
+            <li id="InfoSelect3" value="3">範例2</li>
+            <li id="InfoSelect4" value="4">範例3</li>
+            <li id="InfoSelect5" value="5">範例4</li>
+            <li id="InfoSelect6" value="6">範例5</li>
+        </ul>
+        <div id="ContentText">這裡將會出現相關介紹</div>
+
+
+    </div>
+
     <div id="map-canvas"></div>
 
     <!--    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBputq9w31cD2XzhNGVPdzL0x9xGz8xkiM&q=桃園文化局" allowfullscreen></iframe>-->

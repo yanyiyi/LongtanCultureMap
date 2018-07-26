@@ -202,14 +202,18 @@ function markerArrayClickAdd(NowNum) {
         for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
             document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
         }
-
+var ChangingContent = false;
         for (var d = 1; d <= maxNum; d++) {
             document.getElementById("InfoSelect" + d).addEventListener('click', function () {
-                InfoCheck = this.id.replace("InfoSelect","");//將當前被點擊的物件id的非數字字串移除，取得其id編號
+                if(!ChangingContent){
+                    ChangingContent = true;
+                    InfoCheck = this.id.replace("InfoSelect","");//將當前被點擊的物件id的非數字字串移除，取得其id編號
                 setTimeout(function(){
                     document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck];//帶入涵式即可修改對應的內文
                     TextReplace(document.getElementById("ContentText"));//最後再用TextReplace整理一次內文
+                    ChangingContent = false;
                 },650);//end Timeout
+                }
                 console.log(InfoCheck);
             }); //end click
         } // end for
