@@ -158,14 +158,6 @@ function GetItemsFromGeoData() {
             if (this.getAnimation() == null) {
                 this.setAnimation(google.maps.Animation.BOUNCE);
                 infoWindow.setContent(this.data); // 將此marker的data輸入進infoWindow的content中
-                /*if(!IsMarkerOpen){
-                    infoWindow.open(map, this); //打開這個infoWindow
-                    IsMarkerOpen = true;
-                }
-                else{
-                    infoWindow.close(map,this);
-                    IsMarkerOpen = false;
-                }*/ // 此方法打開為重複點座標會一開一關
                 infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
                 IsMarkerOpen = true;
                 this.setAnimation(null);
@@ -459,32 +451,6 @@ function ValueCheck(RedDiaValue) {
 
 
 function MarkerSelect(TheMarker, TypeName) {
-    /* if (IconName == "TestIcon/RedDiamond.png" && RedDia.checked) {
-         
-         TheMarker.setVisible(true);
-         
-     }
-     else if(IconName == "TestIcon/Restaurant.png" && Rest.checked){
-         TheMarker.setVisible(true);
-     }
-     else if(IconName == "TestIcon/YellowCircle.png" && YBGR.checked || IconName == "TestIcon/BlueCircle.png" && YBGR.checked || IconName == "TestIcon/GreenCircle.png" && YBGR.checked|| IconName == "TestIcon/RedBulb.png" && YBGR.checked){
-         TheMarker.setVisible(true);
-     }
-     else if(IconName == "TestIcon/YellowBulb.png" && YBulb.checked){
-         TheMarker.setVisible(true);
-     }
-     else if(IconName == "TestIcon/YellowGreenBulb.png" && YGBulb.checked){
-         TheMarker.setVisible(true);
-     }
-     else if(IconName == "TestIcon/RedBulb.png" && RedBulb.checked){
-         TheMarker.setVisible(true);
-     }
-     else if(IconName =="TestIcon/YellowGreenDiamond.png" && YGDia.checked){
-         TheMarker.setVisible(true);
-     }
-     else{
-         TheMarker.setVisible(false);
-     }*/ //利用圖檔路徑判斷此座標的分類
     /*
         1 鍾延豪文學地景
         2345 鍾肇政文學地景
