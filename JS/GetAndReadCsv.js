@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $(function ReachSheet() {
 
+        //檢索每次加入文章應更動區索引標籤：>Update
+        
         //onload thing start
         
         
@@ -17,13 +19,13 @@ $(document).ready(function () {
         var aImg = [];
         var aInfoTitle = [];
         var aInfoContent = [],      //每個aInfoContent會儲存每個座標點的每個文章內容
-            aInfoContent2 = [],
+            aInfoContent2 = [],     //>Update 新增內文篇數
             aInfoContent3 = [],
             aInfoContent4 = [],
             aInfoContent5 = [],
             aInfoContent6 = [];
         var aContentTitle1 = [],   //每個aContentTitle會儲存每個座標點的每個文章標題
-            aContentTitle2 = [],
+            aContentTitle2 = [],   //>Update 新增標題篇數
             aContentTitle3 = [],
             aContentTitle4 = [],
             aContentTitle5 = [],
@@ -59,10 +61,10 @@ $(document).ready(function () {
                     aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
                     aContentTitle4[i] = dataLog.feed.entry[i].gsx$contenttitle4.$t;
                     aContentTitle5[i] = dataLog.feed.entry[i].gsx$contenttitle5.$t;
-                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t;
+                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t;//>Update 新增抓取功能
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aInfoContent4[i],aInfoContent5[i],aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i],aContentTitle4[i],aContentTitle5[i],aContentTitle6[i], i); // 抓取資料到CsvToArray函數中
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aInfoContent4[i],aInfoContent5[i],aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i],aContentTitle4[i],aContentTitle5[i],aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容
 
                 } //end for
                 console.log(GeoData);
@@ -79,7 +81,7 @@ var GeoData = new Array();
 var items;
 var a = -1;
 
-
+        //>Update 將新增的內容導入涵式
 function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3,InfoC4,InfoC5,InfoC6, ConTit1, ConTit2, ConTit3,ConTit4,ConTit5,ConTit6, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
@@ -102,6 +104,7 @@ function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, In
     GeoData[I][17] = ConTit4;
     GeoData[I][18] = ConTit5;
     GeoData[I][19] = ConTit6;
+    //>Update 新增內容寫入資料陣列中
 } //end CsvToArray 將csv資料傳入陣列中
 
 var markerArray = [];
@@ -174,7 +177,7 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         }); // end Click
-        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13],items[14],items[15],items[16],items[17],items[18],items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13],items[14],items[15],items[16],items[17],items[18],items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -189,13 +192,13 @@ function GetItemsFromGeoData() {
 function markerArrayClickAdd(NowNum) {
     var InfoSelectNum;
     var InfoCheck = 0;
-    var maxNum = 6; //在此更改文章最大數量
+    var maxNum = 6; //在此更改文章最大數量 //>Update 修改文章篇數最大值
     //console.log(markerArrayInnerContent);
     markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
         TextReplace(document.getElementById("ContentText"));
-        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13];
+        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
 
