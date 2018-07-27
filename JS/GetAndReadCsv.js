@@ -461,34 +461,41 @@ function MarkerSelect(TheMarker, TypeName) {
 
 function TextReplace(Content) {
     var start = -1,
-        end = -1;
-    console.log(Content.innerHTML.indexOf("ImgStart:"));
-    start = Content.innerHTML.indexOf("ImgStart:") + 9;
-    console.log(Content.innerHTML.indexOf(":ImgEnd"));
-    end = Content.innerHTML.indexOf(":ImgEnd");
-    
-    
-    
-    
+        end = -1; // indexOf 出現-1時表示它未找到相關字串
+
+    var reg = new RegExp("ImgStart:", "g");// 利用RegExp設定讀取"ImgStart:"為目標
+    var result = Content.innerHTML.match(reg);//將字串導入去.match(reg)
+    var count = (result) ? result.length : 0;//將讀取到的次數存取
+
+    console.log("Count:" + count);
+
+
+
     Content.innerHTML = Content.innerHTML.replace(/\n|↵/g, "<br>");
-    Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0");
-    
-    if (start != -1 && end != -1) {
+    Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0"); //先將特殊字元取代
+
+    for (var ImgNum = 0; ImgNum < count; ImgNum++) {   
+        console.log(Content.innerHTML.indexOf("ImgStart:"));
+        start = Content.innerHTML.indexOf("ImgStart:") + 9;
+        console.log(Content.innerHTML.indexOf(":ImgEnd"));
+        end = Content.innerHTML.indexOf(":ImgEnd"); //再抓取語法的字元位置
+
+        if (start != -1 && end != -1) {
+            var MyImgSrc = Content.innerHTML.substring(start, end); //利用substring來存取所需字串
+            console.log(MyImgSrc);
+
+            var MyImgAllPart = Content.innerHTML.substring(start - 9, end + 7); //再次利用substring加上微調去抓取整個語法加圖片來源的字串
+            console.log(MyImgAllPart);
+
+            var MyImg = "<img src='" + MyImgSrc + "'>"; //將圖片來源放入格式中存取
+            console.log(MyImg);
+
+            Content.innerHTML = Content.innerHTML.replace(MyImgAllPart, MyImg); //將剛剛所存的完整語法加圖片來源的字串取代成固定格式的字串
+        }
+    }// end for 依照"ImgStart:"被讀取的數量 來執行等次數的圖片置換動作
 
 
-        var MyImgSrc = Content.innerHTML.substring(start, end);
-        console.log(MyImgSrc);
 
-        var MyImgAllPart = Content.innerHTML.substring(start - 9, end + 7);
-        console.log(MyImgAllPart);
-
-        var MyImg = "<img src='" + MyImgSrc + "'>";
-        console.log(MyImg);
-        
-        Content.innerHTML = Content.innerHTML.replace(MyImgAllPart, MyImg);
-        
-    }
-    
     return Content;
 } // end TextReplace 整理字串用
 
