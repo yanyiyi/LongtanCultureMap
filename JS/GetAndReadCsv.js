@@ -2,13 +2,13 @@ $(document).ready(function () {
     $(function ReachSheet() {
 
         //檢索每次加入文章應更動區索引標籤：>Update
-        
+
         //onload thing start
-        
-        
-        
+
+
+
         //onload thing end
-        
+
 
         var aLatitude = [];
         var aLongtitude = [];
@@ -18,20 +18,20 @@ $(document).ready(function () {
         var aType = [];
         var aImg = [];
         var aInfoTitle = [];
-        var aInfoContent = [],      //每個aInfoContent會儲存每個座標點的每個文章內容
-            aInfoContent2 = [],     //>Update 新增內文篇數
+        var aInfoContent = [], //每個aInfoContent會儲存每個座標點的每個文章內容
+            aInfoContent2 = [], //>Update 新增內文篇數
             aInfoContent3 = [],
             aInfoContent4 = [],
             aInfoContent5 = [],
             aInfoContent6 = [];
-        var aContentTitle1 = [],   //每個aContentTitle會儲存每個座標點的每個文章標題
-            aContentTitle2 = [],   //>Update 新增標題篇數
+        var aContentTitle1 = [], //每個aContentTitle會儲存每個座標點的每個文章標題
+            aContentTitle2 = [], //>Update 新增標題篇數
             aContentTitle3 = [],
             aContentTitle4 = [],
             aContentTitle5 = [],
             aContentTitle6 = [];
-        
-        
+
+
         var dataAmount = 0;
 
         //console.log("w");
@@ -61,10 +61,10 @@ $(document).ready(function () {
                     aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
                     aContentTitle4[i] = dataLog.feed.entry[i].gsx$contenttitle4.$t;
                     aContentTitle5[i] = dataLog.feed.entry[i].gsx$contenttitle5.$t;
-                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t;//>Update 新增抓取功能
+                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t; //>Update 新增抓取功能
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i],aInfoContent4[i],aInfoContent5[i],aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i],aContentTitle4[i],aContentTitle5[i],aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], aContentTitle4[i], aContentTitle5[i], aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容
 
                 } //end for
                 console.log(GeoData);
@@ -81,8 +81,8 @@ var GeoData = new Array();
 var items;
 var a = -1;
 
-        //>Update 將新增的內容導入涵式
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3,InfoC4,InfoC5,InfoC6, ConTit1, ConTit2, ConTit3,ConTit4,ConTit5,ConTit6, I) {
+//>Update 將新增的內容導入涵式
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3, InfoC4, InfoC5, InfoC6, ConTit1, ConTit2, ConTit3, ConTit4, ConTit5, ConTit6, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
@@ -112,6 +112,7 @@ var markerArrayInnerContent = [];
 var INum = 0;
 var marker;
 var InfoBoxContent;
+
 
 function InfoBoxContentInput() {
 
@@ -169,7 +170,7 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         }); // end Click
-        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13],items[14],items[15],items[16],items[17],items[18],items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[14], items[15], items[16], items[17], items[18], items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -189,6 +190,7 @@ function markerArrayClickAdd(NowNum) {
     markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
         document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+        document.getElementById("ContentText").innerHTML.search("Img:");
         TextReplace(document.getElementById("ContentText"));
         document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數
         //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
@@ -197,17 +199,17 @@ function markerArrayClickAdd(NowNum) {
         for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
             document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
         }
-var ChangingContent = false;
+        var ChangingContent = false;
         for (var d = 1; d <= maxNum; d++) {
             document.getElementById("InfoSelect" + d).addEventListener('click', function () {
-                if(!ChangingContent){
+                if (!ChangingContent) {
                     ChangingContent = true;
-                    InfoCheck = this.id.replace("InfoSelect","");//將當前被點擊的物件id的非數字字串移除，取得其id編號
-                setTimeout(function(){
-                    document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck];//帶入涵式即可修改對應的內文
-                    TextReplace(document.getElementById("ContentText"));//最後再用TextReplace整理一次內文
-                    ChangingContent = false;
-                },650);//end Timeout
+                    InfoCheck = this.id.replace("InfoSelect", ""); //將當前被點擊的物件id的非數字字串移除，取得其id編號
+                    setTimeout(function () {
+                        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck]; //帶入涵式即可修改對應的內文
+                        TextReplace(document.getElementById("ContentText")); //最後再用TextReplace整理一次內文
+                        ChangingContent = false;
+                    }, 650); //end Timeout
                 }
                 console.log(InfoCheck);
             }); //end click
@@ -337,17 +339,6 @@ onload = function () {
     // \xa0 NO-BREAK SPACE
 
 
-    /*Rest_img = document.createElement("img");
-    Rest_img.src = "TestIcon/Restaurant.png";
-    document.getElementById("map-iconTip").appendChild(Rest_img);
-    Rest = document.createElement("input");
-    Rest.type = "checkbox";
-    Rest.checked = true;
-    Rest.addEventListener('click',function(){
-        ValueCheck(Rest.checked);
-    }); // just test*/
-
-
     Rest_img = document.createElement("img");
     Rest_img.src = "TestIcon/Restaurant.png";
     document.getElementById("Restaurant").appendChild(Rest_img);
@@ -426,20 +417,6 @@ onload = function () {
     document.getElementById("YG_Diamond").appendChild(YGDiaSpan);
     document.getElementById("YG_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "馮輝岳及向鴻全文學地景");
 
-    // this area is for test  
-    /* Test_img = document.createElement("img");
-     Test_img.src = "TestIcon/RedDiamond.png";
-     document.getElementById("myTest").appendChild(Test_img);
-     Test = document.createElement("input");
-     Test.type = "checkbox";
-     Test.checked = true; 
-     document.getElementById("myTest").appendChild(Test);
-     
-     TestSpan = document.createElement("span");
-     TestSpan.setAttribute("class","checkmark");
-     document.getElementById("myTest").appendChild(TestSpan);*/
-
-    //this area is for test
 
 } //end onload 動態分類區塊生成用 
 
@@ -483,8 +460,35 @@ function MarkerSelect(TheMarker, TypeName) {
 } // end MarkerSelect 用來判斷甚麼座標分類該顯示
 
 function TextReplace(Content) {
+    var start = -1,
+        end = -1;
+    console.log(Content.innerHTML.indexOf("ImgStart:"));
+    start = Content.innerHTML.indexOf("ImgStart:") + 9;
+    console.log(Content.innerHTML.indexOf(":ImgEnd"));
+    end = Content.innerHTML.indexOf(":ImgEnd");
+    
+    
+    
+    
     Content.innerHTML = Content.innerHTML.replace(/\n|↵/g, "<br>");
     Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0");
+    
+    if (start != -1 && end != -1) {
+
+
+        var MyImgSrc = Content.innerHTML.substring(start, end);
+        console.log(MyImgSrc);
+
+        var MyImgAllPart = Content.innerHTML.substring(start - 9, end + 7);
+        console.log(MyImgAllPart);
+
+        var MyImg = "<img src='" + MyImgSrc + "'>";
+        console.log(MyImg);
+        
+        Content.innerHTML = Content.innerHTML.replace(MyImgAllPart, MyImg);
+        
+    }
+    
     return Content;
 } // end TextReplace 整理字串用
 
