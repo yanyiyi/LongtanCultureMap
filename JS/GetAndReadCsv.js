@@ -16,13 +16,13 @@ $(document).ready(function () {
         var aType = [];
         var aImg = [];
         var aInfoTitle = [];
-        var aInfoContent = [],
+        var aInfoContent = [],      //每個aInfoContent會儲存每個座標點的每個文章內容
             aInfoContent2 = [],
             aInfoContent3 = [],
             aInfoContent4 = [],
             aInfoContent5 = [],
             aInfoContent6 = [];
-        var aContentTitle1 = [],
+        var aContentTitle1 = [],   //每個aContentTitle會儲存每個座標點的每個文章標題
             aContentTitle2 = [],
             aContentTitle3 = [],
             aContentTitle4 = [],
@@ -189,7 +189,7 @@ function GetItemsFromGeoData() {
 function markerArrayClickAdd(NowNum) {
     var InfoSelectNum;
     var InfoCheck = 0;
-    var maxNum = 6;
+    var maxNum = 6; //在此更改文章最大數量
     //console.log(markerArrayInnerContent);
     markerArray[NowNum].addListener('click', function () {
         document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
