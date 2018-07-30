@@ -185,14 +185,15 @@
             height: 775px;
             width: 500px;
             background-color: bisque;
+            background-image: url(TestIcon/InfoContentBackground.jpg);
             margin-left: 1100px;
             text-align: center;
             right: 0;
         }
 
         #ContentImg {
-            width: 400px;
-            height: 300px;
+            width: 300px;
+            height: 225px;
         }
 
         #ContentTitle {
@@ -209,7 +210,7 @@
             font-size: 20px;
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
-            height: 250px;
+            height: 230px;
             width: 450px;
             text-align: left;
             margin: 30px;
@@ -239,7 +240,7 @@
         }
         #ContentText img{
             height:auto;
-            width:100px;
+            width:300px;
         }
 
         /*InfoContent end*/
@@ -281,6 +282,15 @@
         
 
         /*ContentSelect end*/
+        
+        /*TopBar Start*/
+        #TopBar{
+            margin-top: -10px;
+            height: 100px;
+            width: 1600px;
+            background-image: url(TestIcon/TopBarBackground.jpg);
+        }
+        /*TopBar End*/
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -606,7 +616,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -622,7 +632,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -637,7 +647,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -652,7 +662,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -667,7 +677,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -682,7 +692,7 @@
                         height: "0px"
                     }, "slow");
                     $('#ContentText').animate({
-                        height: "250px"
+                        height: "230px"
                     }, "slow");
                     IsAni = true;
                     setTimeout(function() {
@@ -708,6 +718,9 @@
 <body onselectstart="return false">
 
 
+   <div id="TopBar"></div>
+   
+   
     <div id="menu">
         <p id="Red_Diamond"></p>
         <p id="YBGR_Group"></p>
