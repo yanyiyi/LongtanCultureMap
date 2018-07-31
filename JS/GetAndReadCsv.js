@@ -162,6 +162,14 @@ function GetItemsFromGeoData() {
                 infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
                 IsMarkerOpen = true;
                 this.setAnimation(null);
+
+                $('#InfoContent').animate({
+                    opacity: "0"
+                }, "slow");
+                $('#InfoContent').animate({
+                    opacity: "1"
+                }, "slow");
+
                 console.log("IsMarkerOpen:" + IsMarkerOpen);
             }
         }); //end marker.addListener 點擊事件
@@ -188,75 +196,35 @@ function markerArrayClickAdd(NowNum) {
     var maxNum = 6; //在此更改文章最大數量 //>Update 修改文章篇數最大值
     //console.log(markerArrayInnerContent);
     markerArray[NowNum].addListener('click', function () {
-        document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
-        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-        document.getElementById("ContentText").innerHTML.search("Img:");
-        TextReplace(document.getElementById("ContentText"));
-        document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數
-        //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
+        setTimeout(function () {
+            document.getElementById("ContentTitle").innerText = markerArrayInnerContent[NowNum][0];
+            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
+            document.getElementById("ContentText").innerHTML.search("Img:");
+            TextReplace(document.getElementById("ContentText"));
+            document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數
+            //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
+            for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
+                document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
+            }
+            var ChangingContent = false;
+            for (var d = 1; d <= maxNum; d++) {
+                document.getElementById("InfoSelect" + d).addEventListener('click', function () {
+                    if (!ChangingContent) {
+                        ChangingContent = true;
+                        InfoCheck = this.id.replace("InfoSelect", ""); //將當前被點擊的物件id的非數字字串移除，取得其id編號
+                        setTimeout(function () {
+                            document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck]; //帶入涵式即可修改對應的內文
+                            TextReplace(document.getElementById("ContentText")); //最後再用TextReplace整理一次內文
+                            ChangingContent = false;
+                        }, 650); //end Timeout
+                    }
+                    console.log(InfoCheck);
+                }); //end click
+            } // end for
 
-        for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
-            document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
-        }
-        var ChangingContent = false;
-        for (var d = 1; d <= maxNum; d++) {
-            document.getElementById("InfoSelect" + d).addEventListener('click', function () {
-                if (!ChangingContent) {
-                    ChangingContent = true;
-                    InfoCheck = this.id.replace("InfoSelect", ""); //將當前被點擊的物件id的非數字字串移除，取得其id編號
-                    setTimeout(function () {
-                        document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][InfoCheck]; //帶入涵式即可修改對應的內文
-                        TextReplace(document.getElementById("ContentText")); //最後再用TextReplace整理一次內文
-                        ChangingContent = false;
-                    }, 650); //end Timeout
-                }
-                console.log(InfoCheck);
-            }); //end click
-        } // end for
+        }, 650);//end markerArray[NowNum] click setTimeout
 
-
-
-
-
-
-
-        /*  if (markerArrayInnerContent[NowNum][1] != null) {
-              document.getElementById("InfoSelect1").innerHTML = markerArrayInnerContent[NowNum][4];
-              document.getElementById("InfoSelect1").addEventListener('click', function () {
-                  setTimeout(function () {
-                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
-                      TextReplace(document.getElementById("ContentText"));
-                      
-                  }, 650);
-              });
-          } else {
-              document.getElementById("ContentText").innerHTML = null;
-          }
-
-          if (markerArrayInnerContent[NowNum][2] != null) {
-              document.getElementById("InfoSelect2").innerHTML = markerArrayInnerContent[NowNum][5];
-              document.getElementById("InfoSelect2").addEventListener('click', function () {
-                  setTimeout(function () {
-                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][2];
-                      TextReplace(document.getElementById("ContentText"));
-                  }, 650);
-              });
-          } else {
-              document.getElementById("ContentText").innerHTML = null;
-          }
-          if (markerArrayInnerContent[NowNum][3] != null) {
-              document.getElementById("InfoSelect3").innerHTML = markerArrayInnerContent[NowNum][6];
-              document.getElementById("InfoSelect3").addEventListener('click', function () {
-                  setTimeout(function () {
-                      document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][3];
-                      TextReplace(document.getElementById("ContentText"));
-                  }, 650);
-              });
-
-          } else {
-              document.getElementById("ContentText").innerHTML = null;
-          }*/
 
 
         //加入點擊詳細內容中的標題可以切換文章的功能
@@ -463,9 +431,9 @@ function TextReplace(Content) {
     var start = -1,
         end = -1; // indexOf 出現-1時表示它未找到相關字串
 
-    var reg = new RegExp("ImgStart:", "g");// 利用RegExp設定讀取"ImgStart:"為目標
-    var result = Content.innerHTML.match(reg);//將字串導入去.match(reg)
-    var count = (result) ? result.length : 0;//將讀取到的次數存取
+    var reg = new RegExp("ImgStart:", "g"); // 利用RegExp設定讀取"ImgStart:"為目標
+    var result = Content.innerHTML.match(reg); //將字串導入去.match(reg)
+    var count = (result) ? result.length : 0; //將讀取到的次數存取
 
     console.log("Count:" + count);
 
@@ -474,7 +442,7 @@ function TextReplace(Content) {
     Content.innerHTML = Content.innerHTML.replace(/\n|↵/g, "<br>");
     Content.innerHTML = Content.innerHTML.replace(/\s/g, "\xa0"); //先將特殊字元取代
 
-    for (var ImgNum = 0; ImgNum < count; ImgNum++) {   
+    for (var ImgNum = 0; ImgNum < count; ImgNum++) {
         console.log(Content.innerHTML.indexOf("ImgStart:"));
         start = Content.innerHTML.indexOf("ImgStart:") + 9;
         console.log(Content.innerHTML.indexOf(":ImgEnd"));
@@ -492,7 +460,7 @@ function TextReplace(Content) {
 
             Content.innerHTML = Content.innerHTML.replace(MyImgAllPart, MyImg); //將剛剛所存的完整語法加圖片來源的字串取代成固定格式的字串
         }
-    }// end for 依照"ImgStart:"被讀取的數量 來執行等次數的圖片置換動作
+    } // end for 依照"ImgStart:"被讀取的數量 來執行等次數的圖片置換動作
 
 
 
