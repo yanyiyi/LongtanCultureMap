@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+        //myScript
+        //https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec
+
+    </script>
+
+    <style>
+        input {
+            width: 300px;
+            font-size: 15px;
+            margin: 2px 0;
+            padding: 2px 5px;
+        }
+
+        td {
+            border: 1px solid #aaa;
+            padding: 2px 5px;
+        }
+
+    </style>
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+    Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec"><br> 試算表網址：
+    <input id="sheetsUrl" value="https://docs.google.com/spreadsheets/d/1Y6UDFWp_HKCK1ey9idrXXBcrrHR_ZKczN2P5JIWNh-M/edit#gid=0"><br> 工作表名稱：
+    <input id="sheetName" value="工作表1"><br> 寫入方式：
+    <select id="type">
+    <option value="bottom">寫入在最後一列</option>
+  </select>
+    <br> 資料：
+    <table>
+        <tbody>
+            <tr>
+                <p>緯度(lat):<input id="lat"></p>
+                <p>經度(long):<input id="long"></p>
+                <p>浮動提示(tit):<input id="tit"></p>
+                <p>座標圖示(ico):<input id="ico"></p>
+                <p>座標文字(textdata):<input id="textdata"></p>
+                <p>座標分類(type):<input id="mtype"></p>
+                <p>詳細圖示(infoimage):<input id="infoimage"></p>
+                <p>詳細標題(infotitle):<input id="infotitle"></p>
+                <p>詳細內文(infocontent):<input id="infocontent"></p>
+                <p>詳細內文2(infocontent2):<input id="infocontent2"></p>
+                <p>詳細內文2(infocontent3):<input id="infocontent3"></p>
+                <p>詳細內文2(infocontent4):<input id="infocontent4"></p>
+                <p>詳細內文2(infocontent5):<input id="infocontent5"></p>
+                <p>詳細內文2(infocontent6):<input id="infocontent6"></p>
+                <p>詳細文章1(contenttitle1):<input id="contenttitle1"></p>
+                <p>詳細文章2(contenttitle2):<input id="contenttitle2"></p>
+                <p>詳細文章3(contenttitle3):<input id="contenttitle3"></p>
+                <p>詳細文章4(contenttitle4):<input id="contenttitle4"></p>
+                <p>詳細文章5(contenttitle5):<input id="contenttitle5"></p>
+                <p>詳細文章6(contenttitle6):<input id="contenttitle6"></p>
+            </tr>
+        </tbody>
+    </table>
+    <button id="sendBtn">寫入</button>
+    <script>
+        var appUrl = $('#appUrl'),
+            sheetsUrl = $('#sheetsUrl'),
+            sheetName = $('#sheetName'),
+            type = $('#type'),
+            sendBtn = $('#sendBtn'),
+            show = $('#show');
+        var Lat,
+            Long,
+            Tit,
+            Ico,
+            TextData,
+            mType,
+            InfoImage,
+            InfoTitle,
+            InfoContent,
+            InfoContent2,
+            InfoContent3,
+            InfoContent4,
+            InfoContent5,
+            InfoContent6,
+            ContentTitle1,
+            ContentTitle2,
+            ContentTitle3,
+            ContentTitle4,
+            ContentTitle5,
+            ContentTitle6;
+       
+
+        var data = [
+            [Lat, Long, Tit, Ico,TextData,mType,InfoImage,InfoTitle,InfoContent,InfoContent2,InfoContent3,InfoContent4,InfoContent5,InfoContent6,ContentTitle1,ContentTitle2,ContentTitle3,ContentTitle4,ContentTitle5,ContentTitle6]
+        ];
+        var parameter = {};
+        
+        
+        sendBtn.on('click', function() {
+            Lat = document.getElementById("lat").value;
+            Long = document.getElementById("long").value;
+            Tit = document.getElementById("tit").value;
+            Ico = document.getElementById("ico").value;
+            TextData = document.getElementById("textdata").value;
+            mType = document.getElementById("mtype").value;
+            InfoImage = document.getElementById("infoimage").value;
+            InfoTitle = document.getElementById("infotitle").value;
+            InfoContent = document.getElementById("infocontent").value;
+            InfoContent2 = document.getElementById("infocontent2").value;
+            InfoContent3 = document.getElementById("infocontent3").value;
+            InfoContent4 = document.getElementById("infocontent4").value;
+            InfoContent5 = document.getElementById("infocontent5").value;
+            InfoContent6 = document.getElementById("infocontent6").value;
+            ContentTitle1 = document.getElementById("contenttitle1").value;
+            ContentTitle2 = document.getElementById("contenttitle2").value;
+            ContentTitle3 = document.getElementById("contenttitle3").value;
+            ContentTitle4 = document.getElementById("contenttitle4").value;
+            ContentTitle5 = document.getElementById("contenttitle5").value;
+            ContentTitle6 = document.getElementById("contenttitle6").value;
+            
+            
+            
+            data = data = [
+            [Lat, Long, Tit, Ico,TextData,mType,InfoImage,InfoTitle,InfoContent,InfoContent2,InfoContent3,InfoContent4,InfoContent5,InfoContent6,ContentTitle1,ContentTitle2,ContentTitle3,ContentTitle4,ContentTitle5,ContentTitle6]
+        ];
+            
+            parameter = {
+                url: sheetsUrl.val(),
+                name: sheetName.val(),
+                data: data.toString(),
+                row: data.length,
+                column: data[0].length,
+                insertType: type.val()
+            };
+            $.get(appUrl.val(), parameter);
+        });
+
+    </script>
+
+
+    <style>
+        #info {
+            position: fixed;
+            z-index: 999;
+            bottom: 20px;
+            left: 0px;
+            background: #222;
+            padding: 20px 30px;
+            color: #fff;
+            box-shadow: rgba(0, 0, 0, .5) 0 0 10px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        #info a {
+            color: #0bf;
+            transition: .2s;
+        }
+
+        #info a:hover {
+            color: #6df;
+        }
+
+    </style>
+<!--
+    <script>
+        var href = location.href;
+        var page = href.split("demo/");
+        var name = page[1].split("-demo")[0];
+        var title = document.querySelector('title').innerHTML;
+        document.getElementById('infoLink').setAttribute('href', '/articles/' + name + '.html');
+        document.getElementById('infoLink').innerHTML = title.split("demo")[0];
+
+    </script>
+-->
+
+
+
+</body>
+
+</html>
