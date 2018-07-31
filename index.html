@@ -4,6 +4,22 @@
 <head>
 
     <title>龍潭文學地景及藝文資源</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+
+    <script>
+        var zoom = function(e) {
+            var e = e || window.event;
+            if (e.wheelDelta && event.ctrlKey) {
+                event.returnValue = false
+            } else if (e.detail) {
+                event.returnValue = false;
+            }
+        }
+        if (document.addEventListener) {
+            document.addEventListener('DOMMouseScroll', zoom, false);
+        }
+        window.onmousewheel = document.onmousewheel = zoom;
+    </script>
 
     <style type="text/css">
         html,
@@ -44,7 +60,7 @@
             font-size: 14px;
             font-family: 微軟正黑體, 標楷體;
         }
-        
+
 
         /*設立一個calss來控制客製化的checkbox*/
 
@@ -58,7 +74,6 @@
         }
 
         /*建立hover事件到checkbox上*/
-
 
         /*建立一個新圖層在客製化checkbox，並對其改寫風格*/
 
@@ -80,8 +95,6 @@
         }
 
         /*設定當checkbox被勾選時上面的圖層出現*/
-
-
 
         /*將預設的checkbox隱藏，並將其index調為較高使其在圖片上方*/
 
@@ -195,6 +208,7 @@
         #ContentImg {
             width: 300px;
             height: 225px;
+            box-shadow: 3px 3px 5px rgb(74, 74, 74);
         }
 
         #ContentTitle {
@@ -212,13 +226,14 @@
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
             height: 230px;
-            width: 450px;
+            width: 445px;
             text-align: left;
             margin: 30px;
             margin-top: 0px;
             word-wrap: break-word;
             background-color: rgba(128, 64, 0, 0.4);
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
+            padding-left: 5px;
         }
 
         #ContentBtn {
@@ -240,9 +255,10 @@
         #ContentText::-webkit-scrollbar {
             display: none;
         }
-        #ContentText img{
-            height:auto;
-            width:300px;
+
+        #ContentText img {
+            height: auto;
+            width: 300px;
         }
 
         /*InfoContent end*/
@@ -271,7 +287,7 @@
             border-bottom-width: 2px;*/
             list-style: none;
             margin-left: -35px;
-           
+
         }
 
         #ConttentSelect li img {
@@ -284,17 +300,19 @@
             background-color: rgba(128, 64, 0, 0.6);
             color: white;
         }
-        
+
 
         /*ContentSelect end*/
-        
+
         /*TopBar Start*/
-        #TopBar{
+
+        #TopBar {
             margin-top: -10px;
             height: 100px;
             width: 1600px;
             background-image: url(TestIcon/TopBarBackground.jpg);
         }
+
         /*TopBar End*/
     </style>
 
@@ -595,7 +613,7 @@
                     }, 500);
                     $('#ContentBtn').animate({
                         right: "0px"
-                    },500);
+                    }, 500);
                     IsInfoContentOpen = false;
                     $('#map-canvas').animate({
                         width: "1600px"
@@ -609,7 +627,7 @@
                     }, 500);
                     $('#ContentBtn').animate({
                         right: "500px"
-                    },500);
+                    }, 500);
                     IsInfoContentOpen = true;
                     $('#map-canvas').animate({
                         width: "1100px"
@@ -713,11 +731,11 @@
             });
 
             //end InfoSelectClick 加入詳細內容的動畫
-            
+
             $('body').animate({
                 opacity: "1"
-            },"slow");
-            
+            }, "slow");
+
 
         }); // end ready
     </script>
@@ -733,9 +751,9 @@
 <body onselectstart="return false">
 
 
-   <div id="TopBar"></div>
-   
-   
+    <div id="TopBar"></div>
+
+
     <div id="menu">
         <p id="Red_Diamond"></p>
         <p id="YBGR_Group"></p>
@@ -747,24 +765,24 @@
         <img id="menuBtn" src="./TestIcon/menuBtn.png">
 
     </div>
-        
-        <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
+
+    <img id="ContentBtn" src="./TestIcon/ContentBtn.png">
     <div id="InfoContent">
-        
+
         <div id="ContentTitle">點選想查詢的座標點</div>
         <img id="ContentImg" src="./TestIcon/noneImg.png">
         <ul id="ContentSelect">
             <li id="InfoSelect1" value="1">這裡將會出現文章標題</li>
-            <li id="InfoSelect2" value="2">範例1</li>
-            <li id="InfoSelect3" value="3">範例2</li>
-            <li id="InfoSelect4" value="4">範例3</li>
-            <li id="InfoSelect5" value="5">範例4</li>
-            <li id="InfoSelect6" value="6">範例5</li>
+            <li id="InfoSelect2" value="2">您可以點選文章標題來閱讀詳細內容</li>
+            <li id="InfoSelect3" value="3">範例1</li>
+            <li id="InfoSelect4" value="4">範例2</li>
+            <li id="InfoSelect5" value="5">範例3</li>
+            <li id="InfoSelect6" value="6">範例4</li>
         </ul>
-        <div id="ContentText">這裡將會出現相關介紹</div>
+        <div id="ContentText">這裡將會出現相關介紹，及文章內容</div>
 
-        
-                    
+
+
     </div>
 
     <div id="map-canvas"></div>

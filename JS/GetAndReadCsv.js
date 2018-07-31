@@ -121,7 +121,7 @@ function InfoBoxContentInput() {
     }
     items[4] = items[4].replace(/\n|↵/g, "<br>"); //將CSV中的換行符號轉換成<br>讓其在infobox中也換行
     items[4] = items[4].replace(/\s/g, "\xa0"); //將CSV中的空個符號\s換成no-break space \xa0 讓空格也可在infowindow中正常顯示
-
+    
 
 
     InfoBoxContent = "<div id='InfoWindow'>" + "<img id='MapImage' src='" + items[6] + "'>" + "<h1 id='InfoTitle'>" + items[7] + "</h1>" + "<div id='InfoText'>" + items[4] + "</div>" + "</div>";
@@ -201,7 +201,7 @@ function markerArrayClickAdd(NowNum) {
             document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
             document.getElementById("ContentText").innerHTML.search("Img:");
             TextReplace(document.getElementById("ContentText"));
-            document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數
+            document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數，此圖元陣列數即是在上上一步驟markerArrayInnerContent.push()時的最大陣列數，做此更改時請參考push的陣列0、1、2、3....
             //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
             for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
