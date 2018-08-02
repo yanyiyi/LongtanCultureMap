@@ -3,11 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>地圖資料新增處理</title>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script>
         //myScript
         //https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec
+        
+        var password = prompt("請輸入密碼","");
+        if(password == "Password"){
+            alert("歡迎!")
+        }
+        else if(password == null){
+            location.href='input.html';
+        }
+        else if(password != "Password"){
+            alert("密碼錯誤，請重新輸入");
+            location.href='input.html';
+        }
+        
+        
     </script>
 
     <style>
@@ -22,12 +36,21 @@
             border: 1px solid #aaa;
             padding: 2px 5px;
         }
+        #sheetsUrl{
+            margin-bottom: 10px;
+        }
+        #sheetName{
+            margin-bottom: 10px;
+        }
+        #type{
+            margin-bottom: 10px;
+        }
     </style>
 
 </head>
 
 <body data-gr-c-s-loaded="true">
-    Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec"><br> 試算表網址：
+    Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec" disabled><br> 試算表網址：
     <input id="sheetsUrl" value=""><br> 工作表名稱：
     <input id="sheetName" value="工作表1"><br> 寫入方式：
     <select id="type">
