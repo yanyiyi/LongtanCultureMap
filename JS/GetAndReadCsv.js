@@ -4,21 +4,21 @@ $(document).ready(function () {
         //檢索每次加入文章應更動區索引標籤：>Update
 
         //onload thing start
-//
-//        function isMobile() {
-//            try{document.createEvent("TouchEvent"); return true;}
-//            
-//            catch(e) {return false;}
-//        }
-//        
-//        isMobile();
-//        
-//        if(isMobile()){
-//            alert("是行動裝置");
-//        }
-//        else{
-//            alert("是電腦裝置");
-//        }
+
+        function isMobile() {
+            try{document.createEvent("TouchEvent"); return true;}
+            
+            catch(e) {return false;}
+        }
+        
+        isMobile();
+        
+        if(isMobile()){
+            alert("是行動裝置");
+        }
+        else{
+            alert("是電腦裝置");
+        }
 
         //onload thing end
 
