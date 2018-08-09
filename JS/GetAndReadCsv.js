@@ -14,7 +14,7 @@ $(document).ready(function () {
             }
         }
 
-        isMobile();
+        isMobile();//偵測是否為行動裝置
 
         if (isMobile()) {
             alert("是行動裝置");
