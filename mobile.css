@@ -167,7 +167,10 @@
             margin-bottom: 20px;
         }
 
-        #InfoWindow {}
+        #InfoWindow {    
+            height: 400px;
+            overflow: scroll;
+        }
 
         /*Infowindow css end*/
 
@@ -284,12 +287,9 @@
             background-color: rgba(128, 64, 0, 0.6);
             color: white;
         }
-
+        
 
         /*ContentSelect end*/
 
-        /*TopBar Start*/
-
         
-        /*TopBar End*/
     
