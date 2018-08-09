@@ -124,7 +124,6 @@
             bottom: 0px;
             cursor: pointer;
             z-index: 2;
-
         }
 
         #menuBtn:hover {
@@ -155,7 +154,6 @@
             width: 300px;
             color: black;
             margin-left: 20px;
-
         }
 
         #InfoText {
@@ -232,7 +230,6 @@
             z-index: 3;
             right: 0px;
             cursor: pointer;
-
         }
 
         #ContentBtn:hover {
@@ -274,7 +271,6 @@
             border-bottom-width: 2px;*/
             list-style: none;
             margin-left: -35px;
-
         }
 
         #ConttentSelect li img {
@@ -291,5 +287,12 @@
 
         /*ContentSelect end*/
 
-        
+        /*map css start*/
+        .gmnoprint .gm-style-mtc{
+            display: none;
+        }
+        #map-canvas button{
+            display: none;
+        }
+        /*map css end*/
     
