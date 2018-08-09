@@ -1,5 +1,5 @@
 # GoogleMapApi
-- https://depolk.github.io/GoogleMapApi/
+- https://depolk.me/
 - doge.yzu.us
 - 相關使用說明 https://hackmd.io/NERLfQ59Qn6UahiGfNEutg
 ---
