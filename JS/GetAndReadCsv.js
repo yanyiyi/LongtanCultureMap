@@ -22,6 +22,7 @@ $(document).ready(function () {
                 link.rel = "stylesheet";
                 link.type = "text/css";
                 link.href = "mobile.css";
+                console.log("Mobile");
         } else {
             alert("是電腦裝置" + screen.width + "*" + screen.height);
             if (screen.width >= 1920) {
