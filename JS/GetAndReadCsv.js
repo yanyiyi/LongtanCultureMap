@@ -5,47 +5,6 @@ $(document).ready(function () {
 
         //onload thing start
 
-        function isMobile() {
-            try {
-                document.createEvent("TouchEvent");
-                return true;
-            } catch (e) {
-                return false;
-            }
-        }
-
-        isMobile();//偵測是否為行動裝置
-
-        if (isMobile()) {
-            alert("是行動裝置");
-            var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "mobile.css";
-                console.log("Mobile");
-        } else {
-            alert("是電腦裝置" + screen.width + "*" + screen.height);
-            if (screen.width >= 1920) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "1920.css";
-            } else if (screen.width >= 1600 && screen.width < 1920) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "1600x900.css";
-                document.getElementsByTagName("head")[0].appendChild(link);
-            } else if (screen.width >=1300 && screen.width < 1600) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "less1600.css";
-                document.getElementsByTagName("head")[0].appendChild(link);
-            }
-
-        }
-
         //onload thing end
 
 

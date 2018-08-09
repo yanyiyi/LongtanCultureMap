@@ -1,7 +1,7 @@
         html,
         body,
         #map-canvas {
-            height: 1280px;
+            height: 1200px;
             width: 720px;
             margin-left: 0;
         }
@@ -117,10 +117,10 @@
 
         #menuBtn {
             position: absolute;
-            margin-left: 344px;
-            height: 370px;
-            width: 50px;
-            margin-top: -366px;
+            margin-left: 350px;
+            height: 100px;
+            width: 100px;
+            bottom: 270px;
             cursor: pointer;
 
         }
@@ -173,12 +173,13 @@
 
         #InfoContent {
             position: absolute;
-            height: 565px;
-            width: 500px;
+            height: 1100px;
+            width: 720px;
             background-color: bisque;
             background-image: url(TestIcon/InfoContentBackground.jpg);
-            margin-left: 1100px;
+            left: 0px;
             text-align: center;
+            z-index: 2;
             right: 0;
         }
 
@@ -217,12 +218,11 @@
 
         #ContentBtn {
             position: absolute;
-            margin-top: 50px;
-            height: 370px;
-            width: 50px;
-            text-align: left;
+            margin-top: 1100px;
+            height: 100px;
+            width: 100px;
             z-index: 2;
-            right: 500px;
+            left: 625px;
             cursor: pointer;
 
         }
