@@ -298,27 +298,26 @@
                 //console.log("menuClick");
                 if (IsMenuOpen) {
                     $('#menu').animate({
-                        left: "-350px"
+                        opacity: "0"
                     }, 500);
                     IsMenuOpen = false;
+                    setTimeout(function(){$('#menu').css('display','none');},500);
                 } else {
                     $('#menu').animate({
-                        left: "0px"
+                        opacity: "1"
                     }, 500);
+                    $('#menu').css('display','block');
                     IsMenuOpen = true;
                 }
             }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
 
 
-            var IsInfoContentOpen = true;
+            var IsInfoContentOpen = false;
             $('#ContentBtn').click(function() {
                 //console.log("menuClick");
                 if (IsInfoContentOpen) {
                     $('#InfoContent').animate({
                         opacity: "0"
-                    }, 500);
-                    $('#ContentBtn').animate({
-                        right: "0px"
                     }, 500);
                     IsInfoContentOpen = false;
                     setTimeout(function(){$('#InfoContent').css('display','none');},500);
@@ -327,9 +326,6 @@
                 } else {
                     $('#InfoContent').animate({
                         opacity: "1"
-                    }, 500);
-                    $('#ContentBtn').animate({
-                        right: "500px"
                     }, 500);
                     $('#InfoContent').css('display','block');
                     IsInfoContentOpen = true;
@@ -450,9 +446,6 @@
 <body onselectstart="return false">
 
 
-    <div id="TopBar"></div>
-
-
     <div id="menu">
         <p id="Red_Diamond"></p>
         <p id="YBGR_Group"></p>
@@ -461,9 +454,8 @@
         <p id="YG_Buld"></p>
         <p id="Red_Buld"></p>
         <p id="YG_Diamond"></p>
-        <img id="menuBtn" src="./TestIcon/icon_2.jpg">
-
     </div>
+    <img id="menuBtn" src="./TestIcon/icon_2.jpg">
 
     <img id="ContentBtn" src="./TestIcon/icon.jpg">
     <div id="InfoContent">

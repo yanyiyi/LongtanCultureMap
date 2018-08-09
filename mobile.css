@@ -1,8 +1,9 @@
         html,
         body,
         #map-canvas {
-            height: 542px;
+            height: 650px;
             width: 360px;
+            margin-top: -5px;
             margin-left: 0;
         }
 
@@ -108,20 +109,21 @@
             position: absolute;
             z-index: 1;
             margin-top: 45px;
-            left: -350px;
             width: 350px;
             height: 370px;
+            opacity: 0;
+            display: none;
             -moz-user-select: none;
             /*用以防止使用者反白Tip的內容*/
         }
 
         #menuBtn {
             position: absolute;
-            margin-left: 350px;
-            height: 100px;
-            width: 100px;
-            bottom: 270px;
+            height: 70px;
+            width: 70px;
+            bottom: 0px;
             cursor: pointer;
+            z-index: 2;
 
         }
 
@@ -173,13 +175,16 @@
 
         #InfoContent {
             position: absolute;
-            height: 1100px;
-            width: 720px;
+            margin-top: -5px;
+            height: 585px;
+            width: 360px;
             background-color: bisque;
             background-image: url(TestIcon/InfoContentBackground.jpg);
             left: 0px;
             text-align: center;
             z-index: 2;
+            opacity: 0;
+            display: none;
             right: 0;
         }
 
@@ -205,7 +210,7 @@
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
             height: 200px;
-            width: 445px;
+            width: 300px;
             text-align: left;
             margin: 30px;
             margin-top: 0px;
@@ -218,11 +223,11 @@
 
         #ContentBtn {
             position: absolute;
-            margin-top: 1100px;
-            height: 100px;
-            width: 100px;
+            margin-top: 580px;
+            height: 70px;
+            width: 70px;
             z-index: 2;
-            left: 625px;
+            right: 0px;
             cursor: pointer;
 
         }
@@ -254,7 +259,7 @@
             margin-left: 30px;
             font-family: 微軟正黑體;
             height: 100px;
-            width: 410px;
+            width: 265px;
             overflow-y: scroll;
             background-color: rgba(128, 64, 0, 0.4);
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
@@ -285,12 +290,6 @@
 
         /*TopBar Start*/
 
-        #TopBar {
-            margin-top: -10px;
-            height: 100px;
-            width: 1600px;
-            background-image: url(TestIcon/TopBarBackground.jpg);
-        }
-
+        
         /*TopBar End*/
     
