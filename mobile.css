@@ -176,7 +176,7 @@
         #InfoContent {
             position: absolute;
             margin-top: -5px;
-            height: 585px;
+            height: 555px;
             width: 360px;
             background-color: bisque;
             background-image: url(TestIcon/InfoContentBackground.jpg);
@@ -209,7 +209,7 @@
             font-size: 20px;
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
-            height: 200px;
+            height: 180px;
             width: 300px;
             text-align: left;
             margin: 30px;
@@ -226,7 +226,7 @@
             bottom: 0px;
             height: 70px;
             width: 70px;
-            z-index: 2;
+            z-index: 3;
             right: 0px;
             cursor: pointer;
 
