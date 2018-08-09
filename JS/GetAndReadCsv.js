@@ -31,11 +31,18 @@ $(document).ready(function () {
                 link.type = "text/css";
                 link.href = "1600x900.css";
                 document.getElementsByTagName("head")[0].appendChild(link);
-            } else if (screen.width < 1600) {
+            } else if (screen.width >=1300 && screen.width < 1600) {
                 var link = document.createElement("link");
                 link.rel = "stylesheet";
                 link.type = "text/css";
                 link.href = "less1600.css";
+                document.getElementsByTagName("head")[0].appendChild(link);
+            }
+            else if (screen.width < 1300){
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "mobile.css";
                 document.getElementsByTagName("head")[0].appendChild(link);
             }
 
