@@ -5,7 +5,20 @@ $(document).ready(function () {
 
         //onload thing start
 
-
+        function isMobile() {
+            try{document.createEvent("TouchEvent"); return true;}
+            
+            catch(e) {return false;}
+        }
+        
+        isMobile();
+        
+        if(isMobile()){
+            alert("是行動裝置");
+        }
+        else{
+            //alert("是電腦裝置");
+        }
 
         //onload thing end
 
