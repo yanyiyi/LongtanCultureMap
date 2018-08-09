@@ -6,18 +6,39 @@ $(document).ready(function () {
         //onload thing start
 
         function isMobile() {
-            try{document.createEvent("TouchEvent"); return true;}
-            
-            catch(e) {return false;}
+            try {
+                document.createEvent("TouchEvent");
+                return true;
+            } catch (e) {
+                return false;
+            }
         }
-        
+
         isMobile();
-        
-        if(isMobile()){
+
+        if (isMobile()) {
             alert("是行動裝置");
-        }
-        else{
-            alert("是電腦裝置");
+        } else {
+            alert("是電腦裝置" + screen.width + "*" + screen.height);
+            if (screen.width >= 1920) {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "1920.css";
+            } else if (screen.width >= 1600 && screen.width < 1920) {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "1600x900.css";
+                document.getElementsByTagName("head")[0].appendChild(link);
+            } else if (screen.width < 1600) {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "less1600.css";
+                document.getElementsByTagName("head")[0].appendChild(link);
+            }
+
         }
 
         //onload thing end
@@ -134,7 +155,7 @@ function InfoBoxContentInput() {
     }
     items[4] = items[4].replace(/\n|↵/g, "<br>"); //將CSV中的換行符號轉換成<br>讓其在infobox中也換行
     items[4] = items[4].replace(/\s/g, "\xa0"); //將CSV中的空個符號\s換成no-break space \xa0 讓空格也可在infowindow中正常顯示
-    
+
 
 
     InfoBoxContent = "<div id='InfoWindow'>" + "<img id='MapImage' src='" + items[6] + "'>" + "<h1 id='InfoTitle'>" + items[7] + "</h1>" + "<div id='InfoText'>" + items[4] + "</div>" + "</div>";
@@ -236,7 +257,7 @@ function markerArrayClickAdd(NowNum) {
                 }); //end click
             } // end for
 
-        }, 650);//end markerArray[NowNum] click setTimeout
+        }, 650); //end markerArray[NowNum] click setTimeout
 
 
 

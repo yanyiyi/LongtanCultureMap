@@ -1,0 +1,296 @@
+        html,
+        body,
+        #map-canvas {
+            height: 775px;
+            width: 1100px;
+            margin-left: 0;
+        }
+
+        body {
+            background-color: bisque;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        #map-iconTip img {
+            z-index: 1;
+            height: 30px;
+        }
+
+        /*#map-iconTip input{
+            height: 20px;
+            zoom:200%;
+        }*/
+
+        #map-iconTip {
+            position: absolute;
+            z-index: 1;
+            margin-top: 45px;
+            background-color: rgba(128, 64, 0, 0.6);
+            width: 350px;
+            -moz-user-select: none;
+            /*用以防止使用者反白Tip的內容*/
+        }
+
+        #map-iconTip p {
+            font-size: 14px;
+            font-family: 微軟正黑體, 標楷體;
+        }
+
+
+        /*設立一個calss來控制客製化的checkbox*/
+
+        .checkmark {
+            position: absolute;
+            margin-top: 5px;
+            margin-left: 5px;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /*建立hover事件到checkbox上*/
+
+        /*建立一個新圖層在客製化checkbox，並對其改寫風格*/
+
+        .checkmark:after {
+            content: "";
+            font-size: 20px;
+            position: absolute;
+            display: none;
+            /*以下為風格更改*/
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        /*設定當checkbox被勾選時上面的圖層出現*/
+
+        /*將預設的checkbox隱藏，並將其index調為較高使其在圖片上方*/
+
+        #menu input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            z-index: 2;
+        }
+
+        /*建立hover事件到checkbox上*/
+
+        #menu:hover input~.checkmark {
+            /*background-color: #ccc;*/
+        }
+
+        /*建立checked狀態到checkbox上*/
+
+        #menu input:checked~.checkmark {
+            background-color: rgb(230, 144, 57);
+        }
+
+        /*設定當checkbox被勾選時上面的圖層出現*/
+
+        #menu input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /*側邊滑動選單*/
+
+        #menu {
+            background-color: rgba(128, 64, 0, 0.6);
+            position: absolute;
+            z-index: 1;
+            margin-top: 45px;
+            left: -350px;
+            width: 350px;
+            height: 370px;
+            -moz-user-select: none;
+            /*用以防止使用者反白Tip的內容*/
+        }
+
+        #menuBtn {
+            position: absolute;
+            margin-left: 344px;
+            height: 370px;
+            width: 50px;
+            margin-top: -366px;
+            cursor: pointer;
+
+        }
+
+        #menuBtn:hover {
+            opacity: 0.9;
+        }
+
+        #menu p img {
+            padding-top: -10px;
+            height: 30px;
+        }
+
+        #menu p {
+            font-family: 微軟正黑體;
+            font-weight: 900;
+            cursor: default;
+        }
+
+        /*Infowindow css start*/
+
+        #MapImage {
+            width: 300px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        #InfoTitle {
+            font-family: 微軟正黑體;
+            width: 300px;
+            color: black;
+            margin-left: 20px;
+
+        }
+
+        #InfoText {
+            font-family: 微軟正黑體;
+            font-weight: 900;
+            width: 300px;
+            color: black;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #InfoWindow {}
+
+        /*Infowindow css end*/
+
+        /*InfoContent start*/
+
+        #InfoContent {
+            position: absolute;
+            height: 775px;
+            width: 500px;
+            background-color: bisque;
+            background-image: url(TestIcon/InfoContentBackground.jpg);
+            margin-left: 1100px;
+            text-align: center;
+            right: 0;
+        }
+
+        #ContentImg {
+            width: 300px;
+            height: 225px;
+            box-shadow: 3px 3px 5px rgb(74, 74, 74);
+        }
+
+        #ContentTitle {
+            font-family: 微軟正黑體;
+            font-size: 45px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            cursor: default;
+        }
+
+        #ContentText {
+            position: static;
+            font-family: 微軟正黑體;
+            font-size: 20px;
+            overflow-y: scroll;
+            /*當字體超出限定範圍時，所採用的方法*/
+            height: 230px;
+            width: 445px;
+            text-align: left;
+            margin: 30px;
+            margin-top: 0px;
+            word-wrap: break-word;
+            background-color: rgba(128, 64, 0, 0.4);
+            box-shadow: 3px 3px 5px rgb(74, 74, 74);
+            padding-left: 5px;
+            cursor: default;
+        }
+
+        #ContentBtn {
+            position: absolute;
+            margin-top: 50px;
+            height: 370px;
+            width: 50px;
+            text-align: left;
+            z-index: 2;
+            right: 500px;
+            cursor: pointer;
+
+        }
+
+        #ContentBtn:hover {
+            opacity: 0.9;
+        }
+
+        #ContentText::-webkit-scrollbar {
+            display: none;
+        }
+
+        #ContentText img {
+            height: auto;
+            width: 300px;
+        }
+
+        /*InfoContent end*/
+
+        /*ContentSelect start*/
+
+        #ContentSelect::-webkit-scrollbar {
+            display: none;
+        }
+
+        #ContentSelect {
+            text-align: left;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            font-family: 微軟正黑體;
+            height: 100px;
+            width: 410px;
+            overflow-y: scroll;
+            background-color: rgba(128, 64, 0, 0.4);
+            box-shadow: 3px 3px 5px rgb(74, 74, 74);
+            /*background-color: gray;*/
+        }
+
+        #ContentSelect li {
+            /* border-bottom: solid;
+            border-bottom-width: 2px;*/
+            list-style: none;
+            margin-left: -35px;
+
+        }
+
+        #ConttentSelect li img {
+            width: 10px;
+            height: 10px;
+        }
+
+        #ContentSelect li:hover {
+            cursor: pointer;
+            background-color: rgba(128, 64, 0, 0.6);
+            color: white;
+        }
+
+
+        /*ContentSelect end*/
+
+        /*TopBar Start*/
+
+        #TopBar {
+            margin-top: -10px;
+            height: 100px;
+            width: 1600px;
+            background-image: url(TestIcon/TopBarBackground.jpg);
+        }
+
+        /*TopBar End*/
+    
