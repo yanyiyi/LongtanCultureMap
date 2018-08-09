@@ -301,12 +301,14 @@
                         opacity: "0"
                     }, 500);
                     IsMenuOpen = false;
-                    setTimeout(function(){$('#menu').css('display','none');},500);
+                    setTimeout(function() {
+                        $('#menu').css('display', 'none');
+                    }, 500);
                 } else {
                     $('#menu').animate({
                         opacity: "1"
                     }, 500);
-                    $('#menu').css('display','block');
+                    $('#menu').css('display', 'block');
                     IsMenuOpen = true;
                 }
             }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
@@ -320,14 +322,16 @@
                         opacity: "0"
                     }, 500);
                     IsInfoContentOpen = false;
-                    setTimeout(function(){$('#InfoContent').css('display','none');},500);
-                    
-                     //直接使用動畫來改變寬度
+                    setTimeout(function() {
+                        $('#InfoContent').css('display', 'none');
+                    }, 500);
+
+                    //直接使用動畫來改變寬度
                 } else {
                     $('#InfoContent').animate({
                         opacity: "1"
                     }, 500);
-                    $('#InfoContent').css('display','block');
+                    $('#InfoContent').css('display', 'block');
                     IsInfoContentOpen = true;
                 }
             }); //end InfoContentBtnClick 加入詳細內容的動畫
