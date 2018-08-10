@@ -119,8 +119,8 @@
 
         #menuBtn {
             position: absolute;
-            height: 6%;
-            width: 10%;
+            height: 9%;
+            width: 15%;
             bottom: 0px;
             cursor: pointer;
             z-index: 2;
@@ -166,8 +166,8 @@
         }
 
         #InfoWindow {    
-            height: 400px;
-            width: 250px;
+            max-height: 500px;
+            width: 100%;
             overflow-y: scroll;
         }
 
@@ -213,7 +213,7 @@
             font-size: 20px;
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
-            height: 40%;
+            height: 35%;
             width: 80%;
             text-align: left;
             margin: 0 auto;
@@ -228,8 +228,8 @@
         #ContentBtn {
             position: absolute;
             bottom: 0px;
-            height: 6%;
-            width: 10%;
+            height: 9%;
+            width: 15%;
             z-index: 3;
             right: 0px;
             cursor: pointer;
