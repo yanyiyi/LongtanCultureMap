@@ -1,9 +1,9 @@
         html,
         body,
         #map-canvas {
-            height: 570px;
-            width: 360px;
-            margin-top: -5px;
+            height: 100%;
+            width: 100%;
+            margin-top: 0px;
             margin-left: 0;
         }
 
@@ -178,8 +178,8 @@
         #InfoContent {
             position: absolute;
             margin-top: -5px;
-            height: 525px;
-            width: 360px;
+            height: 85%;
+            width: 100%;
             background-color: bisque;
             background-image: url(TestIcon/InfoContentBackground.jpg);
             left: 0px;
