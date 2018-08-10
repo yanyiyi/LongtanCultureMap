@@ -160,13 +160,19 @@ function GetItemsFromGeoData() {
                 infoWindow.open(map, this); //打開這個infoWindow，若點擊其他座標會直接開啟並關閉原本開啟的座標
                 IsMarkerOpen = true;
                 this.setAnimation(null);
-
-                $('#InfoContent').animate({
-                    opacity: "0"
-                }, "slow");
-                $('#InfoContent').animate({
-                    opacity: "1"
-                }, "slow");
+                
+                
+                
+                if (screen.width < 1300) {
+                        //當螢幕寬度小於1300時，不使用下面動畫
+                } else {
+                    $('#InfoContent').animate({
+                        opacity: "0"
+                    }, "slow");
+                    $('#InfoContent').animate({
+                        opacity: "1"
+                    }, "slow");
+                }
 
                 console.log("IsMarkerOpen:" + IsMarkerOpen);
             }
