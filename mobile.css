@@ -176,6 +176,7 @@
         /*InfoContent start*/
 
         #InfoContent {
+            margin: 0 auto;
             position: absolute;
             margin-top: -5px;
             height: 70%;
@@ -193,6 +194,7 @@
         #ContentImg {
             width: 60%;
             height: 30%;
+            margin-bottom: 2.5%;
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
         }
 
@@ -212,9 +214,9 @@
             overflow-y: scroll;
             /*當字體超出限定範圍時，所採用的方法*/
             height: 30%;
-            width: 90%;
+            width: 80%;
             text-align: left;
-            margin: 30px;
+            margin: 0 auto;
             margin-top: 0px;
             word-wrap: break-word;
             background-color: rgba(128, 64, 0, 0.4);
@@ -256,11 +258,11 @@
 
         #ContentSelect {
             text-align: left;
-            margin-bottom: 10px;
-            margin-left: 30px;
+            margin: 0 auto;
+            margin-bottom: 2.5%;
             font-family: 微軟正黑體;
             height: 10%;
-            width: 85%;
+            width: 70%;
             overflow-y: scroll;
             background-color: rgba(128, 64, 0, 0.4);
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
