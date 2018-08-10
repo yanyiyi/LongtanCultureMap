@@ -144,14 +144,14 @@
         /*Infowindow css start*/
 
         #MapImage {
-            width: 300px;
+            width: 200px;
             margin-left: 20px;
             margin-top: 20px;
         }
 
         #InfoTitle {
             font-family: 微軟正黑體;
-            width: 300px;
+            width: 200px;
             color: black;
             margin-left: 20px;
         }
@@ -159,7 +159,7 @@
         #InfoText {
             font-family: 微軟正黑體;
             font-weight: 900;
-            width: 300px;
+            width: 230px;
             color: black;
             margin-left: 20px;
             margin-bottom: 20px;
@@ -167,7 +167,8 @@
 
         #InfoWindow {    
             height: 400px;
-            overflow: scroll;
+            width: 250px;
+            overflow-y: scroll;
         }
 
         /*Infowindow css end*/
