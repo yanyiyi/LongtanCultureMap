@@ -245,7 +245,8 @@
 
         #ContentText img {
             height: auto;
-            width: 300px;
+            width: 90%;
+            margin-left: 5%;
         }
 
         /*InfoContent end*/
