@@ -5,7 +5,6 @@ $(document).ready(function () {
 
         //onload thing start
         
-        
         //onload thing end
 
 
@@ -66,7 +65,7 @@ $(document).ready(function () {
                     CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], aContentTitle4[i], aContentTitle5[i], aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容
 
                 } //end for
-                console.log(GeoData);
+                //console.log(GeoData);
                 GetItemsFromGeoData(); //這裡進行第一次打點
             } //end function data
         ); //end get JSON
@@ -174,8 +173,7 @@ function GetItemsFromGeoData() {
                         opacity: "1"
                     }, "slow");
                 }
-
-                console.log("IsMarkerOpen:" + IsMarkerOpen);
+                //console.log("IsMarkerOpen:" + IsMarkerOpen);
             }
         }); //end marker.addListener 點擊事件
 
@@ -224,7 +222,7 @@ function markerArrayClickAdd(NowNum) {
                             ChangingContent = false;
                         }, 650); //end Timeout
                     }
-                    console.log(InfoCheck);
+                    //console.log(InfoCheck);
                 }); //end click
             } // end for
 
