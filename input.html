@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <title>地圖資料新增處理</title>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script>
-        //myScript
-        //https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec
+    <script id="Login">
         
         var password = prompt("請輸入密碼",""); // 利用prompt來設立密碼輸入視窗，當密碼不對時重新導入頁面
         if(password == "Password"){
-            alert("歡迎!")
+            alert("歡迎!");
+            $('#Login').remove();
         }
         else if(password == null){
             location.href='input.html';
@@ -20,8 +19,20 @@
             alert("密碼錯誤，請重新輸入");
             location.href='input.html';
         }
-        
-        
+    </script>
+    
+    <script>
+        // 擷取鍵盤按下事件 去禁止特定的輸入方式
+        document.onkeydown = function(e){
+            if(e.ctrlKey && (e.keyCode === 85)){
+                alert('禁止的操作');
+                return false;
+            }
+            else{
+                return false;
+            }
+        } // 防止使用者利用Ctrl + U 瀏覽原始碼 
+          // <body>中的 oncontextmenu = "return false" 也是用以防止使用者右鍵瀏覽原始碼
     </script>
 
     <style>
@@ -44,11 +55,12 @@
         #type{
             margin-bottom: 10px;
         }
+        
     </style>
 
 </head>
 
-<body data-gr-c-s-loaded="true">
+<body data-gr-c-s-loaded="true" oncontextmenu="return false">
     Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec" disabled><br> 試算表網址：
     <input id="sheetsUrl" value="請在這裡貼上地圖工作表"><br> 工作表名稱：
     <input id="sheetName" value="工作表1"><br> 寫入方式：
