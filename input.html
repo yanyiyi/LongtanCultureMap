@@ -9,7 +9,7 @@
         //myScript
         //https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec
         
-        var password = prompt("請輸入密碼","");
+        var password = prompt("請輸入密碼",""); // 利用prompt來設立密碼輸入視窗，當密碼不對時重新導入頁面
         if(password == "Password"){
             alert("歡迎!")
         }
@@ -86,11 +86,11 @@
     </table>
     <button id="sendBtn">寫入</button>
     <script>
-        var appUrl = $('#appUrl'),
-            sheetsUrl = $('#sheetsUrl'),
-            sheetName = $('#sheetName'),
-            type = $('#type'),
-            sendBtn = $('#sendBtn'),
+        var appUrl = $('#appUrl'), //放入GoogleAppScript的程式碼網址連結
+            sheetsUrl = $('#sheetsUrl'), //放入所要新增內容的表單網址
+            sheetName = $('#sheetName'), //所指定的表單內工作表的名稱
+            type = $('#type'),          //選擇要如何加入資料(強制設定為在最後一列加入)
+            sendBtn = $('#sendBtn'),   
             show = $('#show');
         var Lat,
             Long,
@@ -144,7 +144,7 @@
 
 
 
-            data = data = [
+            data = [
                 [Lat, Long, Tit, Ico, TextData, mType, InfoImage, InfoTitle, InfoContent, InfoContent2, InfoContent3, InfoContent4, InfoContent5, InfoContent6, ContentTitle1, ContentTitle2, ContentTitle3, ContentTitle4, ContentTitle5, ContentTitle6]
             ];
 
