@@ -28,9 +28,6 @@
                 alert('禁止的操作');
                 return false;
             }
-            else{
-                return false;
-            }
         } // 防止使用者利用Ctrl + U 瀏覽原始碼 
           // <body>中的 oncontextmenu = "return false" 也是用以防止使用者右鍵瀏覽原始碼
     </script>
@@ -62,7 +59,7 @@
 
 <body data-gr-c-s-loaded="true" oncontextmenu="return false">
     Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzhruevT-XaDgXzMsvfYRRnbLEA5O1jdUHhqPd_gXC6q9hU53Pg/exec" disabled><br> 試算表網址：
-    <input id="sheetsUrl" value="請在這裡貼上地圖工作表"><br> 工作表名稱：
+    <input id="sheetsUrl" value="請在這裡貼上地圖工作表網址"><br> 工作表名稱：
     <input id="sheetName" value="工作表1"><br> 寫入方式：
     <select id="type">
     <option value="bottom">寫入在最後一列</option>
@@ -77,16 +74,16 @@
                 <p>經度(long):<input id="long"></p>
                 <p>浮動提示(tit):<input id="tit"></p>
                 <p>座標圖示(ico):<input id="ico"></p>
-                <p>座標文字(textdata):<input id="textdata"></p>
+                <p>座標文字(textdata):<textarea id="textdata"></textarea></p>
                 <p>座標分類(type):<input id="mtype"></p>
                 <p>詳細圖示(infoimage):<input id="infoimage"></p>
                 <p>詳細標題(infotitle):<input id="infotitle"></p>
-                <p>詳細內文(infocontent):<input id="infocontent"></p>
-                <p>詳細內文2(infocontent2):<input id="infocontent2"></p>
-                <p>詳細內文3(infocontent3):<input id="infocontent3"></p>
-                <p>詳細內文4(infocontent4):<input id="infocontent4"></p>
-                <p>詳細內文5(infocontent5):<input id="infocontent5"></p>
-                <p>詳細內文6(infocontent6):<input id="infocontent6"></p>
+                <p>詳細內文(infocontent):<textarea id="infocontent"></textarea></p>
+                <p>詳細內文2(infocontent2):<textarea id="infocontent2"></textarea></p>
+                <p>詳細內文3(infocontent3):<textarea id="infocontent3"></textarea></p>
+                <p>詳細內文4(infocontent4):<textarea id="infocontent4"></textarea></p>
+                <p>詳細內文5(infocontent5):<textarea id="infocontent5"></textarea></p>
+                <p>詳細內文6(infocontent6):<textarea id="infocontent6"></textarea></p>
                 <p>詳細文章標題1(contenttitle1):<input id="contenttitle1"></p>
                 <p>詳細文章標題2(contenttitle2):<input id="contenttitle2"></p>
                 <p>詳細文章標題3(contenttitle3):<input id="contenttitle3"></p>
@@ -171,7 +168,7 @@
             $.get(appUrl.val(), parameter);
         });
     </script>
-
+<!--<script src="JS/Input.js"></script>-->
 
     <style>
         #info {
