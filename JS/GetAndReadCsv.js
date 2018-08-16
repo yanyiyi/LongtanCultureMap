@@ -4,7 +4,14 @@ $(document).ready(function () {
         //檢索每次加入文章應更動區索引標籤：>Update
 
         //onload thing start
-        
+            setTimeout(function(){
+                $('#Start_Mask').animate({
+                opacity: "0"
+            },1000);
+            },1000);
+            setTimeout(function(){
+                $('#Start_Mask').css('display','none');
+            },1500);
         //onload thing end
 
 
