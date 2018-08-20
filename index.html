@@ -291,20 +291,31 @@
         $(document).ready(function() {
 
 
-            function AniLess1600(){
+             function AniLess1600(){
                             var IsAni = false;
-
                         var IsMenuOpen = false;
                         $('#menuBtn').click(function() {
                             //console.log("menuClick");
                             if (IsMenuOpen) {
                                 $('#menu').animate({
-                                    left: "-350px"
+                                    left: "-18%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "105%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "0%"
                                 }, 500);
                                 IsMenuOpen = false;
                             } else {
                                 $('#menu').animate({
-                                    left: "0px"
+                                    left: "0%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "100%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "5%"
                                 }, 500);
                                 IsMenuOpen = true;
                             }
@@ -320,7 +331,7 @@
                                     opacity : "0"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "94.5%"
+                                    left: "93%"
                                 }, 500);
                                 IsInfoContentOpen = false; //直接使用動畫來改變寬度
                             } else {
@@ -329,7 +340,7 @@
                                     opacity: "1"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "63.5%"
+                                    left: "69.5%"
                                 }, 500);
                                 IsInfoContentOpen = true;
                             }
@@ -432,21 +443,32 @@
                         $('body').animate({
                             opacity: "1"
                         }, "slow");
-}//end Ani1600
+}//end Ani1600            
             function Ani1600(){
                             var IsAni = false;
-
                         var IsMenuOpen = false;
                         $('#menuBtn').click(function() {
                             //console.log("menuClick");
                             if (IsMenuOpen) {
                                 $('#menu').animate({
-                                    left: "-350px"
+                                    left: "-18%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "105%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "0%"
                                 }, 500);
                                 IsMenuOpen = false;
                             } else {
                                 $('#menu').animate({
-                                    left: "0px"
+                                    left: "0%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "100%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "5%"
                                 }, 500);
                                 IsMenuOpen = true;
                             }
@@ -462,7 +484,7 @@
                                     opacity : "0"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "90.5%"
+                                    left: "93%"
                                 }, 500);
                                 IsInfoContentOpen = false; //直接使用動畫來改變寬度
                             } else {
@@ -471,7 +493,7 @@
                                     opacity: "1"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "60%"
+                                    left: "69.5%"
                                 }, 500);
                                 IsInfoContentOpen = true;
                             }
@@ -577,18 +599,29 @@
 }//end Ani1600            
             function Ani1920(){
                             var IsAni = false;
-
                         var IsMenuOpen = false;
                         $('#menuBtn').click(function() {
                             //console.log("menuClick");
                             if (IsMenuOpen) {
                                 $('#menu').animate({
-                                    left: "-350px"
+                                    left: "-18%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "105%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "0%"
                                 }, 500);
                                 IsMenuOpen = false;
                             } else {
                                 $('#menu').animate({
-                                    left: "0px"
+                                    left: "0%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    top: "100%"
+                                }, 500);
+                                $('#menuBtn').animate({
+                                    left: "5%"
                                 }, 500);
                                 IsMenuOpen = true;
                             }
@@ -604,7 +637,7 @@
                                     opacity : "0"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "94.5%"
+                                    left: "93%"
                                 }, 500);
                                 IsInfoContentOpen = false; //直接使用動畫來改變寬度
                             } else {
@@ -613,7 +646,7 @@
                                     opacity: "1"
                                 }, 500);
                                 $('#ContentBtn').animate({
-                                    left: "63.5%"
+                                    left: "69.5%"
                                 }, 500);
                                 IsInfoContentOpen = true;
                             }
@@ -716,7 +749,7 @@
                         $('body').animate({
                             opacity: "1"
                         }, "slow");
-}//end Ani1600
+}//end Ani1920
 
             /*依照不同的螢幕解析度來套入不一樣的動畫配置*/
             
@@ -726,7 +759,7 @@
             else if(screen.width >=1600 && screen.width < 1920){
                 Ani1600();
             }
-            else if(screen.width >1920){
+            else if(screen.width >=1920){
                 Ani1920();
             }
 
@@ -784,10 +817,11 @@
 <body onselectstart="return false">
     <div id="Start_Mask"></div>
 
-    <div id="TopBar"><p>龍潭文學地景及藝文資源</p></div>
+    <div id="TopBar"><p></p></div>
 
 
     <div id="menu">
+        <img id="menuBtn" src="TestIcon/menuBtn.png">
         <p id="Red_Diamond"></p>
         <p id="YBGR_Group"></p>
         <p id="Restaurant"></p>
@@ -795,7 +829,7 @@
         <p id="YG_Buld"></p>
         <p id="Red_Buld"></p>
         <p id="YG_Diamond"></p>
-        <img id="menuBtn">
+        
 
     </div>
     

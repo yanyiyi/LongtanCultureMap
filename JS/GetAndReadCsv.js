@@ -7,11 +7,11 @@ $(document).ready(function () {
             setTimeout(function(){
                 $('#Start_Mask').animate({
                 opacity: "0"
-            },1000);
+            },2000);
             },1000);
             setTimeout(function(){
                 $('#Start_Mask').css('display','none');
-            },1500);
+            },2500);
         //onload thing end
 
 
