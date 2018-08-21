@@ -17,7 +17,7 @@
             background-color: rgba(60, 32, 7, 0.29);
             overflow: hidden;
             opacity: 0;
-            /*background-image: url(TestIcon/background.png);*/
+            background-image: url(TestIcon/InfoContentBackground.jpg);
         }
 
         /*設立一個calss來控制客製化的checkbox*/
@@ -317,8 +317,10 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            zoom: 80%;
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover.png);
+            background-repeat: no-repeat;
             z-index: 100;
         }
         /*Start_Mask end*/
@@ -383,6 +385,9 @@
 
         #BG{
             position: absolute;
+            height: 90%;
+            width: 100%;
+            top: 10%;
         }
 
 

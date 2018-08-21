@@ -23,10 +23,7 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBputq9w31cD2XzhNGVPdzL0x9xGz8xkiM"></script>
-
     <script type="text/javascript">
         var map;
 
@@ -308,6 +305,7 @@
                         $('#menuBtn').animate({
                             top: "0%"
                         }, 500);
+                        $('#menuBtn').css("background-color","");
                         IsMenuOpen = false;
                     } else {
                         $('#menu').animate({
@@ -319,6 +317,7 @@
                         $('#menuBtn').animate({
                             left: "5%"
                         }, 500);
+                        $('#menuBtn').css("background-color","gray");
                         IsMenuOpen = true;
                     }
                 }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
