@@ -380,6 +380,12 @@
             top: 33%;
             left: -1%;
         }
+        #HelpMap{
+            position: absolute;
+            height: 20%;
+            top: 10%;
+            left: 30%;
+        }
 
         /*help End*/
 

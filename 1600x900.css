@@ -166,7 +166,7 @@
             width: 30%;
             padding-bottom: 1%;
             background-color: rgba(74, 74, 74, 0.8);
-            /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
+           /*background-image: url(TestIcon/contentBG.jpg);*/
             margin-right: 0.5%;
             text-align: center;
             right: -500px;
@@ -379,6 +379,12 @@
             height: 50%;
             top: 26%;
             left: -1%;
+        }
+        #HelpMap{
+            position: absolute;
+            height: 20%;
+            top: 10%;
+            left: 30%;
         }
 
         /*help End*/
