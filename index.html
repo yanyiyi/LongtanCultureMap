@@ -19,8 +19,9 @@
             document.addEventListener('DOMMouseScroll', zoom, false);
         }
         window.onmousewheel = document.onmousewheel = zoom;
+
     </script>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
@@ -285,525 +286,575 @@
         } // end initialize
 
         google.maps.event.addDomListener(window, 'load', initialize); /*使用事件監聽器來控制網頁載入後地圖再載入*/
+
     </script>
 
     <script>
         $(document).ready(function() {
 
 
-             function AniLess1600(){
-                            var IsAni = false;
-                        var IsMenuOpen = false;
-                        $('#menuBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsMenuOpen) {
-                                $('#menu').animate({
-                                    left: "-18%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "105%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "0%"
-                                }, 500);
-                                IsMenuOpen = false;
-                            } else {
-                                $('#menu').animate({
-                                    left: "0%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "100%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "5%"
-                                }, 500);
-                                IsMenuOpen = true;
-                            }
-                        }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
+            function AniLess1600() {
+                var IsAni = false;
+                var IsMenuOpen = false;
+                $('#menuBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsMenuOpen) {
+                        $('#menu').animate({
+                            left: "-18%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "105%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "0%"
+                        }, 500);
+                        IsMenuOpen = false;
+                    } else {
+                        $('#menu').animate({
+                            left: "0%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "100%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "5%"
+                        }, 500);
+                        IsMenuOpen = true;
+                    }
+                }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
 
 
-                        var IsInfoContentOpen = false;
-                        $('#ContentBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsInfoContentOpen) {
-                                $('#InfoContent').animate({
-                                    right: "-500px",
-                                    opacity : "0"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "93%"
-                                }, 500);
-                                IsInfoContentOpen = false; //直接使用動畫來改變寬度
-                            } else {
-                                $('#InfoContent').animate({
-                                    right: "0px",
-                                    opacity: "1"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "69.5%"
-                                }, 500);
-                                IsInfoContentOpen = true;
-                            }
-                        }); //end InfoContentBtnClick 加入詳細內容的動畫
-
-
-                        $('#InfoSelect1').click(function() {
-                            if (!IsAni) {
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-
-                        $('#InfoSelect2').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect3').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect4').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect5').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect6').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-
-                        //end InfoSelectClick 加入詳細內容的動畫
-
-                        $('body').animate({
+                var IsInfoContentOpen = false;
+                $('#ContentBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsInfoContentOpen) {
+                        $('#InfoContent').animate({
+                            right: "-500px",
+                            opacity: "0"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "93%"
+                        }, 500);
+                        IsInfoContentOpen = false; //直接使用動畫來改變寬度
+                    } else {
+                        $('#InfoContent').animate({
+                            right: "0px",
                             opacity: "1"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "69.5%"
+                        }, 500);
+                        IsInfoContentOpen = true;
+                    }
+                }); //end InfoContentBtnClick 加入詳細內容的動畫
+
+
+                $('#InfoSelect1').click(function() {
+                    if (!IsAni) {
+                        $('#ContentText').animate({
+                            height: "0px"
                         }, "slow");
-}//end Ani1600            
-            function Ani1600(){
-                            var IsAni = false;
-                        var IsMenuOpen = false;
-                        $('#menuBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsMenuOpen) {
-                                $('#menu').animate({
-                                    left: "-18%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "105%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "0%"
-                                }, 500);
-                                IsMenuOpen = false;
-                            } else {
-                                $('#menu').animate({
-                                    left: "0%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "100%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "5%"
-                                }, 500);
-                                IsMenuOpen = true;
-                            }
-                        }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
 
+                $('#InfoSelect2').click(function() {
+                    if (!IsAni) {
 
-                        var IsInfoContentOpen = false;
-                        $('#ContentBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsInfoContentOpen) {
-                                $('#InfoContent').animate({
-                                    right: "-500px",
-                                    opacity : "0"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "93%"
-                                }, 500);
-                                IsInfoContentOpen = false; //直接使用動畫來改變寬度
-                            } else {
-                                $('#InfoContent').animate({
-                                    right: "0px",
-                                    opacity: "1"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "69.5%"
-                                }, 500);
-                                IsInfoContentOpen = true;
-                            }
-                        }); //end InfoContentBtnClick 加入詳細內容的動畫
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect3').click(function() {
+                    if (!IsAni) {
 
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect4').click(function() {
+                    if (!IsAni) {
 
-                        $('#InfoSelect1').click(function() {
-                            if (!IsAni) {
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect5').click(function() {
+                    if (!IsAni) {
 
-                        $('#InfoSelect2').click(function() {
-                            if (!IsAni) {
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect6').click(function() {
+                    if (!IsAni) {
 
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect3').click(function() {
-                            if (!IsAni) {
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
 
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect4').click(function() {
-                            if (!IsAni) {
+                //end InfoSelectClick 加入詳細內容的動畫
 
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect5').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect6').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-
-                        //end InfoSelectClick 加入詳細內容的動畫
-
-                        $('body').animate({
+                $('body').animate({
+                    opacity: "1"
+                }, "slow");
+                    
+                var IsHelp = 1;
+                $('#help').click(function() {
+                    
+                        IsHelp = IsHelp*"-1";
+                    console.log(IsHelp);
+                    if (IsHelp == 1) {
+                        setTimeout(function() {
+                        $('#HelpMask').css("display", "block");
+                        }, 100);
+                        $('#HelpMask').animate({
                             opacity: "1"
-                        }, "slow");
-}//end Ani1600            
-            function Ani1920(){
-                            var IsAni = false;
-                        var IsMenuOpen = false;
-                        $('#menuBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsMenuOpen) {
-                                $('#menu').animate({
-                                    left: "-18%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "105%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "0%"
-                                }, 500);
-                                IsMenuOpen = false;
-                            } else {
-                                $('#menu').animate({
-                                    left: "0%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    top: "100%"
-                                }, 500);
-                                $('#menuBtn').animate({
-                                    left: "5%"
-                                }, 500);
-                                IsMenuOpen = true;
-                            }
-                        }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
+                        }, 500);
+                    } 
+                    else if(IsHelp == -1) {
+                        setTimeout(function() {
+                            $('#HelpMask').css("display", "none");
+                        }, 500);
+                        $('#HelpMask').animate({
+                            opacity: "0"
+                        }, 500);
+                    }
+
+                }); //end help click
+            } //end AniLess1600            
+            function Ani1600() {
+                var IsAni = false;
+                var IsMenuOpen = false;
+                $('#menuBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsMenuOpen) {
+                        $('#menu').animate({
+                            left: "-18%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "105%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "0%"
+                        }, 500);
+                        IsMenuOpen = false;
+                    } else {
+                        $('#menu').animate({
+                            left: "0%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "101%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "5%"
+                        }, 500);
+                        IsMenuOpen = true;
+                    }
+                }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
 
 
-                        var IsInfoContentOpen = false;
-                        $('#ContentBtn').click(function() {
-                            //console.log("menuClick");
-                            if (IsInfoContentOpen) {
-                                $('#InfoContent').animate({
-                                    right: "-500px",
-                                    opacity : "0"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "93%"
-                                }, 500);
-                                IsInfoContentOpen = false; //直接使用動畫來改變寬度
-                            } else {
-                                $('#InfoContent').animate({
-                                    right: "0px",
-                                    opacity: "1"
-                                }, 500);
-                                $('#ContentBtn').animate({
-                                    left: "69.5%"
-                                }, 500);
-                                IsInfoContentOpen = true;
-                            }
-                        }); //end InfoContentBtnClick 加入詳細內容的動畫
-
-
-                        $('#InfoSelect1').click(function() {
-                            if (!IsAni) {
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-
-                        $('#InfoSelect2').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect3').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect4').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect5').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-                        $('#InfoSelect6').click(function() {
-                            if (!IsAni) {
-
-                                $('#ContentText').animate({
-                                    height: "0px"
-                                }, "slow");
-                                $('#ContentText').animate({
-                                    height: "230px"
-                                }, "slow");
-                                IsAni = true;
-                                setTimeout(function() {
-                                    IsAni = false;
-                                }, 650);
-                            }
-                        });
-
-                        //end InfoSelectClick 加入詳細內容的動畫
-
-                        $('body').animate({
+                var IsInfoContentOpen = false;
+                $('#ContentBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsInfoContentOpen) {
+                        $('#InfoContent').animate({
+                            right: "-500px",
+                            opacity: "0"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "93%"
+                        }, 500);
+                        IsInfoContentOpen = false; //直接使用動畫來改變寬度
+                    } else {
+                        $('#InfoContent').animate({
+                            right: "0px",
                             opacity: "1"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "69.5%"
+                        }, 500);
+                        IsInfoContentOpen = true;
+                    }
+                }); //end InfoContentBtnClick 加入詳細內容的動畫
+
+
+                $('#InfoSelect1').click(function() {
+                    if (!IsAni) {
+                        $('#ContentText').animate({
+                            height: "0px"
                         }, "slow");
-}//end Ani1920
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+
+                $('#InfoSelect2').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect3').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect4').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect5').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect6').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+
+                //end InfoSelectClick 加入詳細內容的動畫
+
+                $('body').animate({
+                    opacity: "1"
+                }, "slow");
+                    
+                var IsHelp = 1;
+                $('#help').click(function() {
+                    
+                        IsHelp = IsHelp*"-1";
+                    console.log(IsHelp);
+                    if (IsHelp == 1) {
+                        setTimeout(function() {
+                        $('#HelpMask').css("display", "block");
+                        }, 100);
+                        $('#HelpMask').animate({
+                            opacity: "1"
+                        }, 500);
+                        $('.Blur').css("-webkit-filter","blur(3px)");
+                    } 
+                    else if(IsHelp == -1) {
+                        setTimeout(function() {
+                            $('#HelpMask').css("display", "none");
+                        }, 500);
+                        $('#HelpMask').animate({
+                            opacity: "0"
+                        }, 500);
+                        $('.Blur').css("-webkit-filter","blur(0px)");
+                    }
+
+                }); //end help click
+            } //end Ani1600            
+            function Ani1920() {
+                var IsAni = false;
+                var IsMenuOpen = false;
+                $('#menuBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsMenuOpen) {
+                        $('#menu').animate({
+                            left: "-18%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "105%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "0%"
+                        }, 500);
+                        IsMenuOpen = false;
+                    } else {
+                        $('#menu').animate({
+                            left: "0%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            top: "100%"
+                        }, 500);
+                        $('#menuBtn').animate({
+                            left: "5%"
+                        }, 500);
+                        IsMenuOpen = true;
+                    }
+                }); //end menuBtnClick 在此加入側邊頁面的滑動動畫
+
+
+                var IsInfoContentOpen = false;
+                $('#ContentBtn').click(function() {
+                    //console.log("menuClick");
+                    if (IsInfoContentOpen) {
+                        $('#InfoContent').animate({
+                            right: "-500px",
+                            opacity: "0"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "93%"
+                        }, 500);
+                        IsInfoContentOpen = false; //直接使用動畫來改變寬度
+                    } else {
+                        $('#InfoContent').animate({
+                            right: "0px",
+                            opacity: "1"
+                        }, 500);
+                        $('#ContentBtn').animate({
+                            left: "69.5%"
+                        }, 500);
+                        IsInfoContentOpen = true;
+                    }
+                }); //end InfoContentBtnClick 加入詳細內容的動畫
+
+
+                $('#InfoSelect1').click(function() {
+                    if (!IsAni) {
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+
+                $('#InfoSelect2').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect3').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect4').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect5').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+                $('#InfoSelect6').click(function() {
+                    if (!IsAni) {
+
+                        $('#ContentText').animate({
+                            height: "0px"
+                        }, "slow");
+                        $('#ContentText').animate({
+                            height: "230px"
+                        }, "slow");
+                        IsAni = true;
+                        setTimeout(function() {
+                            IsAni = false;
+                        }, 650);
+                    }
+                });
+
+                //end InfoSelectClick 加入詳細內容的動畫
+
+                $('body').animate({
+                    opacity: "1"
+                }, "slow");
+            } //end Ani1920
 
             /*依照不同的螢幕解析度來套入不一樣的動畫配置*/
-            
-            if(screen.width < 1600){
+
+            if (screen.width < 1600) {
                 AniLess1600();
-            }
-            else if(screen.width >=1600 && screen.width < 1920){
+            } else if (screen.width >= 1600 && screen.width < 1920) {
                 Ani1600();
-            }
-            else if(screen.width >=1920){
+            } else if (screen.width >= 1920) {
                 Ani1920();
             }
 
-            
-            
+
+
             function isMobile() {
-            try {
-                document.createEvent("TouchEvent");
-                return true;
-            } catch (e) {
-                return false;
-            }
-        }
-
-        isMobile();//偵測是否為行動裝置
-
-        if (isMobile()) {
-            //alert("是行動裝置");
-            location.href = 'index_m.html';
-        } else {
-            //alert("是電腦裝置" + screen.width + "*" + screen.height);
-            if (screen.width >= 1920) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "1920.css"; //依照不同的解析度來置換要使用的css檔案
-                document.getElementsByTagName("head")[0].appendChild(link);//最後將link加入到名為head的標籤內
-            } else if (screen.width >= 1600 && screen.width < 1920) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "1600x900.css";
-                document.getElementsByTagName("head")[0].appendChild(link);
-            } else if (screen.width >=1300 && screen.width < 1600) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "less1600.css";
-                document.getElementsByTagName("head")[0].appendChild(link);
+                try {
+                    document.createEvent("TouchEvent");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
             }
 
-        }
-            
+            isMobile(); //偵測是否為行動裝置
+
+            if (isMobile()) {
+                //alert("是行動裝置");
+                location.href = 'index_m.html';
+            } else {
+                //alert("是電腦裝置" + screen.width + "*" + screen.height);
+                if (screen.width >= 1920) {
+                    var link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.type = "text/css";
+                    link.href = "1920.css"; //依照不同的解析度來置換要使用的css檔案
+                    document.getElementsByTagName("head")[0].appendChild(link); //最後將link加入到名為head的標籤內
+                } else if (screen.width >= 1600 && screen.width < 1920) {
+                    var link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.type = "text/css";
+                    link.href = "1600x900.css";
+                    document.getElementsByTagName("head")[0].appendChild(link);
+                } else if (screen.width >= 1300 && screen.width < 1600) {
+                    var link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.type = "text/css";
+                    link.href = "less1600.css";
+                    document.getElementsByTagName("head")[0].appendChild(link);
+                }
+
+            }
+
         }); // end ready
+
     </script>
 
 
@@ -815,9 +866,17 @@
 </head>
 
 <body onselectstart="return false">
+   <img src="TestIcon/background.png" id="BG" class="Blur">
     <div id="Start_Mask"></div>
+    <div id="HelpMask">
+        <img src="TestIcon/help_help.png" id="HelpHelp">
+        <img src="TestIcon/help_content.png" id="HelpContent">
+        <img src="TestIcon/help_menu.png" id="HelpMenu"> 
+    </div>
 
-    <div id="TopBar"><p></p></div>
+    <div id="TopBar" class="Blur">
+        <p></p>
+    </div>
 
 
     <div id="menu">
@@ -829,10 +888,10 @@
         <p id="YG_Buld"></p>
         <p id="Red_Buld"></p>
         <p id="YG_Diamond"></p>
-        
+
 
     </div>
-    
+    <img id="help" src="TestIcon/help.png">
     <img id="ContentBtn" src="TestIcon/ContentBtn.png">
     <div id="InfoContent">
 
@@ -852,7 +911,7 @@
 
     </div>
 
-    <div id="map-canvas"></div>
+    <div id="map-canvas" class="Blur"></div>
 
 
 </body>

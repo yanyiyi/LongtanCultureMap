@@ -3,9 +3,8 @@
 - doge.yzu.us
 - 相關使用說明 https://hackmd.io/NERLfQ59Qn6UahiGfNEutg
 ---
-**修改日期**
-- 2018/07/18 利用GitHub Desktop 重新上傳專案
-
+**目前問題**
+- 螢幕解析度寬為1920的使用者，google將判別為1536無法正確判別1920的大小
 **撰寫CSV的特殊語法**
 
 - 要在ContentText(在sheet中為infocontent#...)插入圖片，要把圖片來源用"ImgStart:你的圖片來源:ImgEnd"的格式包覆起來才可以正常加入
