@@ -17,7 +17,7 @@
             background-color: rgba(60, 32, 7, 0.29);
             overflow: hidden;
             opacity: 0;
-            background-image: url(TestIcon/background.png);
+            /*background-image: url(TestIcon/background.png);*/
         }
 
         /*設立一個calss來控制客製化的checkbox*/
@@ -28,7 +28,7 @@
             margin-left: 5px;
             height: 25px;
             width: 25px;
-            background-color: #eee;
+            background-color: #ffffff;
         }
 
         /*建立hover事件到checkbox上*/
@@ -45,7 +45,7 @@
             top: 5px;
             width: 5px;
             height: 10px;
-            border: solid white;
+            border: solid #6c6c6c;
             border-width: 0 3px 3px 0;
             -webkit-transform: rotate(45deg);
             -ms-transform: rotate(45deg);
@@ -74,7 +74,7 @@
         /*建立checked狀態到checkbox上*/
 
         #menu input:checked ~ .checkmark {
-            background-color: rgb(230, 144, 57);
+            background-color: rgb(255, 255, 255);
         }
 
         /*設定當checkbox被勾選時上面的圖層出現*/
@@ -86,8 +86,8 @@
         /*側邊滑動選單*/
 
         #menu {
-            background-color: rgba(128, 64, 0, 0.6);
-            background-image: url(TestIcon/InfoContentBackground.jpg);
+            background-color: rgba(52, 52, 52, 0.6);
+            /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
             position: absolute;
             z-index: 5;
             margin-top: 0;
@@ -95,6 +95,7 @@
             width: 18%;
             -moz-user-select: none;
             /*用以防止使用者反白Tip的內容*/
+            
         }
 
         #menuBtn {
@@ -162,12 +163,13 @@
             /*height: 85%;*/
             width: 30%;
             padding-bottom: 1%;
-            background-color: bisque;
-            background-image: url(TestIcon/InfoContentBackground.jpg);
+            background-color: rgba(74, 74, 74, 0.8);
+            /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
             margin-right: 0.5%;
             text-align: center;
             right: -500px;
             z-index: 5;
+            box-shadow: 3px 3px 5px rgb(74, 74, 74);
         }
 
         #ContentImg {
@@ -196,7 +198,7 @@
             text-align: left;
             margin: 0 auto;
             word-wrap: break-word;
-            background-color: rgba(128, 64, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.4);
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
             padding-left: 5px;
             cursor: default;
@@ -244,7 +246,7 @@
             font-family: 微軟正黑體;
             width: 63%;
             overflow-y: scroll;
-            background-color: rgba(128, 64, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.4);
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
             /*background-color: gray;*/
         }
@@ -264,7 +266,7 @@
 
         #ContentSelect li:hover {
             cursor: pointer;
-            background-color: rgba(128, 64, 0, 0.6);
+            background-color: rgba(123, 123, 123, 0.6);
             color: white;
         }
 
@@ -284,14 +286,19 @@
             margin-bottom: 0.5%;
             background-image: url(TestIcon/TopBarBackground.png);
             background-repeat: no-repeat;
+            transition: transform .2s;
         }
 
+       /* #TopBar:hover{
+            
+        }*/
+        
         #TopBar p {
             margin: 0 auto;
             padding-top: 1%;
             padding-left: 37.75%;
-
         }
+        
 
         /*TopBar End*/
 
@@ -314,7 +321,6 @@
             background-image: url(TestIcon/TitleCover.png);
             z-index: 100;
         }
-
         /*Start_Mask end*/
 
         /*Google Map Setting Start*/
@@ -375,10 +381,14 @@
 
         /*help End*/
 
+        #BG{
+            position: absolute;
+        }
 
 
-
-
+        .Blur{
+            -webkit-filter: blur(3px);
+        }
 
 
 
