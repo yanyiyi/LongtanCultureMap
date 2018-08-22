@@ -153,7 +153,7 @@
         }
 
         #InfoWindow {
-              
+            
         }
 
         /*Infowindow css end*/
@@ -293,8 +293,9 @@
 
         #TopBar:hover{
             cursor: pointer;
+            transform: rotate(-2deg);
         }
-        
+
         #TopBar p {
             margin: 0 auto;
             padding-top: 1%;
@@ -399,6 +400,7 @@
 
         #BG{
             position: absolute;
+            margin-left: -0.5%;
         }
 
 

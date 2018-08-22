@@ -813,13 +813,13 @@
                 
                 $('#TopBar').mouseover(function(){  
                     TopBarIconAni = setInterval(function(){ ang+=3; $('#TopBarIcon').css("transform",'rotate('+ ang + 'deg)');},100);
-                    $('#TopBarIcon').animate({top:"2.5%",opacity:"1"},500);
+                    $('#TopBarIcon').animate({top:"2.5%",opacity:"1"},150);
             });//end TopBar mousemove
                 $('#TopBar').mouseout(function(){
                     /*$('#TopBarIcon').css("transform","rotate(0deg)");*/
                     clearInterval(TopBarIconAni);
                     ang=0;
-                    $('#TopBarIcon').animate({top:"11%",opacity:"0"},500);
+                    $('#TopBarIcon').animate({top:"11%",opacity:"0"},150);
             });//end TopBar mousemout
                 $('#TopBar').click(function(){
                     location.href = 'index.html';
