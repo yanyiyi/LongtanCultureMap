@@ -299,6 +299,15 @@
             padding-top: 1%;
             padding-left: 37.75%;
         }
+        #TopBarIcon{
+            position: absolute;
+            width: 3%;
+            top: 11%;
+            left: 69%;
+            opacity: 0;
+            transition: transform .2s;
+            
+        }
         
 
         /*TopBar End*/
@@ -398,6 +407,13 @@
 
         .Blur{
             -webkit-filter: blur(3px);
+        }
+        #CopyRight{
+            font-family: 微軟正黑體;
+            position: absolute;
+            color: white;
+            margin-left: 45%;
+            bottom: 1%;
         }
 
 

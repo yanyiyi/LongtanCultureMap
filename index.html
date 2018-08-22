@@ -288,8 +288,9 @@
 
     <script>
         $(document).ready(function() {
-
-
+            //需執行的function start
+            ElementAni();
+            //需執行的function end
             function AniLess1600() {
                 var IsAni = false;
                 var IsMenuOpen = false;
@@ -804,6 +805,28 @@
                     opacity: "1"
                 }, "slow");
             } //end Ani1920
+            
+            function ElementAni(){
+                
+                var ang = 0;
+                var TopBarIconAni;
+                
+                $('#TopBar').mouseover(function(){  
+                    TopBarIconAni = setInterval(function(){ ang+=3; $('#TopBarIcon').css("transform",'rotate('+ ang + 'deg)');},100);
+                    $('#TopBarIcon').animate({top:"2.5%",opacity:"1"},500);
+            });//end TopBar mousemove
+                $('#TopBar').mouseout(function(){
+                    /*$('#TopBarIcon').css("transform","rotate(0deg)");*/
+                    clearInterval(TopBarIconAni);
+                    ang=0;
+                    $('#TopBarIcon').animate({top:"11%",opacity:"0"},500);
+            });//end TopBar mousemout
+                $('#TopBar').click(function(){
+                    location.href = 'index.html';
+                });//end TopBar click
+                
+                
+            }//end ElementAni
 
             /*依照不同的螢幕解析度來套入不一樣的動畫配置*/
 
@@ -881,14 +904,14 @@
     <div id="HelpMask">
         <img src="TestIcon/help_help.png" id="HelpHelp">
         <img src="TestIcon/help_content.png" id="HelpContent">
-        <img src="TestIcon/help_menu.png" id="HelpMenu"> 
+        <img src="TestIcon/help_menu.png" id="HelpMenu">
         <img src="TestIcon/help_map.png" id="HelpMap">
     </div>
 
     <div id="TopBar" class="Blur">
         <p></p>
     </div>
-
+    <img src="TestIcon/TopBar_Icon.png" id="TopBarIcon">
 
     <div id="menu">
         <img id="menuBtn" src="TestIcon/menuBtn.png">
@@ -918,13 +941,25 @@
         </ul>
         <div id="ContentText">這裡將會出現相關介紹及文章內容</div>
 
-
-
+        
+            
     </div>
 
     <div id="map-canvas" class="Blur"></div>
-
+    <div id="CopyRight">Powered by 旭日文化</div>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
