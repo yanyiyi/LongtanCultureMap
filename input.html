@@ -6,7 +6,6 @@
     <title>地圖資料新增處理</title>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script id="Login">
-        
         var password = prompt("請輸入密碼",""); // 利用prompt來設立密碼輸入視窗，當密碼不對時重新導入頁面
         if(password == "Password"){
             alert("歡迎!");
@@ -19,13 +18,15 @@
             alert("密碼錯誤，請重新輸入");
             location.href='input.html';
         }
+        
+        
     </script>
     
     <script>
         // 擷取鍵盤按下事件 去禁止特定的輸入方式
         document.onkeydown = function(e){
             if(e.ctrlKey && (e.keyCode === 85)){
-                alert('禁止的操作');
+                //alert('禁止的操作');
                 return false;
             }
         } // 防止使用者利用Ctrl + U 瀏覽原始碼 
@@ -52,6 +53,9 @@
         #type{
             margin-bottom: 10px;
         }
+        #resetBtn{
+            margin-left: 50px;
+        }
         
     </style>
 
@@ -75,7 +79,7 @@
                 <p>浮動提示(tit):<input id="tit"></p>
                 <p>座標圖示(ico):<input id="ico"></p>
                 <p>座標文字(textdata):<textarea id="textdata"></textarea></p>
-                <p>座標分類(type):<input id="mtype"></p>
+                <p>座標分類(mtype):<input id="mtype"></p>
                 <p>詳細圖示(infoimage):<input id="infoimage"></p>
                 <p>詳細標題(infotitle):<input id="infotitle"></p>
                 <p>詳細內文(infocontent):<textarea id="infocontent"></textarea></p>
@@ -94,12 +98,14 @@
         </tbody>
     </table>
     <button id="sendBtn">寫入</button>
+    <button id="resetBtn">清除內容</button>
     <script>
         var appUrl = $('#appUrl'), //放入GoogleAppScript的程式碼網址連結
             sheetsUrl = $('#sheetsUrl'), //放入所要新增內容的表單網址
             sheetName = $('#sheetName'), //所指定的表單內工作表的名稱
             type = $('#type'),          //選擇要如何加入資料(強制設定為在最後一列加入)
-            sendBtn = $('#sendBtn'),   
+            sendBtn = $('#sendBtn'),
+            resetBtn = $('#resetBtn'),
             show = $('#show');
         var Lat,
             Long,
@@ -167,6 +173,28 @@
             };
             $.get(appUrl.val(), parameter);
         });
+        resetBtn.on('click',function(){
+            document.getElementById("lat").value = null;
+            document.getElementById("long").value = null;
+            document.getElementById("tit").value = null;
+            document.getElementById("ico").value = null;
+            document.getElementById("textdata").value = null;
+            document.getElementById("mtype").value = null;
+            document.getElementById("infoimage").value = null;
+            document.getElementById("infotitle").value = null;
+            document.getElementById("infocontent").value = null;
+            document.getElementById("infocontent2").value = null;
+            document.getElementById("infocontent3").value = null;
+            document.getElementById("infocontent4").value = null;
+            document.getElementById("infocontent5").value = null;
+            document.getElementById("infocontent6").value = null;
+            document.getElementById("contenttitle1").value = null;
+            document.getElementById("contenttitle2").value = null;
+            document.getElementById("contenttitle3").value = null;
+            document.getElementById("contenttitle4").value = null;
+            document.getElementById("contenttitle5").value = null;
+            document.getElementById("contenttitle6").value = null;
+        });//end resetBtn
     </script>
 <!--<script src="JS/Input.js"></script>-->
 
