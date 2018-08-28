@@ -865,9 +865,9 @@
 
             /*依照不同的螢幕解析度來套入不一樣的動畫配置*/
 
-            if (screen.width < 1600) {
+            if (screen.width < 1600 && screen.width != 1536) {
                 AniLess1600();
-            } else if (screen.width >= 1600 && screen.width < 1920) {
+            } else if ((screen.width >= 1600 && screen.width < 1920)  || screen.width == 1536) {
                 Ani1600();
             } else if (screen.width >= 1920) {
                 Ani1920();
@@ -898,13 +898,13 @@
                     link.type = "text/css";
                     link.href = "1920.css"; //依照不同的解析度來置換要使用的css檔案
                     document.getElementsByTagName("head")[0].appendChild(link); //最後將link加入到名為head的標籤內
-                } else if (screen.width >= 1600 && screen.width < 1920) {
+                } else if ((screen.width >= 1600 && screen.width < 1920) || screen.width == 1536) {
                     var link = document.createElement("link");
                     link.rel = "stylesheet";
                     link.type = "text/css";
                     link.href = "1600x900.css";
                     document.getElementsByTagName("head")[0].appendChild(link);
-                } else if (screen.width > 1024 && screen.width < 1600) {
+                } else if (screen.width > 1024 && screen.width < 1600 && screen.width != 1536) {
                     var link = document.createElement("link");
                     link.rel = "stylesheet";
                     link.type = "text/css";

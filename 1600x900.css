@@ -332,6 +332,7 @@
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover.png);
             z-index: 100;
+            background-repeat: no-repeat;
         }
         /*Start_Mask end*/
 
@@ -403,6 +404,7 @@
         #BG{
             position: absolute;
             margin-left: -0.5%;
+            background-repeat: no-repeat;
         }
 
 
