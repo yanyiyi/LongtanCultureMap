@@ -329,11 +329,11 @@
                     //console.log("menuClick");
                     if (IsInfoContentOpen) {
                         $('#InfoContent').animate({
-                            right: "-500px",
+                            right: "-31%",
                             opacity: "0"
                         }, 500);
                         $('#ContentBtn').animate({
-                            left: "93%"
+                            left: "90%"
                         }, 500);
                         IsInfoContentOpen = false; //直接使用動畫來改變寬度
                     } else {
@@ -513,7 +513,7 @@
                             opacity: "0"
                         }, 500);
                         $('#ContentBtn').animate({
-                            left: "93%"
+                            left: "92%"
                         }, 500);
                         IsInfoContentOpen = false; //直接使用動畫來改變寬度
                     } else {
@@ -895,7 +895,7 @@
                     link.type = "text/css";
                     link.href = "1600x900.css";
                     document.getElementsByTagName("head")[0].appendChild(link);
-                } else if (screen.width >= 1300 && screen.width < 1600) {
+                } else if (screen.width > 1024 && screen.width < 1600) {
                     var link = document.createElement("link");
                     link.rel = "stylesheet";
                     link.type = "text/css";

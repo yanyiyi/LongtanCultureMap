@@ -209,7 +209,7 @@
         #ContentBtn {
             position: absolute;
             margin-top: 0%;
-            left: 93%;
+            left: 92%;
             height: 20%;
             z-index: 6;
             cursor: pointer;
@@ -326,8 +326,9 @@
 
         #Start_Mask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover.png);
             z-index: 100;
@@ -361,8 +362,9 @@
 
         #HelpMask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             /* background-image: url(TestIcon/TitleCover.png);*/
             z-index: 5;
@@ -372,14 +374,14 @@
         #HelpHelp {
             position: absolute;
             height: 10%;
-            top: -2.5%;
+            top: -2%;
             right: 4%
         }
 
         #HelpContent {
             position: absolute;
             height: 50%;
-            right: -1%;
+            right: 0%;
             top: 24%;
         }
 
@@ -387,7 +389,7 @@
             position: absolute;
             height: 50%;
             top: 26%;
-            left: -1%;
+            left: 0%;
         }
         #HelpMap{
             position: absolute;

@@ -207,7 +207,7 @@
         #ContentBtn {
             position: absolute;
             margin-top: 0%;
-            left: 93%;
+            left: 90%;
             height: 20%;
             z-index: 6;
             cursor: pointer;
@@ -324,9 +324,9 @@
 
         #Start_Mask {
             position: absolute;
-            width: 100%;
+            width: 110%;
             height: 100%;
-            zoom: 80%;
+            left: -10%;
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover.png);
             background-repeat: no-repeat;
@@ -361,8 +361,9 @@
 
         #HelpMask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             /* background-image: url(TestIcon/TitleCover.png);*/
             z-index: 5;

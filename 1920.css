@@ -326,8 +326,9 @@
 
         #Start_Mask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover1920.png);
             z-index: 100;
@@ -362,7 +363,8 @@
 
         #HelpMask {
             position: absolute;
-            width: 100%;
+            width: 101%;
+            left: -1%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             /* background-image: url(TestIcon/TitleCover.png);*/
@@ -388,7 +390,7 @@
             position: absolute;
             height: 50%;
             top: 21%;
-            left: -1%;
+            left: 0%;
         }
         #HelpMap{
             position: absolute;

@@ -174,7 +174,6 @@
 
         #ContentImg {
             width: 40%;
-            height: 150px;
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
         }
 
@@ -207,7 +206,7 @@
         #ContentBtn {
             position: absolute;
             margin-top: 0%;
-            left: 93%;
+            left: 92%;
             height: 15%;
             z-index: 6;
             cursor: pointer;
@@ -325,8 +324,9 @@
 
         #Start_Mask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             background-image: url(TestIcon/TitleCover.png);
             background-size: 1024px;
@@ -348,7 +348,7 @@
         #help {
             position: absolute;
             height: 5%;
-            margin-left: 96.5%;
+            margin-left: 95%;
             margin-top: -5%;
             transition: transform .2s;
             z-index: 6;
@@ -362,8 +362,9 @@
 
         #HelpMask {
             position: absolute;
-            width: 100%;
+            width: 101%;
             height: 100%;
+            left: -1%;
             background-color: rgba(0, 0, 0, 0.8);
             /* background-image: url(TestIcon/TitleCover.png);*/
             z-index: 5;
@@ -387,20 +388,20 @@
             position: absolute;
             height: 40%;
             top: 25%;
-            left: -1%;
+            left: 0%;
         }
         #HelpMap{
             position: absolute;
             height: 20%;
             top: 10%;
-            left: 30%;
+            left: 20%;
         }
 
         /*help End*/
 
         #BG{
             position: absolute;
-            height: 90%;
+            height: 91%;
             margin-top: 6%;
         }
 
