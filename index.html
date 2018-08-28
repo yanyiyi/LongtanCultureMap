@@ -283,8 +283,17 @@
         } // end initialize
 
         google.maps.event.addDomListener(window, 'load', initialize); /*使用事件監聽器來控制網頁載入後地圖再載入*/
-
+        // 擷取鍵盤按下事件 去禁止特定的輸入方式
+        document.onkeydown = function(e){
+            if(e.ctrlKey && (e.keyCode === 85)){
+                //alert('禁止的操作');
+                return false;
+            }
+        } // 防止使用者利用Ctrl + U 瀏覽原始碼 
+          // <body>中的 oncontextmenu = "return false" 也是用以防止使用者右鍵瀏覽原始碼
+        
     </script>
+    
 
     <script>
         $(document).ready(function() {
@@ -878,7 +887,7 @@
 
             isMobile(); //偵測是否為行動裝置
             var Block = false;// 1920撰寫用擋mobile
-            if (Block) {
+            if (isMobile()) {
                 //alert("是行動裝置");
                 location.href = 'index_m.html';
             } else {

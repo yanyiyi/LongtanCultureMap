@@ -1,14 +1,18 @@
         html,
-        body,
         #map-canvas {
-            height: 100%;
-            width: 100%;
+            height: 101%;
+            top: -1%;
+            width: 101%;
+            left: -1%;
             margin-top: 0px;
             margin-left: 0;
         }
 
         body {
-            background-color: bisque;
+            height: 80%;
+            width: 101%;
+            left: -1%;
+            background-color: rgba(0, 0, 0, 0.4);
             overflow: hidden;
             opacity: 0;
         }
@@ -105,7 +109,7 @@
         /*側邊滑動選單*/
 
         #menu {
-            background-color: rgba(128, 64, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.4);
             position: absolute;
             z-index: 1;
             margin-top: 45px;
@@ -119,8 +123,8 @@
 
         #menuBtn {
             position: absolute;
-            height: 9%;
-            width: 15%;
+            height: 15%;
+            left: 0;
             bottom: 0px;
             cursor: pointer;
             z-index: 2;
@@ -179,7 +183,7 @@
             margin: 0 auto;
             position: absolute;
             margin-top: -5px;
-            height: 90%;
+            height: 81.25%;
             width: 100%;
             background-color: bisque;
             background-image: url(TestIcon/InfoContentBackground.jpg);
@@ -228,8 +232,8 @@
         #ContentBtn {
             position: absolute;
             bottom: 0px;
-            height: 9%;
-            width: 15%;
+            height: 15%;
+            right: 0;
             z-index: 3;
             right: 0px;
             cursor: pointer;
@@ -311,4 +315,32 @@
             background-image: url(TestIcon/TitleCover.jpg);
             z-index: 4;
         }
+
+        #BG{
+            position: absolute;
+            bottom: -5%;
+            width: 100%;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
