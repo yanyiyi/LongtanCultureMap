@@ -33,3 +33,5 @@
 程式碼標籤
 ===
 - **>Update:** 利用Ctrl+F搜尋>Update來找尋增加文章篇幅時所需要更改的地方。
+
+停止在此更新，詳細新增請至https://hackmd.io/NERLfQ59Qn6UahiGfNEutg 查詢
