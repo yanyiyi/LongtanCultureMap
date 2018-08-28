@@ -152,7 +152,9 @@
             margin-bottom: 20px;
         }
 
-        #InfoWindow {}
+        #InfoWindow {
+            
+        }
 
         /*Infowindow css end*/
 
@@ -164,10 +166,10 @@
             width: 30%;
             padding-bottom: 1%;
             background-color: rgba(74, 74, 74, 0.8);
-            /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
+           /*background-image: url(TestIcon/contentBG.jpg);*/
             margin-right: 0.5%;
             text-align: center;
-            right: -500px;
+            right: -31%;
             z-index: 5;
             box-shadow: 3px 3px 5px rgb(74, 74, 74);
         }
@@ -208,7 +210,7 @@
             position: absolute;
             margin-top: 0%;
             left: 93%;
-            height: 20%;
+            height: 15%;
             z-index: 6;
             cursor: pointer;
             /*background-color: red;*/
@@ -277,22 +279,23 @@
 
         #TopBar {
             height: 10%;
-            width: 96.75%;
+            width: 36%;
             font-family: 標楷體;
             font-size: 45px;
             margin: 0 auto;
-            /*margin-left: 10%;*/
+            margin-left: 35%;
             /* background-color: white;*/
-            margin-bottom: 0.5%;
+            margin-bottom: -1%;
             background-image: url(TestIcon/TopBarBackground.png);
             background-repeat: no-repeat;
             transition: transform .2s;
         }
 
-       /* #TopBar:hover{
-            
-        }*/
-        
+        #TopBar:hover{
+            cursor: pointer;
+            transform: rotate(-2deg);
+        }
+
         #TopBar p {
             margin: 0 auto;
             padding-top: 1%;
@@ -307,7 +310,6 @@
             transition: transform .2s;
             
         }
-        
 
         /*TopBar End*/
 
@@ -327,8 +329,9 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            background-image: url(TestIcon/TitleCover.png);
+            background-image: url(TestIcon/TitleCover1920.png);
             z-index: 100;
+            background-repeat: no-repeat;
         }
         /*Start_Mask end*/
 
@@ -346,7 +349,7 @@
             position: absolute;
             height: 5%;
             margin-left: 96.5%;
-            margin-top: -5%;
+            margin-top: -3.75%;
             transition: transform .2s;
             z-index: 6;
         }
@@ -370,7 +373,7 @@
         #HelpHelp {
             position: absolute;
             height: 10%;
-            top: -2.5%;
+            top: -2%;
             right: 4%
         }
 
@@ -378,20 +381,28 @@
             position: absolute;
             height: 50%;
             right: -1%;
-            top: 24%;
+            top: 20%;
         }
 
         #HelpMenu {
             position: absolute;
             height: 50%;
-            top: 26%;
+            top: 21%;
             left: -1%;
+        }
+        #HelpMap{
+            position: absolute;
+            height: 20%;
+            top: 10%;
+            left: 30%;
         }
 
         /*help End*/
 
         #BG{
             position: absolute;
+            margin-left: -0.5%;
+            width: 100%;
         }
 
 
@@ -405,7 +416,6 @@
             margin-left: 45%;
             bottom: 1%;
         }
-
 
 
 

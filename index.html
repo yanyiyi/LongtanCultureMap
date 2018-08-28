@@ -673,7 +673,7 @@
                             left: "0%"
                         }, 500);
                         $('#menuBtn').animate({
-                            top: "100%"
+                            top: "101%"
                         }, 500);
                         $('#menuBtn').animate({
                             left: "5%"
@@ -688,7 +688,7 @@
                     //console.log("menuClick");
                     if (IsInfoContentOpen) {
                         $('#InfoContent').animate({
-                            right: "-500px",
+                            right: "-31%",
                             opacity: "0"
                         }, 500);
                         $('#ContentBtn').animate({
@@ -697,7 +697,7 @@
                         IsInfoContentOpen = false; //直接使用動畫來改變寬度
                     } else {
                         $('#InfoContent').animate({
-                            right: "0px",
+                            right: "0%",
                             opacity: "1"
                         }, 500);
                         $('#ContentBtn').animate({
@@ -804,7 +804,33 @@
                 $('body').animate({
                     opacity: "1"
                 }, "slow");
-            } //end Ani1920
+                    
+                var IsHelp = 1;
+                $('#help').click(function() {
+                    
+                        IsHelp = IsHelp*"-1";
+                    console.log(IsHelp);
+                    if (IsHelp == 1) {
+                        setTimeout(function() {
+                        $('#HelpMask').css("display", "block");
+                        }, 100);
+                        $('#HelpMask').animate({
+                            opacity: "1"
+                        }, 500);
+                        $('.Blur').css("-webkit-filter","blur(3px)");
+                    } 
+                    else if(IsHelp == -1) {
+                        setTimeout(function() {
+                            $('#HelpMask').css("display", "none");
+                        }, 500);
+                        $('#HelpMask').animate({
+                            opacity: "0"
+                        }, 500);
+                        $('.Blur').css("-webkit-filter","blur(0px)");
+                    }
+
+                }); //end help click
+            } //end Ani1920  
             
             function ElementAni(){
                 
@@ -851,8 +877,8 @@
             }
 
             isMobile(); //偵測是否為行動裝置
-
-            if (isMobile()) {
+            var Block = false;// 1920撰寫用擋mobile
+            if (Block) {
                 //alert("是行動裝置");
                 location.href = 'index_m.html';
             } else {
