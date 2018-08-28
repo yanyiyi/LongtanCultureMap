@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $(function ReachSheet() {
 
-        //檢索每次加入文章應更動區索引標籤：>Update
+        //檢索每次加入文章應更動區索引標籤：>Update ，記得Google表單要先照格式新增欄位再修改程式碼
 
         //onload thing start
             setTimeout(function(){
@@ -69,7 +69,7 @@ $(document).ready(function () {
                     aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t; //>Update 新增抓取功能
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], aContentTitle4[i], aContentTitle5[i], aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], aContentTitle4[i], aContentTitle5[i], aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容，注意順序
 
                 } //end for
                 //console.log(GeoData);
