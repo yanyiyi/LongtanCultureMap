@@ -29,8 +29,15 @@
                 //alert('禁止的操作');
                 return false;
             }
+            if(e.ctrlKey && (e.keyCode === 77)){
+               // alert('貼圖');
+                AddImg();
+            }
         } // 防止使用者利用Ctrl + U 瀏覽原始碼 
           // <body>中的 oncontextmenu = "return false" 也是用以防止使用者右鍵瀏覽原始碼
+        
+        
+        
     </script>
 
     <style>
@@ -54,7 +61,26 @@
             margin-bottom: 10px;
         }
         #resetBtn{
-            margin-left: 50px;
+            margin-left: 10%;
+            width: 45%;
+            height: 50%;
+        }
+        #sendBtn{
+            margin-top: 10%;
+            margin-left: 10%;
+            width: 25%;
+            height: 50%;
+        }
+        #BtnPanel{
+            background-color: rgba(255, 0, 0, 0.37);
+            position: fixed;
+            top: 1%;
+            right: 1%;
+            width: 15%;
+            height: 10%;
+        }
+        .HelpInfo{
+            background-color: yellow;
         }
         
     </style>
@@ -72,8 +98,10 @@
     <table>
         <tbody>
             <tr>
-                <p>內文(textdata、infocontent#)建議在word中編寫完成後，直接貼入輸入欄位中</p>
-                <p>圖片如 ico infoimage，需輸入路徑或是網址作為來源</p>
+               <p class="HelpInfo">請記得先將表單網址貼上</p>
+                <p class="HelpInfo">內文(textdata、infocontent#)建議在word中編寫完成後，直接貼入輸入欄位中</p>
+                <p class="HelpInfo">圖片如 ico infoimage，需輸入路徑或是網址作為來源，如：TestIcon/XXX.png 或 http://imgsrc.png</p>
+                <p class="HelpInfo">如需在infocontent#中加入圖片，請使用 ImgStart:圖片來源:ImgEnd 的格式來加入圖片(快捷鍵為Ctrl+M貼上)</p>
                 <p>緯度(lat):<input id="lat"></p>
                 <p>經度(long):<input id="long"></p>
                 <p>浮動提示(tit):<input id="tit"></p>
@@ -97,8 +125,10 @@
             </tr>
         </tbody>
     </table>
-    <button id="sendBtn">寫入</button>
-    <button id="resetBtn">清除內容</button>
+   <div id="BtnPanel">
+        <button id="sendBtn">寫入</button>
+        <button id="resetBtn">清除所有內容</button>
+   </div>
     <script>
         var appUrl = $('#appUrl'), //放入GoogleAppScript的程式碼網址連結
             sheetsUrl = $('#sheetsUrl'), //放入所要新增內容的表單網址
@@ -172,6 +202,7 @@
                 insertType: type.val()
             };
             $.get(appUrl.val(), parameter);
+            alert("已上傳表單。");
         });
         resetBtn.on('click',function(){
             document.getElementById("lat").value = null;
@@ -195,6 +226,29 @@
             document.getElementById("contenttitle5").value = null;
             document.getElementById("contenttitle6").value = null;
         });//end resetBtn
+        
+        
+        function AddImg(){
+            if($('#infocontent').is(':focus')){
+                    document.getElementById("infocontent").value += "ImgStart::ImgEnd";
+                }
+                if($('#infocontent2').is(':focus')){
+                    document.getElementById("infocontent2").value += "ImgStart::ImgEnd";
+                }
+                if($('#infocontent3').is(':focus')){
+                    document.getElementById("infocontent3").value += "ImgStart::ImgEnd";
+                }
+                if($('#infocontent4').is(':focus')){
+                    document.getElementById("infocontent4").value += "ImgStart::ImgEnd";
+                }
+                if($('#infocontent5').is(':focus')){
+                    document.getElementById("infocontent5").value += "ImgStart::ImgEnd";
+                }
+                if($('#infocontent6').is(':focus')){
+                    document.getElementById("infocontent6").value += "ImgStart::ImgEnd";
+                }
+        }
+        
     </script>
 <!--<script src="JS/Input.js"></script>-->
 
