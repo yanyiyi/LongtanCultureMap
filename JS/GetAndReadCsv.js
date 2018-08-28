@@ -184,10 +184,10 @@ function GetItemsFromGeoData() {
             }
         }); //end marker.addListener 點擊事件
 
-        $('#menu').click(function () {
+       /* $('#menu').click(function () {
             infoWindow.close();
             IsMarkerOpen = false;
-        }); // end Click
+        }); // end Click*/
         markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[14], items[15], items[16], items[17], items[18], items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除

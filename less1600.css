@@ -86,7 +86,7 @@
         /*側邊滑動選單*/
 
         #menu {
-            background-color: rgba(52, 52, 52, 0.6);
+            background-color: rgba(74, 74, 74, 0.9);
             /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
             position: absolute;
             z-index: 5;
@@ -125,6 +125,7 @@
             font-weight: 900;
             cursor: default;
             font-size: 17px;
+            color: white;
         }
 
         /*Infowindow css start*/
@@ -163,8 +164,8 @@
             /*height: 85%;*/
             width: 30%;
             padding-bottom: 1%;
-            background-color: rgba(74, 74, 74, 0.8);
-            /*background-image: url(TestIcon/InfoContentBackground.jpg);*/
+            background-color: rgba(74, 74, 74, 0.9);
+            /*background-image: url(TestIcon/ContentMenuBG.jpg);*/
             margin-right: 0.5%;
             text-align: center;
             right: -500px;
@@ -185,6 +186,7 @@
             margin-bottom: 10px;
             font-weight: 700;
             cursor: default;
+            color: white;
         }
 
         #ContentText {

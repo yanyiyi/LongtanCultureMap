@@ -67,6 +67,15 @@
         .HelpInfo{
             background-color: yellow;
         }
+        p textarea{
+            width: 500px;
+            height: 200px;
+        }
+        #space{
+            font-size: 50px;
+            margin-top: -30px;
+            max-height: 10px;
+        }
         
     </style>
     <script id="Login">
@@ -98,28 +107,46 @@
             <tr>
                <p class="HelpInfo">請記得先將表單網址貼上</p>
                 <p class="HelpInfo">內文(textdata、infocontent#)建議在word中編寫完成後，直接貼入輸入欄位中</p>
-                <p class="HelpInfo">圖片如 ico infoimage，需輸入路徑或是網址作為來源，如：TestIcon/XXX.png 或 http://imgsrc.png</p>
+                <p class="HelpInfo">圖片如 ico infoimage，需輸入路徑或是網址作為來源，如：TestIcon/XXX.png 或 https://imgsrc.png</p>
                 <p class="HelpInfo">如需在infocontent#中加入圖片，請使用 ImgStart:圖片來源:ImgEnd 的格式來加入圖片(快捷鍵為Ctrl+M貼上)</p>
                 <p>緯度(lat):<input id="lat"></p>
                 <p>經度(long):<input id="long"></p>
                 <p>浮動提示(tit):<input id="tit"></p>
-                <p>座標圖示(ico):<input id="ico"></p>
+                <p>座標圖示(ico):<input id="ico" value="TestIcon/"></p>
                 <p>座標文字(textdata):<textarea id="textdata"></textarea></p>
                 <p>座標分類(mtype):<input id="mtype"></p>
-                <p>詳細圖示(infoimage):<input id="infoimage"></p>
+                <p>詳細圖示(infoimage):<input id="infoimage" value="TestIcon/"></p>
                 <p>詳細標題(infotitle):<input id="infotitle"></p>
-                <p>詳細內文(infocontent):<textarea id="infocontent"></textarea></p>
-                <p>詳細內文2(infocontent2):<textarea id="infocontent2"></textarea></p>
-                <p>詳細內文3(infocontent3):<textarea id="infocontent3"></textarea></p>
-                <p>詳細內文4(infocontent4):<textarea id="infocontent4"></textarea></p>
-                <p>詳細內文5(infocontent5):<textarea id="infocontent5"></textarea></p>
-                <p>詳細內文6(infocontent6):<textarea id="infocontent6"></textarea></p>
+                <br><br>
+                <p id="space">-------------------------------------------------------------</p>
                 <p>詳細文章標題1(contenttitle1):<input id="contenttitle1"></p>
+                <p>詳細內文(infocontent):<textarea id="infocontent"></textarea></p>
+                <p id="space">-------------------------------------------------------------</p>
+                
                 <p>詳細文章標題2(contenttitle2):<input id="contenttitle2"></p>
+                <p>詳細內文2(infocontent2):<textarea id="infocontent2"></textarea></p>
+                <p id="space">-------------------------------------------------------------</p>
+                
                 <p>詳細文章標題3(contenttitle3):<input id="contenttitle3"></p>
+                <p>詳細內文3(infocontent3):<textarea id="infocontent3"></textarea></p>
+                <p id="space">-------------------------------------------------------------</p>
+                
                 <p>詳細文章標題4(contenttitle4):<input id="contenttitle4"></p>
+                <p>詳細內文4(infocontent4):<textarea id="infocontent4"></textarea></p>
+                <p id="space">-------------------------------------------------------------</p>
+                
                 <p>詳細文章標題5(contenttitle5):<input id="contenttitle5"></p>
+                <p>詳細內文5(infocontent5):<textarea id="infocontent5"></textarea></p>
+                <p id="space">-------------------------------------------------------------</p>
+                
                 <p>詳細文章標題6(contenttitle6):<input id="contenttitle6"></p>
+                <p>詳細內文6(infocontent6):<textarea id="infocontent6"></textarea></p>
+                
+                
+                
+                
+                
+                
             </tr>
         </tbody>
     </table>
@@ -200,16 +227,21 @@
                 insertType: type.val()
             };
             $.get(appUrl.val(), parameter);
-            alert("已上傳表單。");
+            if($('#sheetsUrl').value = "請在這裡貼上地圖工作表網址"){
+                alert("請貼上工作表網址。");
+            }
+            else{
+                alert("已上傳表單。");
+            }
         });
         resetBtn.on('click',function(){
             document.getElementById("lat").value = null;
             document.getElementById("long").value = null;
             document.getElementById("tit").value = null;
-            document.getElementById("ico").value = null;
+            document.getElementById("ico").value = "TestIcon/";
             document.getElementById("textdata").value = null;
             document.getElementById("mtype").value = null;
-            document.getElementById("infoimage").value = null;
+            document.getElementById("infoimage").value = "TestIcon/";
             document.getElementById("infotitle").value = null;
             document.getElementById("infocontent").value = null;
             document.getElementById("infocontent2").value = null;
@@ -228,22 +260,22 @@
         
         function AddImg(){
             if($('#infocontent').is(':focus')){
-                    document.getElementById("infocontent").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent2').is(':focus')){
-                    document.getElementById("infocontent2").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent2").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent3').is(':focus')){
-                    document.getElementById("infocontent3").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent3").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent4').is(':focus')){
-                    document.getElementById("infocontent4").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent4").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent5').is(':focus')){
-                    document.getElementById("infocontent5").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent5").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent6').is(':focus')){
-                    document.getElementById("infocontent6").value += "ImgStart::ImgEnd";
+                    document.getElementById("infocontent6").value += "ImgStart:TestIcon/:ImgEnd";
                 }
         }
         
