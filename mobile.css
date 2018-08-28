@@ -2,16 +2,16 @@
         #map-canvas {
             height: 101%;
             top: -1%;
-            width: 101%;
-            left: -1%;
+            width: 102%;
+            left: -2%;
             margin-top: 0px;
             margin-left: 0;
         }
 
         body {
             height: 80%;
-            width: 101%;
-            left: -1%;
+            width: 102%;
+            left: -1.5%;
             background-color: rgba(0, 0, 0, 0.4);
             overflow: hidden;
             opacity: 0;
