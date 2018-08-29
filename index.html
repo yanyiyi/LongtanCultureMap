@@ -7,10 +7,11 @@
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <script>
+        /*防止頁面縮放用*/
         var zoom = function(e) {
             var e = e || window.event;
             if (e.wheelDelta && event.ctrlKey) {
-                event.returnValue = false
+                event.returnValue = false;
             } else if (e.detail) {
                 event.returnValue = false;
             }
