@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $(function ReachSheet() {
 
-        //檢索每次加入文章應更動區索引標籤：>Update ，記得Google表單要先照格式新增欄位再修改程式碼
+        //檢索每次加入文章應更動區索引標籤：>Update ，記得所有更動前，先修改html，後到Google表單依照格式新增欄位最後再修改程式碼
 
         //onload thing start
             setTimeout(function(){
@@ -11,7 +11,7 @@ $(document).ready(function () {
             },1000);
             setTimeout(function(){
                 $('#Start_Mask').css('display','none');
-            },2500);
+            },2500); // 開啟頁面的動畫
         //onload thing end
 
 
@@ -29,12 +29,12 @@ $(document).ready(function () {
             aInfoContent4 = [],
             aInfoContent5 = [],
             aInfoContent6 = [];
-        var aContentTitle1 = [], //每個aContentTitle會儲存每個座標點的每個文章標題
-            aContentTitle2 = [], //>Update 新增標題篇數
-            aContentTitle3 = [],
-            aContentTitle4 = [],
-            aContentTitle5 = [],
-            aContentTitle6 = [];
+        var aContentSelect1 = [], //每個aContentTitle會儲存每個座標點的每個文章標題
+            aContentSelect2 = [], //>Update 新增標題篇數
+            aContentSelect3 = [],
+            aContentSelect4 = [],
+            aContentSelect5 = [],
+            aContentSelect6 = [];
 
 
         var dataAmount = 0;
@@ -61,15 +61,15 @@ $(document).ready(function () {
                     aInfoContent4[i] = dataLog.feed.entry[i].gsx$infocontent4.$t;
                     aInfoContent5[i] = dataLog.feed.entry[i].gsx$infocontent5.$t;
                     aInfoContent6[i] = dataLog.feed.entry[i].gsx$infocontent6.$t;
-                    aContentTitle1[i] = dataLog.feed.entry[i].gsx$contenttitle1.$t;
-                    aContentTitle2[i] = dataLog.feed.entry[i].gsx$contenttitle2.$t;
-                    aContentTitle3[i] = dataLog.feed.entry[i].gsx$contenttitle3.$t;
-                    aContentTitle4[i] = dataLog.feed.entry[i].gsx$contenttitle4.$t;
-                    aContentTitle5[i] = dataLog.feed.entry[i].gsx$contenttitle5.$t;
-                    aContentTitle6[i] = dataLog.feed.entry[i].gsx$contenttitle6.$t; //>Update 新增抓取功能
+                    aContentSelect1[i] = dataLog.feed.entry[i].gsx$contentselect1.$t;
+                    aContentSelect2[i] = dataLog.feed.entry[i].gsx$contentselect2.$t;
+                    aContentSelect3[i] = dataLog.feed.entry[i].gsx$contentselect3.$t;
+                    aContentSelect4[i] = dataLog.feed.entry[i].gsx$contentselect4.$t;
+                    aContentSelect5[i] = dataLog.feed.entry[i].gsx$contentselect5.$t;
+                    aContentSelect6[i] = dataLog.feed.entry[i].gsx$contentselect6.$t; //>Update 新增抓取功能
                     // 以上依照指定進行抓試算表裡面的資料
 
-                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentTitle1[i], aContentTitle2[i], aContentTitle3[i], aContentTitle4[i], aContentTitle5[i], aContentTitle6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容，注意順序
+                    CsvToArray(parseFloat(aLatitude[i]), parseFloat(aLongtitude[i]), aTitle[i], aIcon[i], aTextdata[i], aType[i], aImg[i], aInfoTitle[i], aInfoContent[i], aInfoContent2[i], aInfoContent3[i], aInfoContent4[i], aInfoContent5[i], aInfoContent6[i], aContentSelect1[i], aContentSelect2[i], aContentSelect3[i], aContentSelect4[i], aContentSelect5[i], aContentSelect6[i], i); // 抓取資料到CsvToArray函數中 //>Update 新增導入涵式內容，注意順序
 
                 } //end for
                 //console.log(GeoData);
@@ -87,7 +87,7 @@ var items;
 var a = -1;
 
 //>Update 將新增的內容導入涵式
-function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3, InfoC4, InfoC5, InfoC6, ConTit1, ConTit2, ConTit3, ConTit4, ConTit5, ConTit6, I) {
+function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, InfoC3, InfoC4, InfoC5, InfoC6, ConSel1, ConSel2, ConSel3, ConSel4, ConSel5, ConSel6, I) {
     GeoData[I] = new Array();
     GeoData[I][0] = Lat;
     GeoData[I][1] = Long;
@@ -103,12 +103,12 @@ function CsvToArray(Lat, Long, Tit, Ico, Tex, Typ, Img, InfoT, InfoC, InfoC2, In
     GeoData[I][11] = InfoC4;
     GeoData[I][12] = InfoC5;
     GeoData[I][13] = InfoC6;
-    GeoData[I][14] = ConTit1;
-    GeoData[I][15] = ConTit2;
-    GeoData[I][16] = ConTit3;
-    GeoData[I][17] = ConTit4;
-    GeoData[I][18] = ConTit5;
-    GeoData[I][19] = ConTit6;
+    GeoData[I][14] = ConSel1;
+    GeoData[I][15] = ConSel2;
+    GeoData[I][16] = ConSel3;
+    GeoData[I][17] = ConSel4;
+    GeoData[I][18] = ConSel5;
+    GeoData[I][19] = ConSel6;
     //>Update 新增內容寫入資料陣列中
 } //end CsvToArray 將csv資料傳入陣列中
 
@@ -188,7 +188,8 @@ function GetItemsFromGeoData() {
             infoWindow.close();
             IsMarkerOpen = false;
         }); // end Click*/
-        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[14], items[15], items[16], items[17], items[18], items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentTitle, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
+        
+        markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[14], items[15], items[16], items[17], items[18], items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentSelect, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
         markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
@@ -211,7 +212,7 @@ function markerArrayClickAdd(NowNum) {
             document.getElementById("ContentText").innerHTML = markerArrayInnerContent[NowNum][1];
             document.getElementById("ContentText").innerHTML.search("Img:");
             TextReplace(document.getElementById("ContentText"));
-            document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數，此圖元陣列數即是在上上一步驟markerArrayInnerContent.push()時的最大陣列數，做此更改時請參考push的陣列0、1、2、3....
+            document.getElementById("ContentImg").src = markerArrayInnerContent[NowNum][13]; //>Update 修改圖源陣列數，此圖源陣列數即是在上上一步驟markerArrayInnerContent.push()時的最大陣列數，做此更改時請參考push的陣列0、1、2、3....
             //將相關參數從暫存的參數陣列裡拿出來使用，更新InfoContent的內容
 
             for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
@@ -396,12 +397,12 @@ onload = function () {
     document.getElementById("YG_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "馮輝岳及向鴻全文學地景");
 
 
-} //end onload 動態分類區塊生成用 
+} //end onload 動態分類區塊生成用 menu
 
 function ValueCheck(RedDiaValue) {
-    MarkerReset();
-    GetItemsFromGeoData();
-}
+    MarkerReset(); //將所有marker都刪除
+    GetItemsFromGeoData(); //再進行打點
+}//每次menu中的勾選被點擊就會執行一次ValueCheck
 
 
 

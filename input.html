@@ -76,6 +76,19 @@
             margin-top: -30px;
             max-height: 10px;
         }
+        .HelpImg{
+            z-index: 3;
+            position: fixed;
+            width: 20%;
+            top: 0;
+            right: 15%;
+        }
+        #HI1{
+            right: 1%;
+        }
+        #HI2{
+            right: 20%;
+        }
         
     </style>
     <script id="Login">
@@ -117,32 +130,36 @@
                 <p>座標分類(mtype):<input id="mtype"></p>
                 <p>詳細圖示(infoimage):<input id="infoimage" value="TestIcon/"></p>
                 <p>詳細標題(infotitle):<input id="infotitle"></p>
+                
+                <img id="HI1" class="HelpImg" src="TestIcon/HelpImg1.jpg">
+                <img id="HI2" class="HelpImg" src="TestIcon/HelpImg2.jpg">
+                
                 <br><br>
                 <p id="space">-------------------------------------------------------------</p>
-                <p>詳細文章標題1(contenttitle1):<input id="contenttitle1"></p>
+                <p>詳細文章標題1(contentselect1):<input id="contentselect1"></p>
                 <p>詳細內文(infocontent):<textarea id="infocontent"></textarea></p>
                 <p id="space">-------------------------------------------------------------</p>
                 
-                <p>詳細文章標題2(contenttitle2):<input id="contenttitle2"></p>
+                <p>詳細文章標題2(contentselect2):<input id="contentselect2"></p>
                 <p>詳細內文2(infocontent2):<textarea id="infocontent2"></textarea></p>
                 <p id="space">-------------------------------------------------------------</p>
                 
-                <p>詳細文章標題3(contenttitle3):<input id="contenttitle3"></p>
+                <p>詳細文章標題3(contentselect3):<input id="contentselect3"></p>
                 <p>詳細內文3(infocontent3):<textarea id="infocontent3"></textarea></p>
                 <p id="space">-------------------------------------------------------------</p>
                 
-                <p>詳細文章標題4(contenttitle4):<input id="contenttitle4"></p>
+                <p>詳細文章標題4(contentselect4):<input id="contentselect4"></p>
                 <p>詳細內文4(infocontent4):<textarea id="infocontent4"></textarea></p>
                 <p id="space">-------------------------------------------------------------</p>
                 
-                <p>詳細文章標題5(contenttitle5):<input id="contenttitle5"></p>
+                <p>詳細文章標題5(contentselect5):<input id="contentselect5"></p>
                 <p>詳細內文5(infocontent5):<textarea id="infocontent5"></textarea></p>
                 <p id="space">-------------------------------------------------------------</p>
                 
-                <p>詳細文章標題6(contenttitle6):<input id="contenttitle6"></p>
+                <p>詳細文章標題6(contentselect6):<input id="contentselect6"></p>
                 <p>詳細內文6(infocontent6):<textarea id="infocontent6"></textarea></p>
                 
-                
+<!-- >Update -->
                 
                 
                 
@@ -176,17 +193,17 @@
             InfoContent4,
             InfoContent5,
             InfoContent6,
-            ContentTitle1,
-            ContentTitle2,
-            ContentTitle3,
-            ContentTitle4,
-            ContentTitle5,
-            ContentTitle6;
+            ContentSelect1,
+            ContentSelect2,
+            ContentSelect3,
+            ContentSelect4,
+            ContentSelect5,
+            ContentSelect6;//>Update 新增變數
 
 
         var data = [
-            [Lat, Long, Tit, Ico, TextData, mType, InfoImage, InfoTitle, InfoContent, InfoContent2, InfoContent3, InfoContent4, InfoContent5, InfoContent6, ContentTitle1, ContentTitle2, ContentTitle3, ContentTitle4, ContentTitle5, ContentTitle6]
-        ];
+            [Lat, Long, Tit, Ico, TextData, mType, InfoImage, InfoTitle, InfoContent, InfoContent2, InfoContent3, InfoContent4, InfoContent5, InfoContent6, ContentSelect1, ContentSelect2, ContentSelect3, ContentSelect4, ContentSelect5, ContentSelect6]
+        ]; // >Update 帶入變數
         var parameter = {};
 
 
@@ -205,18 +222,18 @@
             InfoContent4 = document.getElementById("infocontent4").value;
             InfoContent5 = document.getElementById("infocontent5").value;
             InfoContent6 = document.getElementById("infocontent6").value;
-            ContentTitle1 = document.getElementById("contenttitle1").value;
-            ContentTitle2 = document.getElementById("contenttitle2").value;
-            ContentTitle3 = document.getElementById("contenttitle3").value;
-            ContentTitle4 = document.getElementById("contenttitle4").value;
-            ContentTitle5 = document.getElementById("contenttitle5").value;
-            ContentTitle6 = document.getElementById("contenttitle6").value;
-
+            ContentSelect1 = document.getElementById("contentselect1").value;
+            ContentSelect2 = document.getElementById("contentselect2").value;
+            ContentSelect3 = document.getElementById("contentselect3").value;
+            ContentSelect4 = document.getElementById("contentselect4").value;
+            ContentSelect5 = document.getElementById("contentselect5").value;
+            ContentSelect6 = document.getElementById("contentselect6").value;
+            //>Update 新增寫入事件
 
 
             data = [
-                [Lat, Long, Tit, Ico, TextData, mType, InfoImage, InfoTitle, InfoContent, InfoContent2, InfoContent3, InfoContent4, InfoContent5, InfoContent6, ContentTitle1, ContentTitle2, ContentTitle3, ContentTitle4, ContentTitle5, ContentTitle6]
-            ];//順序注意
+                [Lat, Long, Tit, Ico, TextData, mType, InfoImage, InfoTitle, InfoContent, InfoContent2, InfoContent3, InfoContent4, InfoContent5, InfoContent6, ContentSelect1, ContentSelect2, ContentSelect3, ContentSelect4, ContentSelect5, ContentSelect6]
+            ];//>Update 順序注意 
 
             parameter = {
                 url: sheetsUrl.val(),
@@ -227,12 +244,12 @@
                 insertType: type.val()
             };
             $.get(appUrl.val(), parameter);
-            if($('#sheetsUrl').value = "請在這裡貼上地圖工作表網址"){
+            /*if($('#sheetsUrl').value = "請在這裡貼上地圖工作表網址"){
                 alert("請貼上工作表網址。");
             }
             else{
                 alert("已上傳表單。");
-            }
+            }*/
         });
         resetBtn.on('click',function(){
             document.getElementById("lat").value = null;
@@ -249,12 +266,13 @@
             document.getElementById("infocontent4").value = null;
             document.getElementById("infocontent5").value = null;
             document.getElementById("infocontent6").value = null;
-            document.getElementById("contenttitle1").value = null;
-            document.getElementById("contenttitle2").value = null;
-            document.getElementById("contenttitle3").value = null;
-            document.getElementById("contenttitle4").value = null;
-            document.getElementById("contenttitle5").value = null;
-            document.getElementById("contenttitle6").value = null;
+            document.getElementById("contentselect1").value = null;
+            document.getElementById("contentselect2").value = null;
+            document.getElementById("contentselect3").value = null;
+            document.getElementById("contentselect4").value = null;
+            document.getElementById("contentselect5").value = null;
+            document.getElementById("contentselect6").value = null;
+            //>Update 
         });//end resetBtn
         
         
@@ -275,7 +293,7 @@
                     document.getElementById("infocontent5").value += "ImgStart:TestIcon/:ImgEnd";
                 }
                 if($('#infocontent6').is(':focus')){
-                    document.getElementById("infocontent6").value += "ImgStart:TestIcon/:ImgEnd";
+                    document.getElementById("infocontent6").value += "ImgStart:TestIcon/:ImgEnd"; //>Update
                 }
         }
         

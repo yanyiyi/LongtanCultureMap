@@ -280,7 +280,7 @@
                 }
 
             )
-        } // end initialize
+        } // end initialize 初始化地圖時更改其樣式
 
         google.maps.event.addDomListener(window, 'load', initialize); /*使用事件監聽器來控制網頁載入後地圖再載入*/
         // 擷取鍵盤按下事件 去禁止特定的輸入方式
@@ -298,7 +298,7 @@
     <script>
         $(document).ready(function() {
             //需執行的function start
-            ElementAni();
+            ElementAni(); //套用基本元素動畫
             //需執行的function end
             function AniLess1600() {
                 var IsAni = false;
@@ -342,7 +342,7 @@
                             opacity: "0"
                         }, 500);
                         $('#ContentBtn').animate({
-                            left: "90%"
+                            left: "92%"
                         }, 500);
                         IsInfoContentOpen = false; //直接使用動畫來改變寬度
                     } else {
@@ -840,7 +840,7 @@
 
                 }); //end help click
             } //end Ani1920  
-            
+            /*↑不同解析度有不同的動畫↑*/
             function ElementAni(){
                 
                 var ang = 0;
@@ -861,7 +861,7 @@
                 });//end TopBar click
                 
                 
-            }//end ElementAni
+            }//end ElementAni 基本元素的動畫
 
             /*依照不同的螢幕解析度來套入不一樣的動畫配置*/
 
@@ -871,25 +871,25 @@
                 Ani1600();
             } else if (screen.width >= 1920) {
                 Ani1920();
-            }
+            } //判斷螢幕解析度來決定要使用何種動畫
             
 
 
 
             function isMobile() {
                 try {
-                    document.createEvent("TouchEvent");
+                    document.createEvent("TouchEvent"); // 利用偵測是否有使用到觸控事件來判斷，因此螢幕能觸控的電腦會被判斷成移動裝置。
                     return true;
                 } catch (e) {
                     return false;
                 }
-            }
+            } //用來判斷是不是使用手機的程式碼
 
             isMobile(); //偵測是否為行動裝置
             var Block = false;// 1920撰寫用擋mobile轉移
-            if (Block) {
+            if (isMobile()) {
                 //alert("是行動裝置");
-                location.href = 'index_m.html';
+                location.href = 'index_m.html'; // 若判斷是移動裝置則將頁面移至手機板
             } else {
                 //alert("是電腦裝置" + screen.width + "*" + screen.height);
                 if (screen.width >= 1920) {
