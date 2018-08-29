@@ -170,9 +170,12 @@
         }
 
         #InfoWindow {
-            max-height: 500px;
+            max-height: 400px;
             width: 100%;
             overflow-y: scroll;
+        }
+        #InfoWindow::-webkit-scrollbar{
+            display:none;
         }
 
         /*Infowindow css end*/

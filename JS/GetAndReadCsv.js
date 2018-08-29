@@ -42,6 +42,7 @@ $(document).ready(function () {
         //console.log("w");
 
         //1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE 學長的試算表
+       /*修改讀取的表單在這裡更改，將list/後面的代碼改為要讀取的表單*/
         $.getJSON('https://spreadsheets.google.com/feeds/list/1wNhF8AjCgcqdzftTcBpmtAsfY5HHN6Dw0APrABZqxhA/1/public/values?alt=json', function (dataLog) {
                 //console.log("gJson");
                 dataAmount = dataLog.feed.entry.length;
@@ -415,6 +416,9 @@ function MarkerSelect(TheMarker, TypeName) {
         8 文學館舍及藝文空間
         5 全臺文學館舍
         9 馮輝岳及向鴻全文學地景
+        此函式目的在於判斷座標點的分類，以便menu中的分類更換。
+        當涵式讀取到 TheMarker 會去判斷座標點的TypeName，當條件成立時讓座標點顯示，
+        當條件不成立時則將其隱藏。
         
     */
     if (TypeName == "1" && RedDia.checked) {
@@ -445,6 +449,17 @@ function TextReplace(Content) {
     var reg = new RegExp("ImgStart:", "g"); // 利用RegExp設定讀取"ImgStart:"為目標
     var result = Content.innerHTML.match(reg); //將字串導入去.match(reg)
     var count = (result) ? result.length : 0; //將讀取到的次數存取
+    
+    /*
+    ? 運算
+    var count = (result) ? result.length : 0;
+    表示if(result){
+        count = result.length;
+    }
+    else{
+        count = 0;
+    }
+    */
 
     console.log("Count:" + count);
 
