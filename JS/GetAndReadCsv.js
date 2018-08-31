@@ -2,7 +2,8 @@ $(document).ready(function () {
     $(function ReachSheet() {
 
         //檢索每次加入文章應更動區索引標籤：>Update ，記得所有更動前，先修改html，後到Google表單依照格式新增欄位最後再修改程式碼
-
+        //檢索左側分類更改 索引標籤：>Type
+        
         //onload thing start
             setTimeout(function(){
                 $('#Start_Mask').animate({
@@ -247,6 +248,9 @@ function markerArrayClickAdd(NowNum) {
 } // end markerArrayClickAdd
 
 var ClickValue = 0;
+
+// >Type
+
 var RedDia;
 var YBGR;
 var Rest;
@@ -255,6 +259,8 @@ var YGBulb;
 var RedBulb;
 var YGDia;
 var Test;
+/*var NewType;*/
+//用來賦予input
 
 var TestSpan;
 var RedDiaSpan;
@@ -263,7 +269,9 @@ var RestSpan;
 var YBulbSpan;
 var YGBulbSpan;
 var RedBulbSpan;
-var YGDiaSpan; //span用來製造自定義的checkbox
+var YGDiaSpan; 
+/*var NewTypeSpan;*/
+//span用來製造自定義的checkbox
 
 onload = function () {
     var RedDia_img;
@@ -277,7 +285,11 @@ onload = function () {
     var YGDia_img;
     var RedBulb_img2;
     var Test_img;
-
+    /*var NewType_img;*/
+    //用來給予分類圖檔
+    
+    //>Type
+    
     RedDia_img = document.createElement("img");
     RedDia_img.src = "TestIcon/RedDiamond.png";
     document.getElementById("Red_Diamond").appendChild(RedDia_img);
@@ -397,7 +409,24 @@ onload = function () {
     document.getElementById("YG_Diamond").appendChild(YGDiaSpan);
     document.getElementById("YG_Diamond").append("\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "馮輝岳及向鴻全文學地景");
 
-
+    
+    /*NewType_img = document.createElement("img");//賦予img屬性
+    NewType_img.src = "TestIcon/doge.jpg";//導入分類圖片
+    document.getElementById("New_Type").appendChild(NewType_img);//將其加入到網頁中
+    NewType = document.createElement("input");//賦予input屬性
+    NewType.type = "checkbox";//給予類型為checkbox
+    NewType.checked = true;//預設為勾選
+    NewType.addEventListener('click',function(){
+       ValueCheck(NewType.checked); 
+    });//賦予checkbox點擊事件
+    document.getElementById("New_Type").appendChild(NewType);//將其加入到網頁中
+    NewTypeSpan = document.createElement("span");//賦予span屬性
+    NewTypeSpan.setAttribute("class","checkmark");//給予span class=checkmark套用
+    document.getElementById("New_Type").appendChild(NewTypeSpan);//將其加入到網頁中
+    
+    document.getElementById("New_Type").append("\xa0\xa0\xa0\xa0\xa0\xa0"+"Doge");
+    //給予文字說明*/
+    
 } //end onload 動態分類區塊生成用 menu
 
 function ValueCheck(RedDiaValue) {
@@ -435,9 +464,13 @@ function MarkerSelect(TheMarker, TypeName) {
         TheMarker.setVisible(true);
     } else if (TypeName == "9" && YGDia.checked) {
         TheMarker.setVisible(true);
-    } else {
+    }
+    /*else if(TypeName == "10" && NewType.checked){
+        TheMarker.setVisible(true);
+    }*/
+    else {
         TheMarker.setVisible(false);
-    } //利用多一欄的編號資料來判斷此座標分類
+    } //利用多一欄的編號資料來判斷此座標分類 >Type
 
 
 } // end MarkerSelect 用來判斷甚麼座標分類該顯示
