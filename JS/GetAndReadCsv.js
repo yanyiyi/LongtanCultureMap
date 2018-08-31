@@ -133,7 +133,7 @@ function InfoBoxContentInput() {
 
     InfoBoxContent = "<div id='InfoWindow'>" + "<img id='MapImage' src='" + items[6] + "'>" + "<h1 id='InfoTitle'>" + items[7] + "</h1>" + "<div id='InfoText'>" + items[4] + "</div>" + "</div>";
     //以上可以將想要的資訊依照格式置入後呈現在網頁中的infobox
-}
+}//座標點打開的視窗資訊重整
 
 
 function GetItemsFromGeoData() {
@@ -157,7 +157,7 @@ function GetItemsFromGeoData() {
                 scaledSize: new google.maps.Size(50, 50)
             },
             animation: google.maps.Animation.DROP, // 在此加上載入落下動畫
-            data: InfoBoxContent, //將文字加入跳出資訊窗 <img src='TestIcon/icon.jpg'>
+            data: InfoBoxContent, //將文字加入跳出資訊窗 
         }); // end marker
 
 
@@ -194,7 +194,7 @@ function GetItemsFromGeoData() {
         markerArrayInnerContent.push([items[7], items[8], items[9], items[10], items[11], items[12], items[13], items[14], items[15], items[16], items[17], items[18], items[19], items[6]]); // items[7] title ,items[8,9,10,11,12,13] Contenttext ,items[14,15,16,17,18,19] ContentSelect, items[6] img 將此INum的參數暫存至陣列之中 //>Update 新增資料陣列進入詳細內容陣列
 
         markerArray.push(marker); // 將所有剛產生的座標加入一個陣列之中 再引到markerArray中清除
-        markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增事件
+        markerArrayClickAdd(INum); //將當前是排序的數字INum帶入點擊事件涵式中新增分類選擇事件
         google.maps.event.addListener(marker, "click", function () {});
         MarkerSelect(marker, GeoData[INum][5]); //讀取GeoData[INum][5] 亦即試算表中的type 進涵式判斷
     } // end for
@@ -220,7 +220,7 @@ function markerArrayClickAdd(NowNum) {
             for (InfoSelectNum = 1; InfoSelectNum <= maxNum; InfoSelectNum++) {
                 document.getElementById("InfoSelect" + InfoSelectNum).innerHTML = markerArrayInnerContent[NowNum][InfoSelectNum + maxNum];
             }
-            var ChangingContent = false;
+            var ChangingContent = false;//確保內容會進行一次更換後才能進行下一次的更換
             for (var d = 1; d <= maxNum; d++) {
                 document.getElementById("InfoSelect" + d).addEventListener('click', function () {
                     if (!ChangingContent) {
