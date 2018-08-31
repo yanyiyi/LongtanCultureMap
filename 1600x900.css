@@ -83,7 +83,7 @@
             display: block;
         }
 
-        /*側邊滑動選單*/
+        /*左側滑動選單*/
 
         #menu {
             background-color: rgba(74, 74, 74, 0.9);
@@ -97,7 +97,7 @@
             /*用以防止使用者反白Tip的內容*/
             
         }
-
+        
         #menuBtn {
             position: absolute;
             height: 40%;
@@ -108,7 +108,7 @@
             /* background-color: red;*/
             transition: transform .2s;
             /*Animation*/
-        }
+        }/*分類選取的按鈕*/
 
         #menuBtn:hover {
             opacity: 0.9;
@@ -128,7 +128,7 @@
             color: white;
         }
 
-        /*Infowindow css start*/
+        /*Infowindow 地圖座標打開的視窗 css start*/
 
         #MapImage {
             width: 300px;
@@ -159,7 +159,7 @@
 
         /*Infowindow css end*/
 
-        /*InfoContent start*/
+        /*InfoContent 右側詳細內容選單 start*/
 
         #InfoContent {
             position: absolute;
@@ -236,7 +236,7 @@
 
         /*InfoContent end*/
 
-        /*ContentSelect start*/
+        /*ContentSelect 為文章標題選取部分 start*/
 
         #ContentSelect::-webkit-scrollbar {
             display: none;
@@ -324,7 +324,7 @@
 
         /*Some Tip about Btn End*/
 
-        /*Start_Mask start*/
+        /*Start_Mask 頁面開始的遮罩 start*/
 
         #Start_Mask {
             position: absolute;
@@ -346,7 +346,7 @@
 
         /*Google Map Setting End*/
 
-        /*help Start*/
+        /*help 關於說明 Start*/
 
         #help {
             position: absolute;
