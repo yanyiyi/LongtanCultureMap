@@ -1,5 +1,4 @@
 # GoogleMapApi
-- 網站位置 https://depolk.me/
 - 相關使用說明 https://hackmd.io/NERLfQ59Qn6UahiGfNEutg
 ---
 **目前問題**
