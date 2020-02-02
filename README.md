@@ -1,11 +1,6 @@
 # GoogleMapApi
 - 相關使用說明 https://hackmd.io/NERLfQ59Qn6UahiGfNEutg
 ---
-**目前問題**
-- ~~螢幕解析度寬為1920的使用者，google將判別為1536無法正確判別1920的大小<br>~~
-
-- ~~要在ContentText(在sheet中為infocontent#...)插入圖片，要把圖片來源用"ImgStart:你的圖片來源:ImgEnd"的格式包覆起來才可以正常加入~~
-- 圖片用語法加入
 
 文學地圖編輯說明
 ===
